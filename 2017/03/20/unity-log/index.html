@@ -1,0 +1,681 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Unity," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Unity开发中，经常需要拿到log日志，来帮助分析遇到的一些程序Bug。 一般采用2种做法： 一是将日志直接GUI显示在游戏运行时的左侧屏幕上，或者是用UGUI ScrollView显示日志信息。   log信息默认隐藏，双击屏幕是显示，再点击log界面的黑边时关闭。
+ 二是将日志保存到本地，然后从手机的文件中取出。
+ 但是有时候看着满屏幕的log或者又不想在手机繁琐的文件目录中找来找去，比较">
+<meta property="og:type" content="article">
+<meta property="og:title" content="unity log日志上传至服务器">
+<meta property="og:url" content="http://yoursite.com/2017/03/20/unity-log/index.html">
+<meta property="og:site_name" content="QinHuai">
+<meta property="og:description" content="Unity开发中，经常需要拿到log日志，来帮助分析遇到的一些程序Bug。 一般采用2种做法： 一是将日志直接GUI显示在游戏运行时的左侧屏幕上，或者是用UGUI ScrollView显示日志信息。   log信息默认隐藏，双击屏幕是显示，再点击log界面的黑边时关闭。
+ 二是将日志保存到本地，然后从手机的文件中取出。
+ 但是有时候看着满屏幕的log或者又不想在手机繁琐的文件目录中找来找去，比较">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/unity-log/log ugui.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/unity-log/my web server.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/unity-log/web server tool.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/20/unity-log/result.png">
+<meta property="og:updated_time" content="2017-03-20T11:04:15.931Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="unity log日志上传至服务器">
+<meta name="twitter:description" content="Unity开发中，经常需要拿到log日志，来帮助分析遇到的一些程序Bug。 一般采用2种做法： 一是将日志直接GUI显示在游戏运行时的左侧屏幕上，或者是用UGUI ScrollView显示日志信息。   log信息默认隐藏，双击屏幕是显示，再点击log界面的黑边时关闭。
+ 二是将日志保存到本地，然后从手机的文件中取出。
+ 但是有时候看着满屏幕的log或者又不想在手机繁琐的文件目录中找来找去，比较">
+<meta name="twitter:image" content="http://yoursite.com/2017/03/20/unity-log/log ugui.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/20/unity-log/"/>
+
+
+
+
+
+  <title> unity log日志上传至服务器 | QinHuai </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">QinHuai</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/20/unity-log/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="郭佳">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xrz9n.com1.z0.glb.clouddn.com/logo.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="QinHuai">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                unity log日志上传至服务器
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-20T15:09:05+08:00">
+                2017-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p> Unity开发中，经常需要拿到log日志，来帮助分析遇到的一些程序Bug。<br> 一般采用2种做法：<br> 一是将日志直接GUI显示在游戏运行时的左侧屏幕上，或者是用UGUI ScrollView显示日志信息。<br> <!--![ugui](unity-log/log ugui.png "这里的log信息UI默认隐藏，当双击屏幕时显示，再单击log信息边界关闭" )--><br> <img src="/2017/03/20/unity-log/log ugui.png" width="180" height="320" align="center"><br> <center>log信息默认隐藏，双击屏幕是显示，再点击log界面的黑边时关闭。</center></p>
+<p> 二是将日志保存到本地，然后从手机的文件中取出。</p>
+<p> 但是有时候看着满屏幕的log或者又不想在手机繁琐的文件目录中找来找去，比较烦；所以想找到一个简单的方法，将log日志上传到服务器中的一个固定目录下，方便随时查看出错日志。</p>
+<p> 对于没有后端基础的开发者，<!--几乎是从零开始思考这个问题；-->当然希望能够采用最简单的方式实现。</p>
+<h1 id="大致思路："><a href="#大致思路：" class="headerlink" title="大致思路："></a>大致思路：</h1><p> 运行中的游戏——将LogString Send到服务器——服务器接收数据(LogString)——将数据(String)保存至服务器上的一个文件txt中。</p>
+<h2 id="1-首先需要一台服务器。"><a href="#1-首先需要一台服务器。" class="headerlink" title="1 首先需要一台服务器。"></a>1 首先需要一台服务器。</h2><p> 对于前端开发者来说，最大的问题肯定是如何搭建一台服务器出来？<br> 通常的服务器搭建可以选择IIS，阿帕奇，tomcat等。考虑到并没有必要建立一个完善的服务器来运行，以及其中繁琐的设置过程。<br> 这里采用一个绿色微型的Web服务器——快速搭建WebServer的工具：<a href="http://cr173.com/soft/53598.html" target="_blank" rel="external">MyWebServer</a>。<br> 下载完成后，直接双击exe文件运行。<br> <img src="/2017/03/20/unity-log/my web server.png" alt="MyWebServer"></p>
+<h4 id="注意1："><a href="#注意1：" class="headerlink" title="注意1："></a>注意1：</h4><p> MyWebServer的&gt;高级设置&gt;扩展映射&gt;文件扩展名的映射模块：第一项 “.php”路径为”c:\php\php5isapi.dll”<br> 这里需要保证php压缩包被解压在c盘的相应目录。</p>
+<h4 id="注意2："><a href="#注意2：" class="headerlink" title="注意2："></a>注意2：</h4><p> 下载的php版本暂时不要超过5.2.x的版本，因为，“isapi方式建议使用PHP 5.2,因为5.3以上版不再提供ISAPI支持”。<br> <img src="/2017/03/20/unity-log/web server tool.png" alt="web server tool" title="isapi配置"></p>
+<h2 id="2-需要将本地log信息上传。"><a href="#2-需要将本地log信息上传。" class="headerlink" title="2 需要将本地log信息上传。"></a>2 需要将本地log信息上传。</h2><p> Unity中可以使用WWWForm提交Http请求。</p>
+ <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// W3Client.cs</span></div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Upload</span>(<span class="params"><span class="keyword">string</span> url, <span class="keyword">string</span> content, <span class="keyword">string</span> saveName, Action&lt;WWW&gt; callback = <span class="literal">null</span></span>)</span></div><div class="line">  &#123;</div><div class="line">      <span class="keyword">this</span>.StartCoroutine(<span class="keyword">this</span>.Up(url, content, saveName, callback));</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function">IEnumerator <span class="title">Up</span>(<span class="params"><span class="keyword">string</span> url, <span class="keyword">string</span> content, <span class="keyword">string</span> saveName, Action&lt;WWW&gt; callback = <span class="literal">null</span></span>)</span></div><div class="line">  &#123;</div><div class="line">      Debug.Log(url + <span class="string">" "</span> + content + <span class="string">" "</span> + saveName);</div><div class="line"></div><div class="line">      WWWForm form = <span class="keyword">new</span> WWWForm();</div><div class="line">      form.AddField(<span class="string">"filename"</span>, saveName);</div><div class="line">      form.AddBinaryData(<span class="string">"content"</span>, Encoding.UTF8.GetBytes(content));</div><div class="line"><span class="comment">//	其中AddFiled 中的"filename"用于服务端来分析，PHP中使用$filename = $_POST['filename'];中取得。</span></div><div class="line"><span class="comment">//	AddBinaryData中的"content"用于服务器取得文件，PHP使用$content = file_get_contents($_FILES['content']['tmp_name']) ;取得文件内容。</span></div><div class="line"></div><div class="line">      WWW www = <span class="keyword">new</span> WWW(url, form);</div><div class="line">      <span class="keyword">while</span> (!www.isDone)</div><div class="line">          <span class="keyword">yield</span> <span class="keyword">return</span> www;</div><div class="line"></div><div class="line">      <span class="keyword">if</span> (callback != <span class="literal">null</span>)</div><div class="line">          callback(www);</div><div class="line">      Debug.Log(www.text);</div><div class="line"></div><div class="line">      www.Dispose();</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<h2 id="3-服务器端需要php来操作Http请求发来的内容。"><a href="#3-服务器端需要php来操作Http请求发来的内容。" class="headerlink" title="3 服务器端需要php来操作Http请求发来的内容。"></a>3 服务器端需要php来操作Http请求发来的内容。</h2> <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> <span class="meta">&lt;?php</span></div><div class="line">$filename = $_POST[<span class="string">'filename'</span>];</div><div class="line">$content = file_get_contents($_FILES[<span class="string">'content'</span>][<span class="string">'tmp_name'</span>]);</div><div class="line"></div><div class="line">$myfile = fopen($filename, <span class="string">"w"</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Unable to open file!"</span>);</div><div class="line">fwrite($myfile, $content);</div><div class="line">fclose($myfile);</div><div class="line"></div><div class="line"><span class="keyword">echo</span> $content ;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="4-调用"><a href="#4-调用" class="headerlink" title="4 调用"></a>4 调用</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">string</span> url = <span class="string">"http://192.168.0.100:80/log/UploadFile.php"</span> ;</div><div class="line"><span class="keyword">string</span> logInfo = <span class="string">"log test ; 2017/03/20 ; guojia"</span> ;</div><div class="line"><span class="keyword">string</span> fileName = SystemInfo.deviceName + System.DateTime.Now.ToString(<span class="string">"yyyy-mm-dd hh-mm-ss"</span>) + <span class="string">".txt"</span></div><div class="line"></div><div class="line"><span class="comment">//Upload(url,content,saveFileName);</span></div><div class="line">W3Client.Instance.Upload(url, logInfo, fileName);</div></pre></td></tr></table></figure>
+<p> 最终效果：<br> <img src="/2017/03/20/unity-log/result.png" width="200" height="292" align="center"></p>
+<p> 参考：<br> <a href="http://www.cnblogs.com/IlidanStormRage/p/6102279.html" target="_blank" rel="external">如何快速建立一个测试资源Web服务器及异步获取资源（Unity3D）</a><br> <a href="http://book.51cto.com/art/201410/453946.htm" target="_blank" rel="external">Unity手机游戏开发 6.2.4上传下载图片</a><br> <a href="http://cr173.com/soft/53598.html" target="_blank" rel="external">轻量级服务器软件:MyWebServer</a><br> <a href="http://www.w3school.com.cn/php/php_file_create.asp" target="_blank" rel="external">php教程</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Unity/" rel="tag"># Unity</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/16/unity-path/" rel="next" title="Unity3D各平台路径（包括手机内置存储路径、SD卡等等）">
+                <i class="fa fa-chevron-left"></i> Unity3D各平台路径（包括手机内置存储路径、SD卡等等）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xrz9n.com1.z0.glb.clouddn.com/logo.png"
+               alt="郭佳" />
+          <p class="site-author-name" itemprop="name">郭佳</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大致思路："><span class="nav-text">大致思路：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-首先需要一台服务器。"><span class="nav-text">1 首先需要一台服务器。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意1："><span class="nav-text">注意1：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意2："><span class="nav-text">注意2：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-需要将本地log信息上传。"><span class="nav-text">2 需要将本地log信息上传。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-服务器端需要php来操作Http请求发来的内容。"><span class="nav-text">3 服务器端需要php来操作Http请求发来的内容。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-调用"><span class="nav-text">4 调用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭佳</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
