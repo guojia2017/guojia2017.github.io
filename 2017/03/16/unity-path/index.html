@@ -87,19 +87,28 @@
 
 
 
-<meta name="description" content="转自：http://blog.csdn.net/u010377179/article/details/52922727
-  关于Unity3D在各平台上的路径问题，网上有好多的资料，如下是比较好的参考资料：1、http://www.manew.com/thread-23491-1-1.html2、http://www.xuanyusong.com/archives/2656  这里我不详细解释和路">
+<meta name="description" content="一、Unity的路径
+Resources只读。Resources文件夹下的资源不管是否有用，全部会打包进.apk或者.ipa，并且打包时会将里面的资源压缩处理。
+Application.dataPath只读。在移动端它是完全没用。
+Application.streamingAssetsPath只读。该路径是用来存放流数据的缓存目录。这个文件夹中的资源在打包时会原封不动的打包进去。
+Applicat">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unity3D各平台路径（包括手机内置存储路径、SD卡等等）">
+<meta property="og:title" content="Unity3D路径">
 <meta property="og:url" content="http://yoursite.com/2017/03/16/unity-path/index.html">
 <meta property="og:site_name" content="QinHuai">
-<meta property="og:description" content="转自：http://blog.csdn.net/u010377179/article/details/52922727
-  关于Unity3D在各平台上的路径问题，网上有好多的资料，如下是比较好的参考资料：1、http://www.manew.com/thread-23491-1-1.html2、http://www.xuanyusong.com/archives/2656  这里我不详细解释和路">
-<meta property="og:updated_time" content="2017-03-17T05:01:30.215Z">
+<meta property="og:description" content="一、Unity的路径
+Resources只读。Resources文件夹下的资源不管是否有用，全部会打包进.apk或者.ipa，并且打包时会将里面的资源压缩处理。
+Application.dataPath只读。在移动端它是完全没用。
+Application.streamingAssetsPath只读。该路径是用来存放流数据的缓存目录。这个文件夹中的资源在打包时会原封不动的打包进去。
+Applicat">
+<meta property="og:updated_time" content="2017-03-24T02:37:47.021Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Unity3D各平台路径（包括手机内置存储路径、SD卡等等）">
-<meta name="twitter:description" content="转自：http://blog.csdn.net/u010377179/article/details/52922727
-  关于Unity3D在各平台上的路径问题，网上有好多的资料，如下是比较好的参考资料：1、http://www.manew.com/thread-23491-1-1.html2、http://www.xuanyusong.com/archives/2656  这里我不详细解释和路">
+<meta name="twitter:title" content="Unity3D路径">
+<meta name="twitter:description" content="一、Unity的路径
+Resources只读。Resources文件夹下的资源不管是否有用，全部会打包进.apk或者.ipa，并且打包时会将里面的资源压缩处理。
+Application.dataPath只读。在移动端它是完全没用。
+Application.streamingAssetsPath只读。该路径是用来存放流数据的缓存目录。这个文件夹中的资源在打包时会原封不动的打包进去。
+Applicat">
 
 
 
@@ -133,7 +142,7 @@
 
 
 
-  <title> Unity3D各平台路径（包括手机内置存储路径、SD卡等等） | QinHuai </title>
+  <title> Unity3D路径 | QinHuai </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -284,7 +293,7 @@
             
             
               
-                Unity3D各平台路径（包括手机内置存储路径、SD卡等等）
+                Unity3D路径
               
             
           </h1>
@@ -335,13 +344,40 @@
       
 
       
-        <p>转自：<a href="http://blog.csdn.net/u010377179/article/details/52922727" target="_blank" rel="external">http://blog.csdn.net/u010377179/article/details/52922727</a></p>
-<p>  关于Unity3D在各平台上的路径问题，网上有好多的资料，如下是比较好的参考资料：<br>1、<a href="http://www.manew.com/thread-23491-1-1.html" target="_blank" rel="external">http://www.manew.com/thread-23491-1-1.html</a><br>2、<a href="http://www.xuanyusong.com/archives/2656" target="_blank" rel="external">http://www.xuanyusong.com/archives/2656</a><br>  这里我不详细解释和路径的用法，只把各个路径对应的位置和访问方式总结一下。</p>
-<p>1、Resources路径<br>  Resources文件夹是Unity里自动识别的一种文件夹，可在Unity编辑器的Project窗口里创建，并将资源放置在里面。Resources文件夹下的资源不管是否有用，全部会打包进.apk或者.ipa，并且打包时会将里面的资源压缩处理。加载方法是Resources.Load<t>(文件名)，需要注意：文件名不包括扩展名，打包后不能更改Resources下的资源内容，但是从Resources文件夹中加载出来的资源可以更改。<br>2、Application.dataPath路径<br>  这个属性返回的是程序的数据文件所在文件夹的路径，例如在Editor中就是项目的Assets文件夹的路径，通过这个路径可以访问项目中任何文件夹中的资源，但是在移动端它是完全没用。<br>3、Application.streamingAssetsPath路径<br>  这个属性用于返回流数据的缓存目录，返回路径为相对路径，适合设置一些外部数据文件的路径。在Unity工程的Assets目录下起一个名为“StreamingAssets”的文件夹即可，然后用Application.streamingAssetsPath访问，这个文件夹中的资源在打包时会原封不动的打包进去，不会压缩，一般放置一些资源数据。在PC/MAC中可实现对文件的“增删改查”等操作，但在移动端是一个只读路径。<br>4、Application.persistentDataPath路径（推荐使用）<br>  此属性返回一个持久化数据存储目录的路径，可以在此路径下存储一些持久化的数据文件。这个路径可读、可写，但是只能在程序运行时才能读写操作，不能提前将数据放入这个路径。在IOS上是应用程序的沙盒，可以被iCloud自动备份，可以通过同步推送一类的助手直接取出文件；在Android上的位置是根据Project Setting里设置的Write Access路径，可以设置是程序沙盒还是sdcard，注意：如果在Android设置保存在沙盒中，那么就必须root以后才能用电脑取出文件，因此建议写入sdcard里。一般情况下，建议将获得的文件保存在这个路径下，例如可以从StreamingAsset中读取的二进制文件或者从AssetBundle读取的文件写入PersistentDatapath。<br>5、Application.temporaryCachePath路径<br>  此属性返回一个临时数据的缓存目录，跟Application.persistentDataPath类似，但是在IOS上不能被自动备份。<br>6、/sdcard/..路径<br>  表示Android手机的SD卡根目录。<br>7、/storage/emulated/0/..路径（这个路径我查找了好久……）<br>  表示Android手机的内置存储根目录。</t></p>
-<p>  以上各路径中的资源加载方式都可以用WWW类加载，但要注意各个平台路径需要加的访问名称，例如Android平台的路径前要加”jar:file://“，其他平台使用”file://“。以下是各路径在各平台中的具体位置信息：<br>  Android平台<br>  <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Application.dataPath :  /data/app/xxx.xxx.xxx.apk</div><div class="line">Application.streamingAssetsPath :  jar:file:<span class="comment"><span class="doctag">///</span>data/app/xxx.xxx.xxx.apk/!/assets</span></div><div class="line">Application.persistentDataPath :  /data/data/xxx.xxx.xxx/files</div><div class="line">Application.temporaryCachePath :  /data/data/xxx.xxx.xxx/cache</div></pre></td></tr></table></figure></p>
-<p>  IOS平台<br>  <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Application.dataPath :                    Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data</div><div class="line">Application.streamingAssetsPath : Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data/Raw</div><div class="line">Application.persistentDataPath :    Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Documents</div><div class="line">Application.temporaryCachePath : Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Library/Caches</div></pre></td></tr></table></figure></p>
-<p>  Windows Web Player<br>  <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Application.dataPath :  file:<span class="comment"><span class="doctag">///</span>D:/MyGame/WebPlayer (即导包后保存的文件夹，html文件所在文件夹)</span></div><div class="line">Application.streamingAssetsPath : </div><div class="line">Application.persistentDataPath : </div><div class="line">Application.temporaryCachePath :</div></pre></td></tr></table></figure></p>
-<p>版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+        <h1 id="一、Unity的路径"><a href="#一、Unity的路径" class="headerlink" title="一、Unity的路径"></a>一、Unity的路径</h1><ol>
+<li>Resources<br>只读。Resources文件夹下的资源不管是否有用，全部会打包进.apk或者.ipa，并且打包时会将里面的资源压缩处理。</li>
+<li>Application.dataPath<br>只读。在移动端它是完全没用。</li>
+<li>Application.streamingAssetsPath<br>只读。该路径是用来存放流数据的缓存目录。这个文件夹中的资源在打包时会<strong>原封不动</strong>的打包进去。</li>
+<li>Application.persistentDataPath<br>可读可写路径。该路径是一个持久化数据存储目录的路径，可以在此路径下存储一些持久化的数据文件。在iOS上是应用程序的沙盒，可以被iCloud自动备份；在Android上的位置是根据Project Setting里设置的Write Access路径，可以设置是程序沙盒还是sdcard，注意：如果在Android设置保存在沙盒中，那么就必须root以后才能用电脑取出文件，因此建议写入sdcard里。</li>
+<li>Application.temporaryCachePath<br>缓存目录。跟Application.persistentDataPath类似。</li>
+</ol>
+<h3 id="Windows-Editor"><a href="#Windows-Editor" class="headerlink" title="Windows Editor"></a>Windows Editor</h3><ul>
+<li>Application.dataPath :<code>E:/SuperBodhi/U3DBodhiMobileApp/U3DSupperBodhi_MobileApp/Assets</code></li>
+<li>Application.streamingAssetsPath : <code>E:/SuperBodhi/U3DBodhiMobileApp/U3DSupperBodhi_MobileApp/Assets/StreamingAssets</code></li>
+<li>Application.persistentDataPath :  <code>C:/Users/Administrator/AppData/LocalLow/CIT/SuperBodhi</code></li>
+<li>Application.temporaryCachePath : <code>C:/Users/ADMINI~1/AppData/Local/Temp/CIT/SuperBodhi</code><!--<img src = "unity-path/windows path.png" width = "600" height="320" align="center"/>-->
+</li>
+</ul>
+<h3 id="Android平台"><a href="#Android平台" class="headerlink" title="Android平台"></a>Android平台</h3><ul>
+<li>Application.dataPath:<code>/data/app/com.CIT.SuperBodhi.apk</code></li>
+<li>Application.streamingAssetsPath:<code>jar:file:///data/app/com.CIT.SuperBodhi-1.apk!/assets</code>  //3个斜线</li>
+<li>Application.persistentDataPath:<code>/storage/emulated/0/Android/data/com.CIT.SuperBodhi/files</code></li>
+<li>Application.temporaryCachePath:<code>/storage/emulated/0/Android/data/cache</code></li>
+</ul>
+<h3 id="iOS平台"><a href="#iOS平台" class="headerlink" title="iOS平台"></a>iOS平台</h3><ul>
+<li>Application.dataPath:<code>/var/containers/Bundle/Application/E34E2081-0D23-471B-AED9-D0B7D948D3C0/Data</code></li>
+<li>Application.streamingAssetsPath: <code>/var/containers/Bundle/Application/E34E2081-0D23-471B-AED9-D0B7D948D3C0/Data/Raw</code></li>
+<li>Application.persistentDataPath:<code>/var/mobile/Containers/Data/Application/E34E2081-0D23-471B-AED9-D0B7D948D3C0/Documents</code></li>
+<li>Application.temporaryCachePath:<code>/var/mobile/Containers/Data/Application/E34E2081-0D23-471B-AED9-D0B7D948D3C0/Library/Caches</code></li>
+</ul>
+<h1 id="WWW访问"><a href="#WWW访问" class="headerlink" title="WWW访问"></a>WWW访问</h1><ul>
+<li>WWW是Unity提供的访问Web服务器的工具类：提供http访问功能，实现动态下载音频、视频、图片等功能。<br>支持的协议有：http://、 https://、 file://、 ftp://。<br>其中file://就是实现从本地读取文件；其使用情形为从服务器获取资源并写入本地的persistentDataPath，然后在运行过程中从本地读取资源。</li>
+</ul>
+<h2 id="使用WWW读取streamingAssetsPath和persistentDataPath下的文件时需要加上协议前缀：file"><a href="#使用WWW读取streamingAssetsPath和persistentDataPath下的文件时需要加上协议前缀：file" class="headerlink" title="使用WWW读取streamingAssetsPath和persistentDataPath下的文件时需要加上协议前缀：file://"></a>使用WWW读取streamingAssetsPath和persistentDataPath下的文件时需要加上协议前缀：file://</h2><ul>
+<li>WWW读取本地文件时需要加上协议前缀file://<br>注：<br>1 当运行平台是windows时，文件协议的格式为3条斜线：file:///<br>2 Android平台下的streamingAssetsPath读取时，由于已经包含协议前缀：jar:file/// 所以不需要添加file://<br>**</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> <span class="title">UniformPath</span>(<span class="params"><span class="keyword">string</span> path</span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="meta">#<span class="meta-keyword">if</span> UNITY_EDITOR</span></div><div class="line">    mProtocolHeader = <span class="string">"file:///"</span>;</div><div class="line">    <span class="meta">#<span class="meta-keyword">else</span></span></div><div class="line">    mProtocolHeader = <span class="string">"file://"</span>;</div><div class="line">    <span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line">    StringBuilder ss = <span class="keyword">new</span> StringBuilder();</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (path.ToLower().StartsWith(mProtocolHeader)||path.ToLower().StartsWith(<span class="string">"jar:file:///"</span>))</div><div class="line">    &#123;</div><div class="line">        ss.Append(path);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        ss.Append(mProtocolHeader);</div><div class="line">        ss.Append(path);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> ss.ToString();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>参考：<br>1、《<a href="http://www.jianshu.com/p/7ae085d74704" target="_blank" rel="external">Unity路径的相关总结</a>》<br>2、《[Unity官方文档:WWW]<a href="https://docs.unity3d.com/ScriptReference/WWW.html》" target="_blank" rel="external">https://docs.unity3d.com/ScriptReference/WWW.html》</a></p>
 
       
     </div>
@@ -431,8 +467,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://7xrz9n.com1.z0.glb.clouddn.com/logo.png"
@@ -481,6 +526,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、Unity的路径"><span class="nav-text">一、Unity的路径</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-Editor"><span class="nav-text">Windows Editor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android平台"><span class="nav-text">Android平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS平台"><span class="nav-text">iOS平台</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WWW访问"><span class="nav-text">WWW访问</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用WWW读取streamingAssetsPath和persistentDataPath下的文件时需要加上协议前缀：file"><span class="nav-text">使用WWW读取streamingAssetsPath和persistentDataPath下的文件时需要加上协议前缀：file://</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
