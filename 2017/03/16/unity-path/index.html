@@ -107,7 +107,7 @@ Resources只读。Resources文件夹下的资源不管是否有用，全部会�
 Application.dataPath只读。在移动端它是完全没用。
 Application.streamingAssetsPath只读。该路径是用来存放流数据的缓存目录。这个文件夹中的资源在打包时会原封不动的打包进去。
 Applicat">
-<meta property="og:updated_time" content="2017-03-24T02:59:11.941Z">
+<meta property="og:updated_time" content="2017-03-29T08:55:59.254Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity3D路径">
 <meta name="twitter:description" content="一、Unity的路径
@@ -332,6 +332,17 @@ Applicat">
 
           
           
+             <span id="/2017/03/16/unity-path/" class="leancloud_visitors" data-flag-title="Unity3D路径">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -357,25 +368,98 @@ Applicat">
 <li>Application.persistentDataPath<br>可读可写路径。该路径是一个持久化数据存储目录的路径，可以在此路径下存储一些持久化的数据文件。在iOS上是应用程序的沙盒，可以被iCloud自动备份；在Android上的位置是根据Project Setting里设置的Write Access路径，可以设置是程序沙盒还是sdcard，注意：如果在Android设置保存在沙盒中，那么就必须root以后才能用电脑取出文件，因此建议写入sdcard里。</li>
 <li>Application.temporaryCachePath<br>缓存目录。跟Application.persistentDataPath类似。</li>
 </ol>
-<h2 id="Windows-Editor"><a href="#Windows-Editor" class="headerlink" title="Windows Editor"></a>Windows Editor</h2><ul>
-<li>Application.dataPath :<code>E:/SuperBodhi/U3DBodhiMobileApp/U3DSupperBodhi_MobileApp/Assets</code></li>
-<li>Application.streamingAssetsPath : <code>E:/SuperBodhi/U3DBodhiMobileApp/U3DSupperBodhi_MobileApp/Assets/StreamingAssets</code></li>
-<li>Application.persistentDataPath :  <code>C:/Users/Administrator/AppData/LocalLow/CIT/SuperBodhi</code></li>
-<li>Application.temporaryCachePath : <code>C:/Users/ADMINI~1/AppData/Local/Temp/CIT/SuperBodhi</code><!--<img src = "unity-path/windows path.png" width = "600" height="320" align="center"/>-->
-</li>
-</ul>
-<h2 id="Android平台"><a href="#Android平台" class="headerlink" title="Android平台"></a>Android平台</h2><ul>
-<li>Application.dataPath:<code>/data/app/com.CIT.SuperBodhi.apk</code></li>
-<li>Application.streamingAssetsPath:<code>jar:file:///data/app/com.CIT.SuperBodhi-1.apk!/assets</code>  //3个斜线</li>
-<li>Application.persistentDataPath:<code>/storage/emulated/0/Android/data/com.CIT.SuperBodhi/files</code></li>
-<li>Application.temporaryCachePath:<code>/storage/emulated/0/Android/data/cache</code></li>
-</ul>
-<h2 id="iOS平台"><a href="#iOS平台" class="headerlink" title="iOS平台"></a>iOS平台</h2><ul>
-<li>Application.dataPath:<code>/var/containers/Bundle/Application/E34E2081-0D23-471B-AED9-D0B7D948D3C0/Data</code></li>
-<li>Application.streamingAssetsPath: <code>/var/containers/Bundle/Application/E34E2081-0D23-471B-AED9-D0B7D948D3C0/Data/Raw</code></li>
-<li>Application.persistentDataPath:<code>/var/mobile/Containers/Data/Application/E34E2081-0D23-471B-AED9-D0B7D948D3C0/Documents</code></li>
-<li>Application.temporaryCachePath:<code>/var/mobile/Containers/Data/Application/E34E2081-0D23-471B-AED9-D0B7D948D3C0/Library/Caches</code></li>
-</ul>
+<h2 id="Windows-Editor"><a href="#Windows-Editor" class="headerlink" title="Windows Editor"></a>Windows Editor</h2><style>
+    table th:first-of-type{width : 230px;    }
+</style>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Windows平台</th>
+<th style="text-align:left">路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Application.dataPath</td>
+<td style="text-align:left"><code>E:/SuperBodhi/U3DBodhiMobileApp/U3DSupperBodhi_MobileApp/Assets</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Application.streamingAssetsPath</td>
+<td style="text-align:left"><code>E:/SuperBodhi/U3DBodhiMobileApp/U3DSupperBodhi_MobileApp/Assets/StreamingAssets</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Application.persistentDataPath</td>
+<td style="text-align:left"><code>C:/Users/Administrator/AppData/LocalLow/CIT/SuperBodhi</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Application.temporaryCachePath</td>
+<td style="text-align:left"><code>C:/Users/ADMINI~1/AppData/Local/Temp/CIT/SuperBodhi</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Android平台"><a href="#Android平台" class="headerlink" title="Android平台"></a>Android平台</h2><style>
+    table th:first-of-type{width : 230px;    }
+    table th:nth-of-type(3){width : 100px ;}
+</style>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Android</th>
+<th style="text-align:left">路径</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Application.dataPath</td>
+<td style="text-align:left"><code>/data/app/com.CIT.SuperBodhi.apk</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">Application.streamingAssetsPath</td>
+<td style="text-align:left"><code>jar:file:///data/app/com.CIT.SuperBodhi-1.apk!/assets</code></td>
+<td style="text-align:center">3个斜线</td>
+</tr>
+<tr>
+<td style="text-align:left">Application.persistentDataPath</td>
+<td style="text-align:left"><code>/storage/emulated/0/Android/data/com.CIT.SuperBodhi/files</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">Application.temporaryCachePath</td>
+<td style="text-align:left"><code>/storage/emulated/0/Android/data/cache</code></td>
+<td style="text-align:center">.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="iOS平台"><a href="#iOS平台" class="headerlink" title="iOS平台"></a>iOS平台</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">Android</th>
+<th style="text-align:left">路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Application.dataPath</td>
+<td style="text-align:left"><code>/var/containers/Bundle/Application/E34E2081-0D23-471B-AED9-D0B7D948D3C0/Data</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Application.streamingAssetsPath</td>
+<td style="text-align:left"><code>/var/containers/Bundle/Application/E34E2081-0D23-471B-AED9-D0B7D948D3C0/Data/Raw</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Application.persistentDataPath</td>
+<td style="text-align:left"><code>/var/mobile/Containers/Data/Application/E34E2081-0D23-471B-AED9-D0B7D948D3C0/Documents</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Application.temporaryCachePath</td>
+<td style="text-align:left"><code>/var/mobile/Containers/Data/Application/E34E2081-0D23-471B-AED9-D0B7D948D3C0/Library/Caches</code></td>
+</tr>
+</tbody>
+</table>
 <h1 id="二、WWW访问"><a href="#二、WWW访问" class="headerlink" title="二、WWW访问"></a>二、WWW访问</h1><ul>
 <li><p>WWW是Unity提供的访问Web服务器的工具类：提供http访问功能，实现动态下载音频、视频、图片等功能。<br>支持的协议有：http://、 https://、 file://、 ftp://。<br>其中file://就是实现从本地读取文件；其使用情形为从服务器获取资源并写入本地的persistentDataPath，然后在运行过程中从本地读取资源。</p>
 </li>
@@ -383,10 +467,29 @@ Applicat">
 </li>
 <li><p>WWW读取本地文件时需要加上协议前缀file://<br>注：<br>1 当运行平台是windows时，文件协议的格式为3条斜线：file:///<br>2 Android平台下的streamingAssetsPath读取时，由于已经包含协议前缀：jar:file/// 所以不需要添加file://</p>
 </li>
-<li><p>WWW www = new WWW(UniformPath(Application.streamingAssetsPath+”/“+”mConfig.txt”)) ; <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> <span class="title">UniformPath</span>(<span class="params"><span class="keyword">string</span> path</span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="meta">#<span class="meta-keyword">if</span> UNITY_EDITOR</span></div><div class="line">    mProtocolHeader = <span class="string">"file:///"</span>;</div><div class="line">    <span class="meta">#<span class="meta-keyword">else</span></span></div><div class="line">    mProtocolHeader = <span class="string">"file://"</span>;</div><div class="line">    <span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line">    StringBuilder ss = <span class="keyword">new</span> StringBuilder();</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (path.ToLower().StartsWith(mProtocolHeader)||path.ToLower().StartsWith(<span class="string">"jar:file:///"</span>))</div><div class="line">    &#123;</div><div class="line">        ss.Append(path);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        ss.Append(mProtocolHeader);</div><div class="line">        ss.Append(path);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> ss.ToString();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-</li>
 </ul>
-<p>参考：<br>1、《<a href="http://www.jianshu.com/p/7ae085d74704" target="_blank" rel="external">Unity路径的相关总结</a>》<br>2、《<a href="https://docs.unity3d.com/ScriptReference/WWW.html" target="_blank" rel="external">Unity官方文档:WWW</a>》</p>
+<h1 id="三、代码"><a href="#三、代码" class="headerlink" title="三、代码"></a>三、代码</h1><font face="PT Mono" size="3"><br>WWW www = new WWW(UniformPath(Application.streamingAssetsPath+”/“+”mConfig.txt”)) ;<br></font>
+
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> <span class="title">UniformPath</span>(<span class="params"><span class="keyword">string</span> path</span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="meta">#<span class="meta-keyword">if</span> UNITY_EDITOR</span></div><div class="line">    mProtocolHeader = <span class="string">"file:///"</span>;</div><div class="line">    <span class="meta">#<span class="meta-keyword">else</span></span></div><div class="line">    mProtocolHeader = <span class="string">"file://"</span>;</div><div class="line">    <span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line">    StringBuilder ss = <span class="keyword">new</span> StringBuilder();</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (path.ToLower().StartsWith(mProtocolHeader)||path.ToLower().StartsWith(<span class="string">"jar:file:///"</span>))</div><div class="line">    &#123;</div><div class="line">        ss.Append(path);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        ss.Append(mProtocolHeader);</div><div class="line">        ss.Append(path);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> ss.ToString();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<style>
+    table th:first-of-type{width : 230px;    }
+</style>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">《<a href="http://www.jianshu.com/p/7ae085d74704" target="_blank" rel="external">Unity路径的相关总结</a>》</td>
+</tr>
+<tr>
+<td style="text-align:left">《<a href="https://docs.unity3d.com/ScriptReference/WWW.html" target="_blank" rel="external">Unity官方文档:WWW</a>》</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -401,6 +504,27 @@ Applicat">
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>欣赏此文？求鼓励，求支持！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赞赏支持</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="郭佳 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="郭佳 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -476,17 +600,8 @@ Applicat">
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/author.jpg"
@@ -535,22 +650,6 @@ Applicat">
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、Unity的路径"><span class="nav-text">一、Unity的路径</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-Editor"><span class="nav-text">Windows Editor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android平台"><span class="nav-text">Android平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS平台"><span class="nav-text">iOS平台</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、WWW访问"><span class="nav-text">二、WWW访问</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>
@@ -699,6 +798,113 @@ Applicat">
   
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
