@@ -261,6 +261,301 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/28/Unity-Triangulate/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="郭佳">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/author.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="QinHuai">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/28/Unity-Triangulate/" itemprop="url">
+                  Unity Triangluate 多边形三角化
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-28T14:34:39+08:00">
+                2017-02-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/02/28/Unity-Triangulate/" class="leancloud_visitors" data-flag-title="Unity Triangluate 多边形三角化">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="多边形三角化算法"><a href="#多边形三角化算法" class="headerlink" title="多边形三角化算法"></a>多边形三角化算法</h3><ol>
+<li>构建多边形的顺时针顶点列表: a1、a2、a3、…… 、an。</li>
+<li>从第一个顶点开始依次取出3个顶点，得到n个三角形：△123，△234，△345，…，△(n-1)(n)1，△n12。<br>在n个三角形中求出符合条件的三角形△ABC(个数少于等于n个)：<br>△ABC为顺时针三角形，即B点为凸点；<br>其他顶点不在△ABC所围成的封闭区域内；<br>在求得的三角形△ABC中找到特征角最大的那个三角形△PQR即为第一个目标三角形。将该索引△PQR加入到结果中。</li>
+<li>从顶点列表中移除Q，得到新的顶点列表：a1、a2、a3、…… 、a(n-1)；按照2的步骤求得第二个目标三角形。</li>
+<li>重复以上操作，直到顶点列表中只剩下3个顶点。</li>
+<li>由列表中的最后三个顶点构成一个三角形。</li>
+</ol>
+<h3 id="Triangulation-cs"><a href="#Triangulation-cs" class="headerlink" title="Triangulation.cs"></a>Triangulation.cs</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/28/Unity-Triangulate/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/28/Game-Guide/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="郭佳">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/author.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="QinHuai">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/28/Game-Guide/" itemprop="url">
+                  Game Guide
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-28T11:20:10+08:00">
+                2017-02-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/02/28/Game-Guide/" class="leancloud_visitors" data-flag-title="Game Guide">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>简单的游戏新手引导采用队列依次触发的方式，如果更复杂的新手引导可以考虑树的结构来引导。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> UnityEngine;</div><div class="line"><span class="keyword">using</span> System.Collections;</div><div class="line"><span class="keyword">using</span> System.Collections.Generic;</div><div class="line"></div><div class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line"><span class="comment"><span class="doctag">///</span> 新手引导</span></div><div class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Guide</span> : <span class="title">MonoSingleton</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> Dictionary&lt;<span class="keyword">string</span>, GuideStep&gt; mGuidesDictionary;</div><div class="line">    <span class="keyword">private</span> Dictionary&lt;<span class="keyword">string</span>, GuideData&gt; mDatasDictionary;</div><div class="line">    <span class="keyword">private</span> GuideStep mCurrentStep;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">string</span> mStep;</div><div class="line">    <span class="keyword">private</span> GuideState mState = GuideState.WaitingStart;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">bool</span> mIsInit = <span class="literal">false</span>;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">string</span> mLocalKey = <span class="keyword">string</span>.Empty;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mLocalStep;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mServerStep;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">enum</span> GuideState</div><div class="line">    &#123;</div><div class="line">        WaitingStart,</div><div class="line">        Guiding,</div><div class="line">        Finish,</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DownloadGuideStep</span>(<span class="params"><span class="keyword">int</span> serverStep</span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.mState != GuideState.WaitingStart)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.InitKey();</div><div class="line">        <span class="keyword">this</span>.mServerStep = serverStep;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Init</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">base</span>.Init();</div><div class="line">        <span class="keyword">this</span>.InitKey();</div><div class="line"></div><div class="line">        mGuidesDictionary = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">string</span>, GuideStep&gt;();</div><div class="line">        mDatasDictionary = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">string</span>, GuideData&gt;();</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.mStep = <span class="string">"0-0"</span>;</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.Read();</div><div class="line">        <span class="keyword">this</span>.Register();</div><div class="line">        <span class="keyword">this</span>.mIsInit = <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Init</span>(<span class="params">List&lt;GuideModel&gt; config</span>)</span></div><div class="line">    &#123;</div><div class="line">        List&lt;GuideData&gt; datas = <span class="keyword">new</span> List&lt;GuideData&gt;();</div><div class="line">        <span class="keyword">foreach</span> (GuideModel model <span class="keyword">in</span> config)</div><div class="line">        &#123;</div><div class="line">            datas.Add(<span class="keyword">new</span> GuideData(model));</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">this</span>.Init(datas);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">InitKey</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">string</span>.IsNullOrEmpty(<span class="keyword">this</span>.mLocalKey))</div><div class="line">            <span class="keyword">this</span>.mLocalKey = UserInfo.GetInstance().UserData.info.name + <span class="string">"Guide"</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Init</span>(<span class="params">List&lt;GuideData&gt; datas</span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>.Init();</div><div class="line"></div><div class="line">        <span class="comment">// Function 1 : Next Step . </span></div><div class="line">        <span class="keyword">foreach</span> (GuideData data <span class="keyword">in</span> datas)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span> (!<span class="keyword">this</span>.mDatasDictionary.ContainsKey(data.mStep))</div><div class="line">            &#123;</div><div class="line">                GuideStep guideStep = GuideStepFactory.Create(data.mCommand);</div><div class="line">                guideStep.InitData(data);</div><div class="line">                guideStep.OnComplete += <span class="keyword">this</span>.OnGuideStepFinish;</div><div class="line"></div><div class="line">                <span class="keyword">this</span>.mDatasDictionary.Add(data.mStep, data);</div><div class="line">                <span class="keyword">this</span>.mGuidesDictionary.Add(data.mStep, guideStep);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">IsInit</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.mIsInit;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnGuideStepFinish</span>(<span class="params">GuideStep step</span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>.SaveData(step.mData);</div><div class="line">        <span class="keyword">this</span>.MoveNext(step.mData.mNextStep);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (step.mData.mTrigger == GuideTrigger.Timer)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">this</span>.mReceive3DTouch = <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">    <span class="comment"><span class="doctag">///</span> 下一步引导</span></div><div class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="ID"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="isRestroeGuide"&gt;</span>是否是新手引导某一步的恢复<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">MoveNext</span>(<span class="params"><span class="keyword">string</span> ID, <span class="keyword">bool</span> isRestroeGuide = <span class="literal">false</span></span>)</span></div><div class="line">    &#123;</div><div class="line">        LOG.LogWarning(<span class="keyword">this</span>.GetType().Name + <span class="string">"==============================="</span>);</div><div class="line">        LOG.LogWarning(<span class="keyword">this</span>.GetType().Name + <span class="string">" "</span> + ID);</div><div class="line"></div><div class="line">        GuideStep next = <span class="literal">null</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (mGuidesDictionary.ContainsKey(ID))</div><div class="line">        &#123;</div><div class="line">            next = mGuidesDictionary[ID];</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (next == <span class="literal">null</span>)</div><div class="line">        &#123;</div><div class="line">            GuideOver();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            next.mIsRestoreGuide = isRestroeGuide;</div><div class="line">            <span class="keyword">this</span>.ChangeStep(next);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">bool</span> mReceive3DTouch = <span class="literal">false</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">ChangeStep</span>(<span class="params">GuideStep next</span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>.mCurrentStep = next;</div><div class="line">        <span class="keyword">this</span>.mState = GuideState.Guiding;</div><div class="line">        next.Enter();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">SaveData</span>(<span class="params">GuideData data</span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (data.mSave)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">this</span>.SaveToLocal(data.mStep);</div><div class="line">            <span class="keyword">this</span>.SaveToServer(data.mStep);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Register</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        EventManager.RegisterEvent(EventTable.OnMapLoadComplete, <span class="keyword">this</span>.StartGuide);</div><div class="line">        EventManager.RegisterEvent(EventTable.ResetGuide, <span class="keyword">this</span>.ResetGuide);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">UnRegister</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        EventManager.UnregisterEvent(EventTable.OnMapLoadComplete, <span class="keyword">this</span>.StartGuide);</div><div class="line">        EventManager.UnregisterEvent(EventTable.ResetGuide, <span class="keyword">this</span>.ResetGuide);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">StartGuide</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.mState != GuideState.WaitingStart)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.CompareStep();</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.mDatasDictionary.ContainsKey(<span class="keyword">this</span>.mStep))</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">this</span>.MoveNext(<span class="keyword">this</span>.mDatasDictionary[<span class="keyword">this</span>.mStep].mNextStep, <span class="literal">true</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">CompareStep</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.mLocalStep &gt; <span class="keyword">this</span>.mServerStep)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">this</span>.mStep = <span class="keyword">this</span>.ConvertStep(<span class="keyword">this</span>.mLocalStep);</div><div class="line">            <span class="keyword">this</span>.SaveToServer(<span class="keyword">this</span>.mStep);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            <span class="keyword">this</span>.mStep = ConvertStep(<span class="keyword">this</span>.mServerStep);</div><div class="line">            <span class="keyword">this</span>.SaveToLocal(<span class="keyword">this</span>.mStep);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        Debug.LogError(<span class="string">"StartGuide！"</span> + <span class="keyword">this</span>.mStep);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//  引导结束</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">GuideOver</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>.mState = GuideState.Finish;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">IsInGuiding</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.mState == GuideState.Guiding;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">CanTouch</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.mReceive3DTouch || <span class="keyword">this</span>.mCurrentStep.mData.mTrigger == GuideTrigger.Timer;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">SaveToLocal</span>(<span class="params"><span class="keyword">string</span> step</span>)</span></div><div class="line">    &#123;</div><div class="line">        PlayerPrefs.SetString(mLocalKey, step);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">SaveToServer</span>(<span class="params"><span class="keyword">string</span> step</span>)</span></div><div class="line">    &#123;</div><div class="line">        global_instance.Instance._client_session.RequestSaveGuide(ConvertStep(step));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Read</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">string</span> local = PlayerPrefs.GetString(mLocalKey);</div><div class="line">        <span class="keyword">this</span>.mLocalStep = <span class="keyword">this</span>.ConvertStep(local);</div><div class="line">        Debug.LogError(<span class="string">"LocalStep："</span> + <span class="keyword">this</span>.mLocalKey + <span class="string">" "</span> + local);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ResetGuide</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        PlayerPrefs.SetString(mLocalKey, <span class="string">"0-0"</span>);</div><div class="line">        global_instance.Instance._client_session.RequestSaveGuide(ConvertStep(<span class="string">"0-0"</span>));</div><div class="line">        Debug.LogError(<span class="string">"重置新手引导，重新启动游戏！"</span> + <span class="keyword">this</span>.GetType().Name);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">string</span> <span class="title">ConvertStep</span>(<span class="params"><span class="keyword">int</span> dataParam</span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> <span class="keyword">group</span> = dataParam / <span class="number">10000</span>;</div><div class="line">        <span class="keyword">int</span> step = dataParam % <span class="number">10000</span>;</div><div class="line">        <span class="keyword">string</span> str = <span class="keyword">group</span>.ToString() + <span class="string">"-"</span> + step.ToString();</div><div class="line">        <span class="keyword">return</span> str == <span class="literal">null</span> ? <span class="keyword">string</span>.Empty : str;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">ConvertStep</span>(<span class="params"><span class="keyword">string</span> step</span>)</span></div><div class="line">    &#123;</div><div class="line">        List&lt;<span class="keyword">int</span>&gt; list = step.ToIntList(<span class="string">'-'</span>);</div><div class="line">        <span class="keyword">if</span> (list.Count == <span class="number">2</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">return</span> list[<span class="number">0</span>] * <span class="number">10000</span> + list[<span class="number">1</span>];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<style>
+ table align="center"{width:300px; }
+</style>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left">相关文章</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">《<a href="http://blog.csdn.net/anypkv/article/details/38845637" target="_blank" rel="external">游戏新手引导的制作原理</a>》</td>
+</tr>
+<tr>
+<td style="text-align:left">《<a href="http://www.gameres.com/491821.html" target="_blank" rel="external">游戏新手指引的一种具体做法</a>》</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/28/Driving-Exam/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1036,11 +1331,10 @@
 </code></pre><h1 id="5-博客可视化编辑"><a href="#5-博客可视化编辑" class="headerlink" title="5. 博客可视化编辑"></a>5. 博客可视化编辑</h1><pre><code>https://www.zybuluo.com/mdeditor
 </code></pre><h1 id="6-Hexo主题："><a href="#6-Hexo主题：" class="headerlink" title="6. Hexo主题："></a>6. Hexo主题：</h1><p>   <a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a></p>
 <h1 id="7-Hexo进阶"><a href="#7-Hexo进阶" class="headerlink" title="7. Hexo进阶"></a>7. Hexo进阶</h1><p>   <a href="http://moxfive.coding.me/yelee/" target="_blank" rel="external">http://moxfive.coding.me/yelee/</a></p>
-<h1 id="8-Hexo使用图片。《原文》"><a href="#8-Hexo使用图片。《原文》" class="headerlink" title="8. Hexo使用图片。《原文》"></a>8. Hexo使用图片。《<a href="http://www.tuicool.com/articles/umEBVfI" target="_blank" rel="external">原文</a>》</h1><hr>
-<p>   8.1 首先确认<code>_Config.yml</code>中有<code>post_asset_folder:true</code><br>   8.2 hexo 目录中，执行 <code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code><br>   8.3 执行 <code>hexo new &quot;image test&quot;</code> 命令新建博客，生成image-test.md文件的同时，会生成一个文件夹image-test，将图片test.jpg复制到image-test文件夹下。<br>   8.4 编辑<code>image-test.md</code>文件，使用<code>![图片名字][image-test/test.jpg]</code> 即可插入图片。<br>   8.5 设置图片大小<br>   <code>&lt;img src=&quot;./xxx.png&quot; width = &quot;300&quot; height = &quot;200&quot; alt=&quot;图片名称&quot; align=center /&gt;</code></p>
 <hr>
-<h1 id="9-Markdown-11种基本语法《原文》"><a href="#9-Markdown-11种基本语法《原文》" class="headerlink" title="9. Markdown 11种基本语法《原文》"></a>9. Markdown 11种基本语法《<a href="http://cnblogs.com/hnrainll/p/3514637.html" target="_blank" rel="external">原文</a>》</h1><hr>
-<h5 id="1-标题设置（让字体变大，和word的标题意思一样）"><a href="#1-标题设置（让字体变大，和word的标题意思一样）" class="headerlink" title="1. 标题设置（让字体变大，和word的标题意思一样）"></a>1. 标题设置（让字体变大，和word的标题意思一样）</h5><p> 在Markdown当中设置标题，有两种方式：<br> 第一种：通过在文字下方添加“=”和“-”，他们分别表示一级标题和二级标题。<br> 第二种：在文字开头加上 “#”，通过“#”数量表示几级标题。（一共只有1~6级标题，1级标题字体最大）</p>
+<h1 id="8-Hexo使用图片。《原文》"><a href="#8-Hexo使用图片。《原文》" class="headerlink" title="8. Hexo使用图片。《原文》"></a>8. Hexo使用图片。《<a href="http://www.tuicool.com/articles/umEBVfI" target="_blank" rel="external">原文</a>》</h1><p>   8.1 首先确认<code>_Config.yml</code>中有<code>post_asset_folder:true</code><br>   8.2 hexo 目录中，执行 <code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code><br>   8.3 执行 <code>hexo new &quot;image test&quot;</code> 命令新建博客，生成image-test.md文件的同时，会生成一个文件夹image-test，将图片test.jpg复制到image-test文件夹下。<br>   8.4 编辑<code>image-test.md</code>文件，使用<code>![图片名字][image-test/test.jpg]</code> 即可插入图片。<br>   8.5 设置图片大小<br>   <code>&lt;img src=&quot;./xxx.png&quot; width = &quot;300&quot; height = &quot;200&quot; alt=&quot;图片名称&quot; align=center /&gt;</code></p>
+<hr>
+<h1 id="9-Markdown-11种基本语法《原文》"><a href="#9-Markdown-11种基本语法《原文》" class="headerlink" title="9. Markdown 11种基本语法《原文》"></a>9. Markdown 11种基本语法《<a href="http://cnblogs.com/hnrainll/p/3514637.html" target="_blank" rel="external">原文</a>》</h1><h5 id="1-标题设置（让字体变大，和word的标题意思一样）"><a href="#1-标题设置（让字体变大，和word的标题意思一样）" class="headerlink" title="1. 标题设置（让字体变大，和word的标题意思一样）"></a>1. 标题设置（让字体变大，和word的标题意思一样）</h5><p> 在Markdown当中设置标题，有两种方式：<br> 第一种：通过在文字下方添加“=”和“-”，他们分别表示一级标题和二级标题。<br> 第二种：在文字开头加上 “#”，通过“#”数量表示几级标题。（一共只有1~6级标题，1级标题字体最大）</p>
 <h5 id="2-块注释（blockquote）"><a href="#2-块注释（blockquote）" class="headerlink" title="2. 块注释（blockquote）"></a>2. 块注释（blockquote）</h5><p>通过在文字开头添加“&gt;”表示块注释。（当&gt;和文字之间添加五个blank时，块注释的文字会有变化。）</p>
 <h5 id="3-斜体"><a href="#3-斜体" class="headerlink" title="3. 斜体"></a>3. 斜体</h5><p>将需要设置为斜体的文字两端使用1个“*”或者“_”夹起来</p>
 <h5 id="4-粗体"><a href="#4-粗体" class="headerlink" title="4. 粗体"></a>4. 粗体</h5><p>将需要设置为斜体的文字两端使用2个“*”或者“_”夹起来</p>
@@ -1052,7 +1346,14 @@
 <h5 id="9-代码（HTML中所谓的Code）"><a href="#9-代码（HTML中所谓的Code）" class="headerlink" title="9. 代码（HTML中所谓的Code）"></a>9. 代码（HTML中所谓的Code）</h5><p> 实现方式有两种：<br> 第一种：简单文字出现一个代码框。使用<code>&lt;blockquote&gt;</code>。（<code>不是单引号而是左上角的ESC下面~中的</code>）<br> 第二种：大片文字需要实现代码框。使用Tab和四个空格。</p>
 <h5 id="10-脚注（footnote）"><a href="#10-脚注（footnote）" class="headerlink" title="10. 脚注（footnote）"></a>10. 脚注（footnote）</h5><p> 实现方式如下：<br> <code>hello[^hello]</code><br> <code>[^hello]: hi</code></p>
 <h5 id="11-下划线"><a href="#11-下划线" class="headerlink" title="11. 下划线"></a>11. 下划线</h5><p> 在空白行下方添加三条“-”横线。（前面讲过在文字下方添加“-”，实现的2级标题）</p>
-<p>References：<br>以上内容根据官方文档基本文档进行整理。<a href="http://daringfireball.net/projects/markdown/basics" target="_blank" rel="external">http://daringfireball.net/projects/markdown/basics</a><br>Markdown官方网站：<a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="external">http://daringfireball.net/projects/markdown/</a><br>推荐一款在线的Markdown编辑器：<a href="https://stackedit.io/" target="_blank" rel="external">https://stackedit.io/</a> </p>
+<h5 id="12-引用块"><a href="#12-引用块" class="headerlink" title="12. 引用块"></a>12. 引用块</h5><p> Markdown语法：<code>&gt; 引言</code><br> 效果：</p>
+<blockquote>
+<p>引言</p>
+</blockquote>
+<p>参考： </p>
+<blockquote>
+<p>以上内容根据官方文档基本文档进行整理。<a href="http://daringfireball.net/projects/markdown/basics" target="_blank" rel="external">http://daringfireball.net/projects/markdown/basics</a><br>Markdown官方网站：<a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="external">http://daringfireball.net/projects/markdown/</a><br>推荐一款在线的Markdown编辑器：<a href="https://stackedit.io/" target="_blank" rel="external">https://stackedit.io/</a> </p>
+</blockquote>
 <hr>
 
           
@@ -1417,7 +1718,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1600,7 +1901,7 @@
 
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("nb5lxt5pmR4xEHuRk70ohEJl-gzGzoHsz", "9dI9uwytIjMMdSpseuk2rnqF");</script>
+  <script>AV.initialize("", "");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);

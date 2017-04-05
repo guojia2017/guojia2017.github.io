@@ -107,7 +107,7 @@ Resources只读。Resources文件夹下的资源不管是否有用，全部会�
 Application.dataPath只读。在移动端它是完全没用。
 Application.streamingAssetsPath只读。该路径是用来存放流数据的缓存目录。这个文件夹中的资源在打包时会原封不动的打包进去。
 Applicat">
-<meta property="og:updated_time" content="2017-03-29T08:55:59.254Z">
+<meta property="og:updated_time" content="2017-04-01T05:14:19.599Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity3D路径">
 <meta name="twitter:description" content="一、Unity的路径
@@ -368,8 +368,9 @@ Applicat">
 <li>Application.persistentDataPath<br>可读可写路径。该路径是一个持久化数据存储目录的路径，可以在此路径下存储一些持久化的数据文件。在iOS上是应用程序的沙盒，可以被iCloud自动备份；在Android上的位置是根据Project Setting里设置的Write Access路径，可以设置是程序沙盒还是sdcard，注意：如果在Android设置保存在沙盒中，那么就必须root以后才能用电脑取出文件，因此建议写入sdcard里。</li>
 <li>Application.temporaryCachePath<br>缓存目录。跟Application.persistentDataPath类似。</li>
 </ol>
+<a id="more"></a>
 <h2 id="Windows-Editor"><a href="#Windows-Editor" class="headerlink" title="Windows Editor"></a>Windows Editor</h2><style>
-    table th:first-of-type{width : 230px;    }
+    table th:first-of-type{width : 250px;    }
 </style>
 
 <table>
@@ -381,25 +382,25 @@ Applicat">
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">Application.dataPath</td>
+<td style="text-align:left"><code>Application.dataPath</code></td>
 <td style="text-align:left"><code>E:/SuperBodhi/U3DBodhiMobileApp/U3DSupperBodhi_MobileApp/Assets</code></td>
 </tr>
 <tr>
-<td style="text-align:left">Application.streamingAssetsPath</td>
+<td style="text-align:left"><code>Application.streamingAssetsPath</code></td>
 <td style="text-align:left"><code>E:/SuperBodhi/U3DBodhiMobileApp/U3DSupperBodhi_MobileApp/Assets/StreamingAssets</code></td>
 </tr>
 <tr>
-<td style="text-align:left">Application.persistentDataPath</td>
+<td style="text-align:left"><code>Application.persistentDataPath</code></td>
 <td style="text-align:left"><code>C:/Users/Administrator/AppData/LocalLow/CIT/SuperBodhi</code></td>
 </tr>
 <tr>
-<td style="text-align:left">Application.temporaryCachePath</td>
+<td style="text-align:left"><code>Application.temporaryCachePath</code></td>
 <td style="text-align:left"><code>C:/Users/ADMINI~1/AppData/Local/Temp/CIT/SuperBodhi</code></td>
 </tr>
 </tbody>
 </table>
 <h2 id="Android平台"><a href="#Android平台" class="headerlink" title="Android平台"></a>Android平台</h2><style>
-    table th:first-of-type{width : 230px;    }
+    table th:first-of-type{width : 250px;    }
     table th:nth-of-type(3){width : 100px ;}
 </style>
 
@@ -413,22 +414,22 @@ Applicat">
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">Application.dataPath</td>
+<td style="text-align:left"><code>Application.dataPath</code></td>
 <td style="text-align:left"><code>/data/app/com.CIT.SuperBodhi.apk</code></td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:left">Application.streamingAssetsPath</td>
+<td style="text-align:left"><code>Application.streamingAssetsPath</code></td>
 <td style="text-align:left"><code>jar:file:///data/app/com.CIT.SuperBodhi-1.apk!/assets</code></td>
 <td style="text-align:center">3个斜线</td>
 </tr>
 <tr>
-<td style="text-align:left">Application.persistentDataPath</td>
+<td style="text-align:left"><code>Application.persistentDataPath</code></td>
 <td style="text-align:left"><code>/storage/emulated/0/Android/data/com.CIT.SuperBodhi/files</code></td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:left">Application.temporaryCachePath</td>
+<td style="text-align:left"><code>Application.temporaryCachePath</code></td>
 <td style="text-align:left"><code>/storage/emulated/0/Android/data/cache</code></td>
 <td style="text-align:center">.</td>
 </tr>
@@ -437,42 +438,38 @@ Applicat">
 <h2 id="iOS平台"><a href="#iOS平台" class="headerlink" title="iOS平台"></a>iOS平台</h2><table>
 <thead>
 <tr>
-<th style="text-align:left">Android</th>
+<th style="text-align:left">iOS</th>
 <th style="text-align:left">路径</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">Application.dataPath</td>
+<td style="text-align:left"><code>Application.dataPath</code></td>
 <td style="text-align:left"><code>/var/containers/Bundle/Application/E34E2081-0D23-471B-AED9-D0B7D948D3C0/Data</code></td>
 </tr>
 <tr>
-<td style="text-align:left">Application.streamingAssetsPath</td>
+<td style="text-align:left"><code>Application.streamingAssetsPath</code></td>
 <td style="text-align:left"><code>/var/containers/Bundle/Application/E34E2081-0D23-471B-AED9-D0B7D948D3C0/Data/Raw</code></td>
 </tr>
 <tr>
-<td style="text-align:left">Application.persistentDataPath</td>
+<td style="text-align:left"><code>Application.persistentDataPath</code></td>
 <td style="text-align:left"><code>/var/mobile/Containers/Data/Application/E34E2081-0D23-471B-AED9-D0B7D948D3C0/Documents</code></td>
 </tr>
 <tr>
-<td style="text-align:left">Application.temporaryCachePath</td>
+<td style="text-align:left"><code>Application.temporaryCachePath</code></td>
 <td style="text-align:left"><code>/var/mobile/Containers/Data/Application/E34E2081-0D23-471B-AED9-D0B7D948D3C0/Library/Caches</code></td>
 </tr>
 </tbody>
 </table>
-<h1 id="二、WWW访问"><a href="#二、WWW访问" class="headerlink" title="二、WWW访问"></a>二、WWW访问</h1><ul>
-<li><p>WWW是Unity提供的访问Web服务器的工具类：提供http访问功能，实现动态下载音频、视频、图片等功能。<br>支持的协议有：http://、 https://、 file://、 ftp://。<br>其中file://就是实现从本地读取文件；其使用情形为从服务器获取资源并写入本地的persistentDataPath，然后在运行过程中从本地读取资源。</p>
-</li>
-<li><p>使用WWW读取streamingAssetsPath和persistentDataPath下的文件时需要加上协议前缀：file://</p>
-</li>
-<li><p>WWW读取本地文件时需要加上协议前缀file://<br>注：<br>1 当运行平台是windows时，文件协议的格式为3条斜线：file:///<br>2 Android平台下的streamingAssetsPath读取时，由于已经包含协议前缀：jar:file/// 所以不需要添加file://</p>
-</li>
-</ul>
-<h1 id="三、代码"><a href="#三、代码" class="headerlink" title="三、代码"></a>三、代码</h1><font face="PT Mono" size="3"><br>WWW www = new WWW(UniformPath(Application.streamingAssetsPath+”/“+”mConfig.txt”)) ;<br></font>
+<h1 id="二、WWW访问"><a href="#二、WWW访问" class="headerlink" title="二、WWW访问"></a>二、WWW访问</h1><p>　WWW是Unity提供的访问Web服务器的工具类：提供http访问功能，实现动态下载音频、视频、图片等功能。<br>支持的协议有：<code>http://、 https://、 file://、 ftp://</code>。<br>其中file://就是实现从本地读取文件；其使用情形为从服务器获取资源并写入本地的persistentDataPath，然后在运行过程中从本地读取资源。<br>　使用WWW读取<code>streamingAssetsPath</code>和<code>persistentDataPath</code>下的文件时需要加上协议前缀：file://<br>　WWW读取本地文件时需要加上协议前缀<code>file://</code></p>
+<blockquote>
+<p>注：<br>1 当运行平台是windows时，文件协议的格式为3条斜线：file:///<br>2 Android平台下的streamingAssetsPath读取时，由于已经包含协议前缀：jar:file/// 所以不需要添加file://</p>
+</blockquote>
+<h1 id="三、代码"><a href="#三、代码" class="headerlink" title="三、代码"></a>三、代码</h1><font face="PT Mono"><br>WWW www = new WWW(UniformPath(Application.streamingAssetsPath+”/“+”mConfig.txt”)) ;<br></font>
 
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> <span class="title">UniformPath</span>(<span class="params"><span class="keyword">string</span> path</span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="meta">#<span class="meta-keyword">if</span> UNITY_EDITOR</span></div><div class="line">    mProtocolHeader = <span class="string">"file:///"</span>;</div><div class="line">    <span class="meta">#<span class="meta-keyword">else</span></span></div><div class="line">    mProtocolHeader = <span class="string">"file://"</span>;</div><div class="line">    <span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line">    StringBuilder ss = <span class="keyword">new</span> StringBuilder();</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (path.ToLower().StartsWith(mProtocolHeader)||path.ToLower().StartsWith(<span class="string">"jar:file:///"</span>))</div><div class="line">    &#123;</div><div class="line">        ss.Append(path);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        ss.Append(mProtocolHeader);</div><div class="line">        ss.Append(path);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> ss.ToString();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <style>
-    table th:first-of-type{width : 230px;    }
+    table th:first-of-type{width : 250px;    }
 </style>
 
 <table>
@@ -614,7 +611,7 @@ Applicat">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -801,7 +798,7 @@ Applicat">
 
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("nb5lxt5pmR4xEHuRk70ohEJl-gzGzoHsz", "9dI9uwytIjMMdSpseuk2rnqF");</script>
+  <script>AV.initialize("", "");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);
