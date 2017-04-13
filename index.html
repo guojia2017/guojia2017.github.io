@@ -261,6 +261,857 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/11/git-branch/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="郭佳">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/author.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="QinHuai">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/11/git-branch/" itemprop="url">
+                  git branch
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-11T16:23:02+08:00">
+                2017-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/11/git-branch/" class="leancloud_visitors" data-flag-title="git branch">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一、启动git bash</p>
+<ol>
+<li>可以从安装程序直接点击git bash启动</li>
+<li>在要操作的问价夹下右键单价，选择git bash菜单启动。</li>
+</ol>
+<p>远程操作的第一步，通常是从远程主机克隆一个版本库，这时就要用到<code>git clone</code>命令。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> &lt;远程版本库的网址&gt; &lt;本地目录&gt;</div></pre></td></tr></table></figure></p>
+<p>本地目录可以省略，省略时默认克隆到当前文件夹下。</p>
+<p>二、 知己知彼，百战不殆</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git remote</div><div class="line">$ git remote -v</div><div class="line">$ git remote show &lt;主机名&gt;</div><div class="line">$ git remote add &lt;主机名&gt; &lt;远程主机地址&gt;</div><div class="line">$ git remote rm &lt;主机名&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>为了便于管理，Git要求每个远程主机都必须指定一个主机名。git remote命令就用于管理主机名。<br>不带选项的时候，git remote命令列出所有远程主机。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git remote</div><div class="line">origin</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用-v选项，可以参看远程主机的网址。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git remote -v</div><div class="line">origin  git@github.com:jquery/jquery.git (fetch)</div><div class="line">origin  git@github.com:jquery/jquery.git (push)</div><div class="line">上面命令表示，当前只有一台远程主机，叫做origin，以及它的网址。</div></pre></td></tr></table></figure>
+</li>
+<li><p>git remote show命令加上主机名，可以查看该主机的详细信息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git remote show &lt;主机名&gt;</div><div class="line">//比如: $ git remote show origin</div></pre></td></tr></table></figure>
+</li>
+<li><p>git remote add命令用于添加远程主机。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote <span class="keyword">add</span> &lt;主机名&gt; &lt;网址&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>git remote rm命令用于删除远程主机。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote rm &lt;主机名&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>git remote rename命令用于远程主机的改名。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote rename &lt;原主机名&gt; &lt;新主机名&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>三、分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git branch</div><div class="line">$ git branch -r</div><div class="line">$ git branch <span class="_">-a</span></div></pre></td></tr></table></figure></p>
+<p>四、本地操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git rm &lt;文件名&gt;</div><div class="line">$ git rm -r &lt;文件夹名&gt;</div></pre></td></tr></table></figure></p>
+<p>五、添加文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add &lt;文件名&gt;</div><div class="line">$ git add .</div></pre></td></tr></table></figure></p>
+<p>六、提交<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -m <span class="string">"提交说明信息"</span></div></pre></td></tr></table></figure></p>
+<p>七、同步<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push &lt;主机名&gt; &lt;分支&gt;</div></pre></td></tr></table></figure></p>
+<p>分支操作：</p>
+<p>首先, clone 一个远端仓库，到当前目录下<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ Git clone git:<span class="comment">//example.com/myproject $ cd myproject</span></div></pre></td></tr></table></figure></p>
+<p>克隆分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Git <span class="built_in">clone</span> -b maven https://github.com/Oracle-ao/ao-shop.git</div></pre></td></tr></table></figure></p>
+<p>然后，看看你本地有什么分支：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch</div></pre></td></tr></table></figure></p>
+<p>但是有些其他分支你在的仓库里面是隐藏的，你可以加上－a选项来查看它们：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -a</div></pre></td></tr></table></figure></p>
+<p>屏幕信息：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* master</div></pre></td></tr></table></figure></p>
+<p>在本地新建一个分支<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch BlogSource</div></pre></td></tr></table></figure></p>
+<p> 切换到新的分支<br> <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout BlogSource</div></pre></td></tr></table></figure></p>
+<p> 新分支发布到github<br> <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin Branch1</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/11/git-ssh/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="郭佳">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/author.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="QinHuai">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/11/git-ssh/" itemprop="url">
+                  Git生成SSH密钥
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-11T15:05:10+08:00">
+                2017-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/11/git-ssh/" class="leancloud_visitors" data-flag-title="Git生成SSH密钥">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>运行git bash客户端。<br>一、设置git的user name和email<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --<span class="keyword">global</span> user.name <span class="string">"name"</span></div><div class="line">$ git config --<span class="keyword">global</span> user.email <span class="string">"name@mail.com"</span></div></pre></td></tr></table></figure></p>
+<p>二、查看git配置<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$git config --lis</div></pre></td></tr></table></figure></p>
+<p>三、生成SSH密钥<br>1.查看是否已经有了ssh密钥<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd ~/.ssh</div><div class="line">ls</div></pre></td></tr></table></figure></p>
+<p>这两个命令就是检查是否已经存在 id_rsa.pub 或 id_dsa.pub 文件，如果文件已经存在，那么你可以跳过步骤2，直接进入步骤3。</p>
+<p>2.生成密钥<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"username@email.com"</span></div></pre></td></tr></table></figure></p>
+<p>按3个回车，密码为空这里一般不使用密钥。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Your identification has been saved <span class="keyword">in</span> /home/.ssh/id_rsa.  </div><div class="line">Your public key has been saved <span class="keyword">in</span> /home/.ssh/id_rsa.pub.</div></pre></td></tr></table></figure>
+<p>最后得到了两个文件：id_rsa和id_rsa.pub。</p>
+<p>3.添加 私密钥 到ssh：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-<span class="keyword">add</span> id_rsa</div></pre></td></tr></table></figure></p>
+<p>需要之前输入密码（如果有）。</p>
+<p>4.在github上添加ssh密钥，这要添加的是<code>id_rsa.pub</code>里面的公钥。<br>打开<code>http://github.com</code>，登陆账号，然后添加ssh。<br>注意在这里由于直接复制粘帖公钥，可能会导致增加一些字符或者减少些字符，最好用系统工具xclip来做这些事情。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xclip -selection c  id_rsa.pub</div></pre></td></tr></table></figure></p>
+<p>5.测试是否生效<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh git@github.com</div></pre></td></tr></table></figure></p>
+<p>成功信息。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">PTY allocation request failed on channel 0  </div><div class="line">Hi username ! You've successfully authenticated, but GitHub does not provide shell access.  </div><div class="line">Connection to github.com closed.</div></pre></td></tr></table></figure></p>
+<p>参考<br>《<a href="http://www.yiibai.com/git/what_is_version_control.html" target="_blank" rel="external">git教程</a>》<br>《<a href="http://blog.csdn.net/xsckernel/article/details/8563993" target="_blank" rel="external">git使用</a>》<br>《<a href="http://blog.csdn.net/binyao02123202.article/details/20130891" target="_blank" rel="external">git bash设置ssh</a>》</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/11/git/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="郭佳">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/author.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="QinHuai">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/11/git/" itemprop="url">
+                  将本地项目上传至github
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-11T11:49:51+08:00">
+                2017-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/11/git/" class="leancloud_visitors" data-flag-title="将本地项目上传至github">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <center><br>《<a href="http://www.jianshu.com/p/df7ce9f3a5cb" target="_blank" rel="external">如何用命令行在github新建一个项目</a>》<br></center>
+
+<p>前言：<br>　新建github帐号和git的基础知识那些就默认读者掌握并且已经添加自己电脑的<code>SSHKey</code>到<code>github</code>，下面主要说一下如何在<code>github</code>新建项目。</p>
+<p>新建项目分2种情况：</p>
+<ol>
+<li>代码从零开始。</li>
+<li>本地已经存在项目代码，只是想放到github上开源或者存放。</li>
+</ol>
+<p>然而，无论是哪种情况，都得先在github新建一个项目的仓库。<br>登录github后，找到Repositories这个tab，然后点击红框中的new来新建一个项目仓库。<br>其中问你要不要添加项目的忽略文件(.gitigore)还有要不要为你的项目增加一个许可证(license)。<br>上面的根据你自己的实际需要填完和选择即可，然后点击绿色的按钮就会创建一个项目仓库了。<br>然后就会跳转到你项目的一个主页。</p>
+<h3 id="代码从零开始"><a href="#代码从零开始" class="headerlink" title="代码从零开始"></a>代码从零开始</h3><p>　你可以在本地创建一个空白的文件夹，然后克隆刚刚创建的项目(ps: clone url 在项目主页的右下方位置可以找到)本地，然后添加代码再上传。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir emptyFolder</div><div class="line">cd emptyFodler</div><div class="line">git clone https:<span class="comment">//github.com/youraccount/yourproject.git</span></div></pre></td></tr></table></figure></p>
+<p>　然后剩下的就是git add和git push的事情。</p>
+<h3 id="本地已经存在代码"><a href="#本地已经存在代码" class="headerlink" title="本地已经存在代码"></a>本地已经存在代码</h3><p><li>在你的项目文件目录先执行命令git init，使之成为一个git仓库.<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure></li></p>
+<p><li>将项目里所有文件加到本地的仓库，使用以下命令.<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">add</span> .  <span class="comment">//注意还有一个小圆点</span></div><div class="line">git commit -m <span class="string">"some message for this project."</span>	<span class="comment">//确认添加</span></div></pre></td></tr></table></figure></li></p>
+<p><li>然后将github上的项目pull下来.<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull https:<span class="comment">//github.com/youraccount/yourproject.git</span></div></pre></td></tr></table></figure></li></p>
+<p><li>为版本库添加名为origin的远程版本库。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote <span class="keyword">add</span> origin https:<span class="comment">//github.com/youraccount/yourproject.git</span></div></pre></td></tr></table></figure></li></p>
+<p><li>执行推送命令，完成<code>GitHub</code>版本库的初始化.注意命令行中的<code>-u</code>参数，在推送成功后自动建立本地分支与远程版本库分支的追踪<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push -u origin master</div></pre></td></tr></table></figure></li></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/10/open-source-project/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="郭佳">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/author.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="QinHuai">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/10/open-source-project/" itemprop="url">
+                  开源项目集合
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-10T11:39:08+08:00">
+                2017-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/10/open-source-project/" class="leancloud_visitors" data-flag-title="开源项目集合">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://code.csdn.net/openkb/p-MaNGOS" target="_blank" rel="external">魔兽私服开源项目</a><br><a href="https://github.com/NetEase/pomelo-unityclient" target="_blank" rel="external">pomelo服务器框架</a></p>
+<!-- 捕鱼 https://github.com/kingstop/HardwareProject -->
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/08/driving-exam-two/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="郭佳">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/author.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="QinHuai">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/08/driving-exam-two/" itemprop="url">
+                  科目二新手考前必看
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-08T10:35:19+08:00">
+                2017-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/08/driving-exam-two/" class="leancloud_visitors" data-flag-title="科目二新手考前必看">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="本文尽量以最精炼的语言让你掌握科目二的所有项目。"><a href="#本文尽量以最精炼的语言让你掌握科目二的所有项目。" class="headerlink" title="本文尽量以最精炼的语言让你掌握科目二的所有项目。"></a>本文尽量以最精炼的语言让你掌握科目二的所有项目。</h2><p>适合刚学倒车入库，或者马上要参加科二考试的学员。<br>周五刚刚考完科二，由于练车时间短，所以险过。这里把科二的关键点以及教练平时讲到的重点记录下来，希望能帮到正在学车的学员顺利通过考试。（但对于刚学一天车，第二次上车就可以开的飞起来的大神级学员是绝对没必要往下看的，你只要考科二别超车基本就能过了。）<br>考试流程是基于27考点和悦考场来说的，每个考点可能会多少有些差异。<br>整个科二的考试是有口诀的，没错，就是有口诀。这是在我练习时间少，考场模拟的时候错误百出，不断出现各种状况的情况下，不得已找出的方法。其实就是教练经常说的几句核心：</p>
+<h2 id="口诀"><a href="#口诀" class="headerlink" title="口诀"></a>口诀</h2><p>6句话：<center><strong> 对位置，<br>踩定点。<br>打方向，<br>修方向，<br>回方向。<br>点到停车。</strong><br></center></p>
+<blockquote>
+<p>简单说明一下6句话。后面会对照这几句话详细说明每一项的具体操作，包括对位置的方法，打方向的时机，修方向的方式，何时回正方向都会解释。这几句话稍加变化就适用几乎所有科二项目。</p>
+<ul>
+<li>踩定点：就是将车开到那个点停下来，然后进行后续操作的那个点。比如倒车入库当窗钉越过白色虚线时停下来，准备倒车，这个点在这里称为定点。</li>
+<li>打方向：方向盘打满。</li>
+</ul>
+</blockquote>
+<p><strong>除了口诀还要时刻考虑是否要打方向车灯：</strong><br>科二考试中是需要打车灯的，但是只打左方向灯，警示灯，和近光灯。至于哪些项目需要打车灯？记住我告诉你的答案，每一项都需要打方向灯（其实我是骗你的，至于哪里在骗你，为什么骗你，看完后你就知道了。再强调一次，每一项操作前，都先考虑是否打方向灯）。</p>
+<h2 id="做准备"><a href="#做准备" class="headerlink" title="做准备"></a>做准备</h2><ol>
+<li>调整座椅位置，角度。<br><code>标准：腿伸直刚好能把离合和刹车踩到底，稍微往前一点的距离。座椅角度接近垂直。</code></li>
+<li>调整左右后视镜。<br><code>标准：向下-向里-向下，最后调到能看到车身第二个门把手，大概在后视镜2/3位置。</code></li>
+<li>系安全带</li>
+<li>离合、刹车踩到底</li>
+<li>挂1档，松手刹</li>
+</ol>
+<h2 id="9个考试项目"><a href="#9个考试项目" class="headerlink" title="9个考试项目"></a>9个考试项目</h2><p>科二项目共9个，平时学习的5个加上4个简单项目构成。按考试顺序排列如下：<br>模拟高速刷卡、倒车入库、侧方停车、窄路掉头、斜坡定点停车和起步、曲线行驶、直角转弯、模拟紧急情况处置、模拟隧道行驶</p>
+<h3 id="一、模拟高速刷卡"><a href="#一、模拟高速刷卡" class="headerlink" title="一、模拟高速刷卡"></a>一、模拟高速刷卡</h3><ol>
+<li>打车灯：起步前，打开左转向灯；松离合至半联动状态，松刹车。起步。</li>
+<li>对位置：车子一边行驶，一边用车子的<strong>左龙筋</strong>去对刷卡器旁边的水泥线。这个位置能保证够到刷卡器。</li>
+<li>踩定点：当肩与刷卡器平的时候，踩离合，踩刹车，停车。</li>
+<li>挂空挡、拉手刹。</li>
+<li>右手不离开方向盘的情况下，左手去按刷卡器上的绿色按钮。</li>
+<li>挂1档，松手刹。驶入下一项目。</li>
+</ol>
+<blockquote>
+<p>高速刷卡是需要空挡拉手刹的唯一项目。</p>
+</blockquote>
+<h3 id="二、倒车入库"><a href="#二、倒车入库" class="headerlink" title="二、倒车入库"></a>二、倒车入库</h3><h4 id="（一）右入库"><a href="#（一）右入库" class="headerlink" title="（一）右入库"></a>（一）右入库</h4><ol>
+<li>对位置：车子<strong>左龙筋</strong>去对考试区域的水泥线。</li>
+<li>踩定点：当车窗的钉子过白色虚线时停车（踩离合，踩刹车）。</li>
+<li>打方向：挂倒挡，松离合，松刹车，开始倒车；当前窗中间线到达竖杆时，向右打死。马上盯紧右视镜。</li>
+<li>修方向：右视镜中会依次出现左库角，右库角。出现右库角后，紧盯左视镜。当左视镜中出现左库角时方向盘回半圈。</li>
+<li>回方向：回完半圈后左右视镜都看一下，当看到镜子中车身与库边线平行的时候，回正方向盘。</li>
+<li>点到停车：当前窗中间线与停车点对齐时停车。</li>
+</ol>
+<h4 id="（二）左出库"><a href="#（二）左出库" class="headerlink" title="（二）左出库"></a>（二）左出库</h4><ol>
+<li>起步：挂1档，松离合，松刹车，起步。</li>
+<li>打方向：当车头压到黄色实线时向左打死（1圈半）。</li>
+<li>修方向：当车身快回正时方向盘回半圈。</li>
+<li>回方向：当车身摆正时方向盘回正（回1圈）。</li>
+<li>到点停车：前窗钉过白色虚线时停车。</li>
+</ol>
+<h4 id="（三）左入库"><a href="#（三）左入库" class="headerlink" title="（三）左入库"></a>（三）左入库</h4><ol>
+<li>倒车：挂倒挡，松离合，松刹车，开始倒车；</li>
+<li>打方向：当前窗中间线到达竖杆时，向左打死（1圈半）。马上盯紧左视镜。</li>
+<li>修方向：左视镜中会依次出现右库角，左库角。出现左库角后，紧盯右视镜。当右视镜中出现右库角时方向盘回半圈。</li>
+<li>回方向：回完半圈后左右视镜都看一下，当看到镜子中车身与库边线平行的时候，回正方向盘。</li>
+<li>点到停车：当前窗中间线与停车点对齐时停车。</li>
+</ol>
+<h4 id="（四）右出库"><a href="#（四）右出库" class="headerlink" title="（四）右出库"></a>（四）右出库</h4><ol>
+<li>起步：挂1档，松离合，松刹车，起步。</li>
+<li>打方向：当车头压到黄色实线时向右打死（1圈半）。</li>
+<li>修方向：当车身快回正时方向盘回半圈。</li>
+<li>回方向：当车身摆正时方向盘回正（回1圈）。</li>
+<li>调整方向，驶向下一项目。</li>
+</ol>
+<h3 id="三、侧方停车"><a href="#三、侧方停车" class="headerlink" title="三、侧方停车"></a>三、侧方停车</h3><h4 id="（一）入库"><a href="#（一）入库" class="headerlink" title="（一）入库"></a>（一）入库</h4><ol>
+<li>对位置：<strong>右龙筋</strong>去对侧方停车位的左边线，保证车子距离左边线大概30公分。</li>
+<li>踩定点：当车子到达打方向的那根竖杆前一小段就可以停车。</li>
+<li>打方向：挂倒挡，倒车。当前车窗中间线对齐竖杆时向右打死。马上盯左视镜。</li>
+<li>回方向：当左视镜中出现内库角时，方向盘向左回2圈。</li>
+<li>打方向：继续盯左视镜，当左后车轮压到左边线时，马上向左打死（1圈）。</li>
+<li>车正停车：观察左右视镜，当车身与边线平行时，踩离合踩刹车停车。（方向盘不用回。）</li>
+</ol>
+<h4 id="（二）出库"><a href="#（二）出库" class="headerlink" title="（二）出库"></a>（二）出库</h4><ol>
+<li>方向灯：打开左转向灯。挂1档，保持方向盘向左打死，起步。</li>
+<li>回方向：当车子<strong>右龙筋</strong>过侧方停车位的左边线时，回正方向盘。向前行驶一小段。</li>
+<li>打方向：当<strong>右龙筋</strong>挨到马路中间黄线时，向右打1圈。</li>
+<li>回方向：当车身摆正时方向回正。</li>
+<li>调整方向盘驶入下一项目。</li>
+</ol>
+<h3 id="四、窄路掉头"><a href="#四、窄路掉头" class="headerlink" title="四、窄路掉头"></a>四、窄路掉头</h3><p>简单：省略。<br>难度系数：0。</p>
+<h3 id="五、坡道定点停车和起步"><a href="#五、坡道定点停车和起步" class="headerlink" title="五、坡道定点停车和起步"></a>五、坡道定点停车和起步</h3><h4 id="（一）坡道停车"><a href="#（一）坡道停车" class="headerlink" title="（一）坡道停车"></a>（一）坡道停车</h4><ol>
+<li>对位置：用车子右边起1/3的位置去追坡道的右边线。保证距离右边线30公分左右。上坡的时候多松点离合。</li>
+<li>踩定点：当前窗中间线过水泥缝10公分左右时，踩离合踩刹车停车。</li>
+</ol>
+<h4 id="（二）坡道起步"><a href="#（二）坡道起步" class="headerlink" title="（二）坡道起步"></a>（二）坡道起步</h4><ol>
+<li>打车灯：打开左转向灯。</li>
+<li>起步：松离合至车头抬起，松刹车，起步。（这里多松离合，感受车子的震动程度，慢慢松刹车）</li>
+</ol>
+<blockquote>
+<p>坡道起步不需要油门，科二都不需要油门的操作。</p>
+</blockquote>
+<h3 id="六、曲线行驶"><a href="#六、曲线行驶" class="headerlink" title="六、曲线行驶"></a>六、曲线行驶</h3><p>弯道为先左弯道，后右弯道的标准弯道。</p>
+<ol>
+<li>对位置：保证车子从S弯入口中心偏右驶入S弯。</li>
+<li>打方向：进入入口后，观察车的<strong>左龙筋</strong>，当<strong>左龙筋</strong>挨到右边线时，向左打1圈。然后紧盯左视镜。</li>
+<li>修方向：观察左视镜中左边曲线和车身的距离，如果越来越大就向左微调方向盘（一般1/4圈微调），如果越来越小就向右微调方向盘，微调后即时回正微调。</li>
+<li>回方向：观察<strong>右龙筋</strong>，当<strong>右龙筋</strong>要离开右边线的时候，回正方向盘（向右打一圈），继续行驶。</li>
+<li>打方向：继续观察<strong>右龙筋</strong>，当<strong>右龙筋</strong>挨到左边线时，向右打一圈。</li>
+<li>修方向：观察右视镜，右边曲线和车身距离，如果越来越大就向右微调，如果越来越小就向左微调，微调后即时回正微调。</li>
+<li>回正方向：当车身与出口将要平行时，慢慢回正方向盘。驶出S弯。进入下一项目。</li>
+</ol>
+<blockquote>
+<p>如果成功过了S弯，科二考试基本就没什么问题了。</p>
+</blockquote>
+<h3 id="七、直角转弯"><a href="#七、直角转弯" class="headerlink" title="七、直角转弯"></a>七、直角转弯</h3><ol>
+<li>对位置：用<strong>右龙筋</strong>去追右边线。</li>
+<li>打方向：当左视镜与直角<strong>空间上</strong>处在同一条直线上时，向左打满方向。</li>
+<li>回方向：然后一直观察左视镜，当确认左后轮没有压到直角，并且过直角后方向盘慢慢回正。</li>
+<li>驶入下一项目。</li>
+</ol>
+<blockquote>
+<p>左视镜与直角空间上处于同一条直线，是指假设你在该位置停车，然后把你手机自然下垂放在左视镜的位置，然后松手，手机应该正好落在直角<strong>上边线</strong>的延长线上。</p>
+</blockquote>
+<h3 id="八、模拟紧急情况处置"><a href="#八、模拟紧急情况处置" class="headerlink" title="八、模拟紧急情况处置"></a>八、模拟紧急情况处置</h3><blockquote>
+<p>听到语音：前方模拟紧急情况处置。等待随机一段时间后，会<br>听到语音：”紧急障碍物”时，</p>
+</blockquote>
+<ol>
+<li>急刹车：离合刹车一起踩到底。</li>
+<li>开警示灯：急刹车的同时，开警示灯。警示灯滴答四五下后关闭警示灯。松离合，松刹车。驶入下一项。</li>
+</ol>
+<h3 id="九、模拟隧道行驶"><a href="#九、模拟隧道行驶" class="headerlink" title="九、模拟隧道行驶"></a>九、模拟隧道行驶</h3><ol>
+<li>开近照灯：驶入隧道前打开近光灯。</li>
+<li>关近照灯：驶出隧道前关闭近光灯。</li>
+</ol>
+<p>从隧道驶出之后，结束，将车停到引车员指定的位置，停车的过程中应该就能听到你考试合格的语音。</p>
+<p>后记：由于没有开通留言功能，所以想留言的同学直接点击下面的打赏按钮吧，把留言写在红包里。<br>后记的后记：想钱想疯了吧真的是。还是微信留言吧。</p>
+<p><img src="/2017/04/08/driving-exam-two/wechat.jpg" width="200px"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/05/unity-get-objects-of-type/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1051,686 +1902,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/16/unity-path/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="郭佳">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/author.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="QinHuai">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/16/unity-path/" itemprop="url">
-                  Unity3D路径
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-16T13:25:23+08:00">
-                2017-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/03/16/unity-path/" class="leancloud_visitors" data-flag-title="Unity3D路径">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="一、Unity的路径"><a href="#一、Unity的路径" class="headerlink" title="一、Unity的路径"></a>一、Unity的路径</h1><ol>
-<li>Resources<br>只读。Resources文件夹下的资源不管是否有用，全部会打包进.apk或者.ipa，并且打包时会将里面的资源压缩处理。</li>
-<li>Application.dataPath<br>只读。在移动端它是完全没用。</li>
-<li>Application.streamingAssetsPath<br>只读。该路径是用来存放流数据的缓存目录。这个文件夹中的资源在打包时会<strong>原封不动</strong>的打包进去。</li>
-<li>Application.persistentDataPath<br>可读可写路径。该路径是一个持久化数据存储目录的路径，可以在此路径下存储一些持久化的数据文件。在iOS上是应用程序的沙盒，可以被iCloud自动备份；在Android上的位置是根据Project Setting里设置的Write Access路径，可以设置是程序沙盒还是sdcard，注意：如果在Android设置保存在沙盒中，那么就必须root以后才能用电脑取出文件，因此建议写入sdcard里。</li>
-<li>Application.temporaryCachePath<br>缓存目录。跟Application.persistentDataPath类似。</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/16/unity-path/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/10/tan-du-shu/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="郭佳">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/author.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="QinHuai">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/10/tan-du-shu/" itemprop="url">
-                  谈读书
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-10T10:30:06+08:00">
-                2017-03-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/03/10/tan-du-shu/" class="leancloud_visitors" data-flag-title="谈读书">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <center>为天地立心，为生民立命，<br>为往圣继绝学，为万世开太平。<br></center>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/09/jian-zhu-ke-shu/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="郭佳">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/author.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="QinHuai">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/09/jian-zhu-ke-shu/" itemprop="url">
-                  谏逐客书
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-09T14:02:31+08:00">
-                2017-03-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/03/09/jian-zhu-ke-shu/" class="leancloud_visitors" data-flag-title="谏逐客书">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>　　臣闻吏议逐客，窃以为过矣。昔穆公求士，西取由余于戎，东得百里奚于宛，迎蹇叔于宋，来邳豹、公孙支于晋。此五子者，不产于秦，而穆公用之，并国二十，遂霸西戎。孝公用商鞅之法，移风易俗，民以殷盛，国以富强，百姓乐用，诸侯亲服，获楚、魏之师，举地千里，至今治强。惠王用张仪之计，拔三川之地，西并巴、蜀，北收上郡，南取汉中，包九夷，制鄢、郢，东据成皋之险，割膏腴之壤，遂散六国之众，使之西面事秦，功施到今。昭王得范雎，废穰侯，逐华阳，强公室，杜私门，蚕食诸侯，使秦成帝业。此四君者，皆以客之功。由此观之，客何负于秦哉！向使四君却客而不内，疏士而不用，是使国无富利之实，而秦无强大之名也。<br>　　今陛下致昆山之玉，有随和之宝，垂明月之珠，服太阿之剑，乘纤离之马，建翠凤之旗，树灵鼍之鼓。此数宝者，秦不生一焉，而陛下说之，何也？必秦国之所生然后可，则是夜光之璧，不饰朝廷；犀象之器，不为玩好；郑、卫之女不充后宫，而骏良駃騠不实外厩，江南金锡不为用，西蜀丹青不为采。所以饰后宫，充下陈，娱心意，说耳目者，必出于秦然后可，则是宛珠之簪，傅玑之珥，阿缟之衣，锦绣之饰不进于前，而随俗雅化，佳冶窈窕，赵女不立于侧也。夫击瓮叩缶弹筝搏髀，而歌呼呜呜快耳者，真秦之声也；《郑》、《卫》、《桑间》，《韶》、《虞》、《武》、《象》者，异国之乐也。今弃击瓮叩缶而就《郑》、《卫》，退弹筝而取《昭》、《虞》，若是者何也？快意当前，适观而已矣。今取人则不然。不问可否，不论曲直，非秦者去，为客者逐。然则是所重者在乎色乐珠玉，而所轻者在乎人民也。此非所以跨海内、制诸侯之术也。<br>　　臣闻地广者粟多，国大者人众，兵强则士勇。是以泰山不让土壤，故能成其大；河海不择细流，故能就其深；王者不却众庶，故能明其德。是以地无四方，民无异国，四时充美，鬼神降福，此五帝三王之所以无敌也。今乃弃黔首以资敌国，却宾客以业诸侯，使天下之士退而不敢西向，裹足不入秦，此所谓“借寇兵而赍盗粮”者也。夫物不产于秦，可宝者多；士不产于秦，而愿忠者众。今逐客以资敌国，损民以益雠，内自虚而外树怨于诸侯，求国无危，不可得也。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/08/lunjizhushu/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="郭佳">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/author.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="QinHuai">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/08/lunjizhushu/" itemprop="url">
-                  论积贮疏
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-08T13:50:59+08:00">
-                2017-03-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/03/08/lunjizhushu/" class="leancloud_visitors" data-flag-title="论积贮疏">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>　　管子曰：“仓廪实而知礼节。”民不足而可治者，自古及今，未之尝闻。古之人曰：“一夫不耕，或受之饥；一女不织，或受之寒。” 生之有时，而用之亡度，则物力必屈。古之治天下，至孅至悉也，，故其畜积足恃。今背本而趋末，食者甚众，是天下之大残也；淫侈之俗，日日以长，是天下之大贼也。残贼公行，莫之或止；大命将泛，莫之振救。生之者甚少，而靡之者甚多，天下财产何得不蹶！<br>　　汉之为汉，几四十年矣，公私之积，犹可哀痛！失时不雨，民且狼顾；岁恶不入，请卖爵子，既闻耳矣。安有为天下阽危者若是而上不惊者？世之有饥穰，天之行也，禹、汤被之矣。即不幸有方二三千里之旱，国胡以相恤？卒然边境有急，数千百万之众，国胡以馈之？兵旱相乘，天下大屈，有勇力者聚徒而衡击；罢夫羸老易子而咬其骨。政治未毕通也，远方之能疑者，并举而争起矣。乃骇而图之，岂将有及乎？<br>　　夫积贮者，天下之大命也。苟粟多而财有余，何为而不成？以攻则取，以守则固，以战则胜。怀敌附远，何招而不至！今殴民而归之农，皆著于本；使天下各食其力，末技游食之民，转而缘南亩，则畜积足而人乐其所矣。可以为富安天下，而直为此廪廪也，窃为陛下惜之。<br><!--晁错的政论散文主要有《守边劝农疏》、《论贵粟疏》、《贤良文学对策》、《言兵事疏》、《论削藩疏》。
-贾谊的散文如《过秦论》、《论积贮疏》、《陈政事疏》等都很有名;辞赋以《吊屈原赋》、《鵩鸟赋》最著名
-魏征的《谏太宗十思疏》
-杜甫的《阿房宫赋》
-被鲁迅称为"西汉鸿文"的有贾谊的《治安策》、《过秦论》和晁错的《贤良文学对策》、《言兵事疏》、《守边劝农疏》。《过秦论》贾谊
-【注：】我们现代人都在啃古人的精髓，只能从网上搜。如有雷同，无可非议。何况回答看不到上楼的回答，也免去了抄袭的怀疑！ --></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/02/pomelo/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="郭佳">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/author.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="QinHuai">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/02/pomelo/" itemprop="url">
-                  pomelo
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-02T18:32:53+08:00">
-                2017-03-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/03/02/pomelo/" class="leancloud_visitors" data-flag-title="pomelo">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://nodejs.netease.com/topic/515279a0b5a2705b5a000983" target="_blank" rel="external">pomelo服务器配置</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1773,7 +1949,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
