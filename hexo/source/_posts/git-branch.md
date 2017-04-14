@@ -59,13 +59,16 @@ $ git remote rename <原主机名> <新主机名>
 $ git branch
 $ git branch -r
 $ git branch -a
+$ git branch b1 // 创建branch分支
+$ git checkout b1 //切换到分支branch001
 ```
-四、本地操作
+四、删除操作
 ``` bash
 $ git rm <文件名>
 $ git rm -r <文件夹名>
+//-r 表示递归删除子文件
 ```
-五、添加文件
+五、添加操作
 ``` bash
 $ git add <文件名>
 $ git add .
@@ -74,11 +77,10 @@ $ git add .
 ``` bash
 $ git commit -m "提交说明信息"
 ```
-七、同步
+七、推送
 ``` bash
 $ git push <主机名> <分支>
 ```
-
 
 分支操作：
 
@@ -98,10 +100,7 @@ $ git branch
 ```cs
 $ git branch -a
 ```
-屏幕信息：
-```cs
-* master
-  ```
+屏幕信息：``* master``
 
 在本地新建一个分支
 ```cs
@@ -118,18 +117,21 @@ $ git branch BlogSource
  git push origin Branch1
  ```
 
- 实战：将hexo的源文件一起上传至Github上。
+ #### 实战
+ 将hexo的源文件一起上传至Github上。
  假设本地父目录是：github.io
  子目录是：hexo
  hexo的相关操作生成的文件都放在hexo目录下。
  建立2个分支，一个是hexo用于存放源文件，一个是master为默认生成文件的存放位置。由于我们只同步hexo分支下的文件，所以设置hexo为默认分支。
 
-在hexo父目录下，右键选择``git bash here``.
+在``hexo``父目录下，右键选择``git bash here``.
 1. 查看远程服务器地址和本地仓库。
 ```cs
 git remote -v
+// 如果提示信息为：
+// ``fatal: Not a git repository (or any of the parent directories): .git``
+// 证明当前目录没有建立仓库。
 ```
-如果提示信息为``fatal: Not a git repository (or any of the parent directories): .git``证明当前目录没有建立仓库。
 2. 初始化本地仓库。
 ```cs
 git init
@@ -142,16 +144,51 @@ git remote add origin git@github.com:guojia/guojia.github.io
 ```cs
 git remote -v
 ```
-5.
+5. 查看分支信息
 ```cs
 git branch -v
-```
-6. 
-```cs
-git pull origin hexo
 ```
 7. 在本地创建一个分支
 ```cs
 git branch hexo
 ```
+8. 切换到hexo分支
+```cs
+git checkout hexo
+```
+6. 将远程主机上的hexo分支文件拉取至本地。
+```cs
+git pull origin hexo
+```
+9. 添加本地所有源文件到hexo分支，提交，并推送到远程主机。
+```cs
+git add .
+git commit -m "hexo source files"
+git push origin hexo
+```
 
+或者方法二：
+1. 将hexo分支上的文件克隆至本地。
+``克隆前和克隆后都可以先查看当前目录下的信息：``
+``git status``
+``git remote -v``
+``git branch -v``
+```cs
+git clone -b hexo git@github.com:guojia/guojia.github.io
+```
+2. 添加远程主机
+```cs
+git remote add origin git@github.com:guojia/guojia.github.io
+```
+3. 添加本地文件
+```cs
+git add .
+```
+4. 提交
+```cs
+git commit -m "message"
+```
+5. 推送
+```cs
+git push origin hexo
+```
