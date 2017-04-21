@@ -6,6 +6,83 @@ tags: [Unity,Optimization]
 
 前言：
 
+
+代码优化：
+
+- GC Alloc
+- 调用时间
+- Calls
+
+**GC Alloc优化：**
+优化方法：
+在代码段中插入：
+
+```cs
+Profiler.BeginSample("CodeOptimization001") ;
+Profiler.EndSample() ;
+```
+
+1. foreach 改成for
+2. obj.GetType().Name改成缓存GetTypeName() ;
+```cs
+优化前：9.5k
+优化后：0k
+```
+-----
+        Performance.BeginSample("AIStateMap.GetType");
+
+        //string name = behavior.GetType().Name;
+        string name = behavior.GetTypeName();
+        if (mStateMap.ContainsKey(name))
+        {
+            Performance.EndSample();
+            return mStateMap[name];
+        }
+        else
+        {
+            Performance.EndSample();
+        }
+----
+        private string mThisName = string.Empty;
+        public string GetTypeName()
+        {
+            if (string.IsNullOrEmpty(mThisName))
+            {
+                mThisName = this.GetType().Name;
+            }
+            return mThisName;
+        }
+----
+3. Update中避免创建**引用类型**的变量。是创建不是定义。如果只是定义了引用类型但是指向的是成员变量是没问题的。避免创建的意思是不要new一个对象。
+将Update中的List<int> data ;改成定义成类的成员变量：List<int> mData;
+
+```cs
+
+public class Math
+{
+    public void Update()
+    {
+        List<int> tmpList = new List<int>();	//	会造成每帧32B的内存分配。
+    }
+}
+
+改成：
+
+public class Math
+{
+    List<int> mList = new List<int>();
+
+    public void Update()
+    {
+		mList.clear() ;
+    }
+}
+
+```
+4. Math.Round();会分配300B的内存。
+5. TouchProcess拖动手指时分配了113KB内存。
+
+
 ### 优化的4个方面：
 
 > 

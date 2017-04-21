@@ -192,3 +192,13 @@ git commit -m "message"
 ```cs
 git push origin hexo
 ```
+
+
+参考：
+http://ruanyifeng.com/blog/2014/06/git_remote.html
+https://www.zhihu.com/question/21193762/answer/138139539
+http://blog.csdn.net/binyao02123202/article/details/20130891
+http://blog.csdn.net/win_lin/article/details/17037731
+《git常用命令整理》(http://justcoding.iteye.com/blog/1830388)
+《Github的分支创建与合并》http://www.cnblogs.com/horanly/p/6265182.html
+《gitHub如何切换到非master分支的其他分支 》http://blog.csdn.net/hsany330/article/details/51820860
