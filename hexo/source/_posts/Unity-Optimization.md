@@ -4,8 +4,22 @@ date: 2017-02-16 18:23:38
 tags: [Unity,Optimization]
 ---
 
-前言：
+### 优化重点 
+1. CPU-GC Alloc
+> 关注原则：1.检测任何一次性内存分配大于2KB的选项 2.检测每帧都具有20B以上内存分配的选项. 
 
+2. Time ms: 
+> 记录游戏运行时每帧CPU占用（特别注意占用5ms以上的）. 
+
+3. Memory Profiler-Other: 
+> 1.ManagedHeap.UsedSize: 移动游戏建议不要超过20MB. 
+2.SerializedFile: 通过异步加载(LoadFromCache、WWW等)的时候留下的序列化文件,可监视是否被卸载. 
+3.WebStream: 通过异步WWW下载的资源文件在内存中的解压版本,比SerializedFile大几倍或几十倍,重点监视.**** 
+
+4. Memory Profiler-Assets: 
+> 1.Texture2D: 重点检查是否有重复资源和超大Memory是否需要压缩等. 
+2.AnimationClip: 重点检查是否有重复资源. 
+3.Mesh： 重点检查是否有重复资源. 
 
 代码优化：
 
@@ -17,8 +31,9 @@ tags: [Unity,Optimization]
 优化方法：
 在代码段中插入：
 
+> 
 ```cs
-Profiler.BeginSample("CodeOptimization001") ;
+Profiler.BeginSample("GC Alloc") ;
 Profiler.EndSample() ;
 ```
 
@@ -28,7 +43,6 @@ Profiler.EndSample() ;
 优化前：9.5k
 优化后：0k
 ```
------
         Performance.BeginSample("AIStateMap.GetType");
 
         //string name = behavior.GetType().Name;
@@ -42,7 +56,7 @@ Profiler.EndSample() ;
         {
             Performance.EndSample();
         }
-----
+``优化后``
         private string mThisName = string.Empty;
         public string GetTypeName()
         {
@@ -52,10 +66,8 @@ Profiler.EndSample() ;
             }
             return mThisName;
         }
-----
 3. Update中避免创建**引用类型**的变量。是创建不是定义。如果只是定义了引用类型但是指向的是成员变量是没问题的。避免创建的意思是不要new一个对象。
 将Update中的List<int> data ;改成定义成类的成员变量：List<int> mData;
-
 ```cs
 
 public class Math
@@ -81,10 +93,71 @@ public class Math
 ```
 4. Math.Round();会分配300B的内存。
 5. TouchProcess拖动手指时分配了113KB内存。
+SplineTrailRenderer.Clear();分配了107.6 KB内存。优化后：0k
+```cs
+//  GC-Alloc 优化 at 20170424
+#if BEFORE_GC_ALLOC
+        vertices = new Vector3[advancedParameters.baseNbQuad * NbVertexPerQuad];
+        triangles = new int[advancedParameters.baseNbQuad * NbTriIndexPerQuad];
+        uv = new Vector2[advancedParameters.baseNbQuad * NbVertexPerQuad];
+        colors = new Color[advancedParameters.baseNbQuad * NbVertexPerQuad];
+        normals = new Vector3[advancedParameters.baseNbQuad * NbVertexPerQuad];
+#else
+        if (vertices == null)
+        {
+            vertices = new Vector3[advancedParameters.baseNbQuad * NbVertexPerQuad];
+            triangles = new int[advancedParameters.baseNbQuad * NbTriIndexPerQuad];
+            uv = new Vector2[advancedParameters.baseNbQuad * NbVertexPerQuad];
+            colors = new Color[advancedParameters.baseNbQuad * NbVertexPerQuad];
+            normals = new Vector3[advancedParameters.baseNbQuad * NbVertexPerQuad];
+        }
+        else
+        {
+            for (int i = 0; i < vertices.Length; i++) vertices[i] = Vector3.zero;
+            for (int i = 0; i < triangles.Length; i++) triangles[i] = 0;
+            for (int i = 0; i < uv.Length; i++) uv[i] = Vector2.zero;
+            for (int i = 0; i < colors.Length; i++) colors[i] = Color.clear;
+            for (int i = 0; i < normals.Length; i++) normals[i] = Vector3.zero;
+        }
+#endif
+```
+6. AudioSetting.Init分配了173.7 KB内存。LogStringToConsole：76.9KB。日志输出占用了76KB*2
 
+7. new WWW：24B
+
+8. Uri uri = new Uri(path);分配了10.9 KB的内存。待优化。
+
+9. Spell.Effect：28.1KB
+
+10. AStarPathing.SetTargetPosition：分配4.0KB
+
+11. ``AttributeHelperEngine.GetParentTypeDisallowingMultipleInclusion();``分配0.9 KB，耗时0.03 ms。
+``AttributeHelperEngine.GetRequiredComponents(); ``分配0.7 KB，耗时0.03 ms。
+            //AddComponent<Component>() ; 造成的内存分配。
+
+            Performance.BeginSample("Add Component EmptyObject"); // 分配1.6KB内存，耗时0.53ms|
+            EmptyObject o = gameObject.AddComponent<EmptyObject>();
+            Performance.EndSample();	
+
+            Performance.BeginSample("Add Component EmptyComponent"); // 不能添加至物体，但是也会造成一定的内存分配。
+            EmptyComponent c = gameObject.AddComponent<EmptyComponent>();
+            Performance.EndSample();
+
+            Performance.BeginSample("Get Component EmptyObject"); //不会分配新的内存，但会造成一定的消耗
+            o = gameObject.GetComponent<EmptyObject>();
+            Performance.EndSample();
+EmptyObject.cs
+			
+			public class EmptyObject : MonoBehaviour
+			{
+			}
+12. 递归调用。150K。TouchProcess的FitPoint. 
+这里的内存分配并不是递归FitPoint造成的，而是SplineTrailRenderer.DoLateUpdate();造成的问题。
+原来代码使用的LateUpdate . 为了精确绘制拖尾，这里强制加了一个DoLateUpdate保证同一帧里多次绘制拖尾，也就导致了一帧的内存分配过大的问题。
+
+一篇优秀的Unity性能优化文章：
 
 ### 优化的4个方面：
-
 > 
 CPU优化
 GPU优化
