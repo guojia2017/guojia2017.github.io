@@ -1,379 +1,149 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="zh-CN">
+<!-- Head tag -->
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
+  <!--Description-->
   
 
+  <!--Author-->
   
-    
-    
-  
-
+  <meta name="author" content="郭佳">
   
 
+  <!--Open Graph Title-->
+  
+      <meta property="og:title" content="git branch"/>
+  
+  <!--Open Graph Description-->
+  
+  <!--Open Graph Site Name-->
+  <meta property="og:site_name" content="QinHuai"/>
+  <!--Type page-->
+  
+      <meta property="og:type" content="article" />
+  
+  <!--Page Cover-->
   
 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Title -->
   
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
+  <title>git branch - QinHuai</title>
 
 
+  <link rel="shortcut icon" href="https://hexo.io/icon/favicon-96x96.png">
 
+  <!-- Custom CSS/Sass -->
+  <link rel="stylesheet" href="/css/style.css">
 
+  <!----------------------------
+  https://github.com/GallenHu/hexo-theme-Daily
 
+ _____            _   _
+|  __ \          (_) | |
+| |  | |   __ _   _  | |  _   _
+| |  | |  / _` | | | | | | | | |
+| |__| | | (_| | | | | | | |_| |
+|_____/   \__,_| |_| |_|  \__, |
+                          __/ |
+                         |___/
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    --------------------------->
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
-
-
-
-<meta name="description" content="一、启动git bash
-
-可以从安装程序直接点击git bash启动
-在要操作的问价夹下右键单价，选择git bash菜单启动。
-
-远程操作的第一步，通常是从远程主机克隆一个版本库，这时就要用到git clone命令。1$ git clone &amp;lt;远程版本库的网址&amp;gt; &amp;lt;本地目录&amp;gt;
-本地目录可以省略，省略时默认克隆到当前文件夹下。
-二、 知己知彼，百战不殆
-12345$ gi">
-<meta property="og:type" content="article">
-<meta property="og:title" content="git branch">
-<meta property="og:url" content="http://yoursite.com/2017/04/11/git-branch/index.html">
-<meta property="og:site_name" content="QinHuai">
-<meta property="og:description" content="一、启动git bash
-
-可以从安装程序直接点击git bash启动
-在要操作的问价夹下右键单价，选择git bash菜单启动。
-
-远程操作的第一步，通常是从远程主机克隆一个版本库，这时就要用到git clone命令。1$ git clone &amp;lt;远程版本库的网址&amp;gt; &amp;lt;本地目录&amp;gt;
-本地目录可以省略，省略时默认克隆到当前文件夹下。
-二、 知己知彼，百战不殆
-12345$ gi">
-<meta property="og:updated_time" content="2017-04-12T10:39:54.436Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git branch">
-<meta name="twitter:description" content="一、启动git bash
-
-可以从安装程序直接点击git bash启动
-在要操作的问价夹下右键单价，选择git bash菜单启动。
-
-远程操作的第一步，通常是从远程主机克隆一个版本库，这时就要用到git clone命令。1$ git clone &amp;lt;远程版本库的网址&amp;gt; &amp;lt;本地目录&amp;gt;
-本地目录可以省略，省略时默认克隆到当前文件夹下。
-二、 知己知彼，百战不殆
-12345$ gi">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2017/04/11/git-branch/"/>
-
-
-
-
-
-  <title> git branch | QinHuai </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  
+<body>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">QinHuai</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+  <!-- Nav -->
+  <header class="site-header">
+  <div class="header-inside">
+    <div class="logo">
+      <a href="/" rel="home">
+        
+        <img src="https://hexo.io/logo.svg" alt="QinHuai" height="60">
+        
+      </a>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse">
+        <ul class="navbar-nav">
+          
+          
+            <li>
+              <a href="/.">
+                
+                  home
+                
+              </a>
+            </li>
+          
+            <li>
+              <a href="/archives">
+                
+                  archive
+                
+              </a>
+            </li>
+          
+            <li>
+              <a href="/tags">
+                
+                  tags
+                
+              </a>
+            </li>
+          
+            <li>
+              <a href="/about">
+                
+                  about
+                
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+    <div class="button-wrap">
+      <button class="menu-toggle">Primary Menu</button>
+    </div>
   </div>
-    
-      <p class="site-subtitle"></p>
-    
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
+</header>
 
 
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/11/git-branch/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="郭佳">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/author.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="QinHuai">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                git branch
-              
+  <!-- Main Content -->
+  <div class="content-area">
+  <div class="post">
+    <!-- Post Content -->
+    <div class="container">
+      <article>
+        <!-- Title date & tags -->
+        <div class="post-header">
+          <h1 class="entry-title">
+            git branch
             
           </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <p class="posted-on">
+          2017-04-11
+          </p>
+          <div class="tags-links">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-11T16:23:02+08:00">
-                2017-04-11
-              </time>
             
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/11/git-branch/" class="leancloud_visitors" data-flag-title="git branch">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>一、启动git bash</p>
+        <!-- Post Main Content -->
+        <div class="entry-content">
+          <p>一、启动git bash</p>
 <ol>
 <li>可以从安装程序直接点击git bash启动</li>
 <li>在要操作的问价夹下右键单价，选择git bash菜单启动。</li>
@@ -402,436 +172,163 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote rename &lt;原主机名&gt; &lt;新主机名&gt;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>三、分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git branch</div><div class="line">$ git branch -r</div><div class="line">$ git branch <span class="_">-a</span></div></pre></td></tr></table></figure></p>
-<p>四、本地操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git rm &lt;文件名&gt;</div><div class="line">$ git rm -r &lt;文件夹名&gt;</div></pre></td></tr></table></figure></p>
-<p>五、添加文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add &lt;文件名&gt;</div><div class="line">$ git add .</div></pre></td></tr></table></figure></p>
+<p>三、分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git branch</div><div class="line">$ git branch -r</div><div class="line">$ git branch <span class="_">-a</span></div><div class="line">$ git branch b1 // 创建branch分支</div><div class="line">$ git checkout b1 //切换到分支branch001</div></pre></td></tr></table></figure></p>
+<p>四、删除操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git rm &lt;文件名&gt;</div><div class="line">$ git rm -r &lt;文件夹名&gt;</div><div class="line">//-r 表示递归删除子文件</div></pre></td></tr></table></figure></p>
+<p>五、添加操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add &lt;文件名&gt;</div><div class="line">$ git add .</div></pre></td></tr></table></figure></p>
 <p>六、提交<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -m <span class="string">"提交说明信息"</span></div></pre></td></tr></table></figure></p>
-<p>七、同步<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push &lt;主机名&gt; &lt;分支&gt;</div></pre></td></tr></table></figure></p>
+<p>七、推送<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push &lt;主机名&gt; &lt;分支&gt;</div></pre></td></tr></table></figure></p>
 <p>分支操作：</p>
 <p>首先, clone 一个远端仓库，到当前目录下<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ Git clone git:<span class="comment">//example.com/myproject $ cd myproject</span></div></pre></td></tr></table></figure></p>
 <p>克隆分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Git <span class="built_in">clone</span> -b maven https://github.com/Oracle-ao/ao-shop.git</div></pre></td></tr></table></figure></p>
 <p>然后，看看你本地有什么分支：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch</div></pre></td></tr></table></figure></p>
 <p>但是有些其他分支你在的仓库里面是隐藏的，你可以加上－a选项来查看它们：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -a</div></pre></td></tr></table></figure></p>
-<p>屏幕信息：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* master</div></pre></td></tr></table></figure></p>
+<p>屏幕信息：<code>* master</code></p>
 <p>在本地新建一个分支<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch BlogSource</div></pre></td></tr></table></figure></p>
 <p> 切换到新的分支<br> <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout BlogSource</div></pre></td></tr></table></figure></p>
 <p> 新分支发布到github<br> <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin Branch1</div></pre></td></tr></table></figure></p>
+<h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h4><p> 将hexo的源文件一起上传至Github上。<br> 假设本地父目录是：github.io<br> 子目录是：hexo<br> hexo的相关操作生成的文件都放在hexo目录下。<br> 建立2个分支，一个是hexo用于存放源文件，一个是master为默认生成文件的存放位置。由于我们只同步hexo分支下的文件，所以设置hexo为默认分支。</p>
+<p>在<code>hexo</code>父目录下，右键选择<code>git bash here</code>.</p>
+<ol>
+<li><p>查看远程服务器地址和本地仓库。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git remote -v</div><div class="line"><span class="comment">// 如果提示信息为：</span></div><div class="line"><span class="comment">// ``fatal: Not a git repository (or any of the parent directories): .git``</span></div><div class="line"><span class="comment">// 证明当前目录没有建立仓库。</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>初始化本地仓库。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加远程主机。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote <span class="keyword">add</span> origin git@github.com:guojia/guojia.github.io</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看远程服务器地址。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote -v</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看分支信息</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -v</div></pre></td></tr></table></figure>
+</li>
+<li><p>在本地创建一个分支</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch hexo</div></pre></td></tr></table></figure>
+</li>
+<li><p>切换到hexo分支</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout hexo</div></pre></td></tr></table></figure>
+</li>
+<li><p>将远程主机上的hexo分支文件拉取至本地。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin hexo</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加本地所有源文件到hexo分支，提交，并推送到远程主机。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">add</span> .</div><div class="line">git commit -m <span class="string">"hexo source files"</span></div><div class="line">git push origin hexo</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>或者方法二：</p>
+<ol>
+<li><p>将hexo分支上的文件克隆至本地。<br><code>克隆前和克隆后都可以先查看当前目录下的信息：</code><br><code>git status</code><br><code>git remote -v</code><br><code>git branch -v</code></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone -b hexo git@github.com:guojia/guojia.github.io</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加远程主机</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote <span class="keyword">add</span> origin git@github.com:guojia/guojia.github.io</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加本地文件</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">add</span> .</div></pre></td></tr></table></figure>
+</li>
+<li><p>提交</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m <span class="string">"message"</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>推送</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin hexo</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>参考：<br><a href="http://ruanyifeng.com/blog/2014/06/git_remote.html" target="_blank" rel="external">http://ruanyifeng.com/blog/2014/06/git_remote.html</a><br><a href="https://www.zhihu.com/question/21193762/answer/138139539" target="_blank" rel="external">https://www.zhihu.com/question/21193762/answer/138139539</a><br><a href="http://blog.csdn.net/binyao02123202/article/details/20130891" target="_blank" rel="external">http://blog.csdn.net/binyao02123202/article/details/20130891</a><br><a href="http://blog.csdn.net/win_lin/article/details/17037731" target="_blank" rel="external">http://blog.csdn.net/win_lin/article/details/17037731</a><br>《git常用命令整理》(<a href="http://justcoding.iteye.com/blog/1830388" target="_blank" rel="external">http://justcoding.iteye.com/blog/1830388</a>)<br>《Github的分支创建与合并》<a href="http://www.cnblogs.com/horanly/p/6265182.html" target="_blank" rel="external">http://www.cnblogs.com/horanly/p/6265182.html</a><br>《gitHub如何切换到非master分支的其他分支 》<a href="http://blog.csdn.net/hsany330/article/details/51820860" target="_blank" rel="external">http://blog.csdn.net/hsany330/article/details/51820860</a></p>
 
-      
+        </div>
+      </article>
     </div>
-
-    <div>
+    <!-- Comments -->
+    <div class="container">
       
-        
+<section id="comment">
+  <!-- <h1 class="title">留言</h1> -->
 
-      
+  
+</section>
+
+
     </div>
-
-    <div>
+    <!-- Pre or Next -->
+    <div class="nav-links">
       
-        
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>欣赏此文？求鼓励，求支持！</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赞赏支持</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/images/wechatpay.png" alt="郭佳 WeChat Pay"/>
-          <p>微信打赏</p>
+        <div class="nav-previous">
+          <a href="/2017/04/17/jin-ben-wei/" rel="prev"><span class="meta-arraw meta-arraw-left"></span> 上一页</a>
         </div>
       
       
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/images/alipay.png" alt="郭佳 Alipay"/>
-          <p>支付宝打赏</p>
+        <div class="nav-next">
+          <a href="/2017/04/11/git-ssh/" rel="prev">下一页 <span class="meta-arraw meta-arraw-right"></span></a>
         </div>
       
+    </div>
+
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <!-- Footer-widgets -->
+<div class="footer-widgets">
+  <div class="row inside-wrapper">
+    <div class="col-1-3">
+      <aside>
+        <h1 class="widget-title">关于本站</h1>
+        <div class="custom-widget-content">
+          
+          <ul><li><a href="https://github.com/GallenHu/hexo-theme-Daily">如何自定义这里的内容(配置教程)?</a></li></ul>
+        </div>
+      </aside>
+    </div>
+    <div class="col-1-3">
+      <aside>
+        <h1 class="widget-title">与我联系</h1>
+        <div class="widget-text">
+          
+            
+              <a href="https://github.com/GallenHu" class="icon icon-github" target="_blank">github</a>
+            
+          
+        </div>
+      </aside>
+    </div>
+    <div class="col-1-3">
+      <aside>
+        <h1 class="widget-title">站内搜索</h1>
+        <div class="widget-text">
+          <form onSubmit="return appDaily.submitSearch('')">
+            <p>
+              <input type="text" placeholder="search..." id="homeSearchInput">
+            </p>
+            <!-- <input type="submit" value="GO"> -->
+          </form>
+        </div>
+      </aside>
     </div>
   </div>
-
-
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-        
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/04/11/git-ssh/" rel="next" title="Git生成SSH密钥">
-                <i class="fa fa-chevron-left"></i> Git生成SSH密钥
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-          
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
+</div>
+<!-- Footer -->
+<footer class="site-info">
+  <p>
+    <span>QinHuai &copy; 2017</span>
     
-  </div>
+      <span class="split">|</span>
+      <span>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> with Theme <a href="https://github.com/GallenHu/hexo-theme-Daily" target="_blank">Daily</a></span>
+    
+  </p>
+</footer>
 
 
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
+  <!-- After footer scripts -->
+  <!-- scripts -->
+<script src="/js/app.js"></script>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
 
-      
 
-      
-
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/author.jpg"
-               alt="郭佳" />
-          <p class="site-author-name" itemprop="name">郭佳</p>
-          <p class="site-description motion-element" itemprop="description"></p>
-        </div>
-        <nav class="site-state motion-element">
-        
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">郭佳</span>
-</div>
-
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
-
-
-        
-
-        
-      </div>
-    </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-  
-  
-
-  
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("", "");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
 
 
 </body>
+
 </html>

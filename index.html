@@ -1,2246 +1,438 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="zh-CN">
+<!-- Head tag -->
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
+  <!--Description-->
   
 
+  <!--Author-->
   
-    
-    
-  
-
+  <meta name="author" content="郭佳">
   
 
+  <!--Open Graph Title-->
+  
+      <meta property="og:title" content="QinHuai"/>
+  
+  <!--Open Graph Description-->
+  
+  <!--Open Graph Site Name-->
+  <meta property="og:site_name" content="QinHuai"/>
+  <!--Type page-->
+  
+      <meta property="og:type" content="website" />
+  
+  <!--Page Cover-->
   
 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Title -->
   
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
+  <title>QinHuai</title>
 
 
+  <link rel="shortcut icon" href="https://hexo.io/icon/favicon-96x96.png">
 
+  <!-- Custom CSS/Sass -->
+  <link rel="stylesheet" href="/css/style.css">
 
+  <!----------------------------
+  https://github.com/GallenHu/hexo-theme-Daily
 
+ _____            _   _
+|  __ \          (_) | |
+| |  | |   __ _   _  | |  _   _
+| |  | |  / _` | | | | | | | | |
+| |__| | | (_| | | | | | | |_| |
+|_____/   \__,_| |_| |_|  \__, |
+                          __/ |
+                         |___/
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    --------------------------->
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
-
-
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="QinHuai">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="QinHuai">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="QinHuai">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/"/>
-
-
-
-
-
-  <title> QinHuai </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  
+<body>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">QinHuai</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-    
-      <p class="site-subtitle"></p>
-    
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
+  <!-- Nav -->
+  <header class="site-header">
+  <div class="header-inside">
+    <div class="logo">
+      <a href="/" rel="home">
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
+        <img src="https://hexo.io/logo.svg" alt="QinHuai" height="60">
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/11/git-branch/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="郭佳">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/author.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="QinHuai">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
+      </a>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse">
+        <ul class="navbar-nav">
+          
+          
+            <li>
+              <a href="/.">
                 
-                <a class="post-title-link" href="/2017/04/11/git-branch/" itemprop="url">
-                  git branch
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-11T16:23:02+08:00">
-                2017-04-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/11/git-branch/" class="leancloud_visitors" data-flag-title="git branch">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>一、启动git bash</p>
-<ol>
-<li>可以从安装程序直接点击git bash启动</li>
-<li>在要操作的问价夹下右键单价，选择git bash菜单启动。</li>
-</ol>
-<p>远程操作的第一步，通常是从远程主机克隆一个版本库，这时就要用到<code>git clone</code>命令。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> &lt;远程版本库的网址&gt; &lt;本地目录&gt;</div></pre></td></tr></table></figure></p>
-<p>本地目录可以省略，省略时默认克隆到当前文件夹下。</p>
-<p>二、 知己知彼，百战不殆</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git remote</div><div class="line">$ git remote -v</div><div class="line">$ git remote show &lt;主机名&gt;</div><div class="line">$ git remote add &lt;主机名&gt; &lt;远程主机地址&gt;</div><div class="line">$ git remote rm &lt;主机名&gt;</div></pre></td></tr></table></figure>
-<ol>
-<li><p>为了便于管理，Git要求每个远程主机都必须指定一个主机名。git remote命令就用于管理主机名。<br>不带选项的时候，git remote命令列出所有远程主机。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git remote</div><div class="line">origin</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用-v选项，可以参看远程主机的网址。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git remote -v</div><div class="line">origin  git@github.com:jquery/jquery.git (fetch)</div><div class="line">origin  git@github.com:jquery/jquery.git (push)</div><div class="line">上面命令表示，当前只有一台远程主机，叫做origin，以及它的网址。</div></pre></td></tr></table></figure>
-</li>
-<li><p>git remote show命令加上主机名，可以查看该主机的详细信息。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git remote show &lt;主机名&gt;</div><div class="line">//比如: $ git remote show origin</div></pre></td></tr></table></figure>
-</li>
-<li><p>git remote add命令用于添加远程主机。</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote <span class="keyword">add</span> &lt;主机名&gt; &lt;网址&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>git remote rm命令用于删除远程主机。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote rm &lt;主机名&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>git remote rename命令用于远程主机的改名。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote rename &lt;原主机名&gt; &lt;新主机名&gt;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>三、分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git branch</div><div class="line">$ git branch -r</div><div class="line">$ git branch <span class="_">-a</span></div></pre></td></tr></table></figure></p>
-<p>四、本地操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git rm &lt;文件名&gt;</div><div class="line">$ git rm -r &lt;文件夹名&gt;</div></pre></td></tr></table></figure></p>
-<p>五、添加文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add &lt;文件名&gt;</div><div class="line">$ git add .</div></pre></td></tr></table></figure></p>
-<p>六、提交<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -m <span class="string">"提交说明信息"</span></div></pre></td></tr></table></figure></p>
-<p>七、同步<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push &lt;主机名&gt; &lt;分支&gt;</div></pre></td></tr></table></figure></p>
-<p>分支操作：</p>
-<p>首先, clone 一个远端仓库，到当前目录下<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ Git clone git:<span class="comment">//example.com/myproject $ cd myproject</span></div></pre></td></tr></table></figure></p>
-<p>克隆分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Git <span class="built_in">clone</span> -b maven https://github.com/Oracle-ao/ao-shop.git</div></pre></td></tr></table></figure></p>
-<p>然后，看看你本地有什么分支：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch</div></pre></td></tr></table></figure></p>
-<p>但是有些其他分支你在的仓库里面是隐藏的，你可以加上－a选项来查看它们：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -a</div></pre></td></tr></table></figure></p>
-<p>屏幕信息：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* master</div></pre></td></tr></table></figure></p>
-<p>在本地新建一个分支<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch BlogSource</div></pre></td></tr></table></figure></p>
-<p> 切换到新的分支<br> <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout BlogSource</div></pre></td></tr></table></figure></p>
-<p> 新分支发布到github<br> <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin Branch1</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/11/git-ssh/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="郭佳">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/author.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="QinHuai">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
+                  home
                 
-                <a class="post-title-link" href="/2017/04/11/git-ssh/" itemprop="url">
-                  Git生成SSH密钥
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-11T15:05:10+08:00">
-                2017-04-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
+              </a>
+            </li>
           
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/11/git-ssh/" class="leancloud_visitors" data-flag-title="Git生成SSH密钥">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>运行git bash客户端。<br>一、设置git的user name和email<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --<span class="keyword">global</span> user.name <span class="string">"name"</span></div><div class="line">$ git config --<span class="keyword">global</span> user.email <span class="string">"name@mail.com"</span></div></pre></td></tr></table></figure></p>
-<p>二、查看git配置<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$git config --lis</div></pre></td></tr></table></figure></p>
-<p>三、生成SSH密钥<br>1.查看是否已经有了ssh密钥<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd ~/.ssh</div><div class="line">ls</div></pre></td></tr></table></figure></p>
-<p>这两个命令就是检查是否已经存在 id_rsa.pub 或 id_dsa.pub 文件，如果文件已经存在，那么你可以跳过步骤2，直接进入步骤3。</p>
-<p>2.生成密钥<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"username@email.com"</span></div></pre></td></tr></table></figure></p>
-<p>按3个回车，密码为空这里一般不使用密钥。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Your identification has been saved <span class="keyword">in</span> /home/.ssh/id_rsa.  </div><div class="line">Your public key has been saved <span class="keyword">in</span> /home/.ssh/id_rsa.pub.</div></pre></td></tr></table></figure>
-<p>最后得到了两个文件：id_rsa和id_rsa.pub。</p>
-<p>3.添加 私密钥 到ssh：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-<span class="keyword">add</span> id_rsa</div></pre></td></tr></table></figure></p>
-<p>需要之前输入密码（如果有）。</p>
-<p>4.在github上添加ssh密钥，这要添加的是<code>id_rsa.pub</code>里面的公钥。<br>打开<code>http://github.com</code>，登陆账号，然后添加ssh。<br>注意在这里由于直接复制粘帖公钥，可能会导致增加一些字符或者减少些字符，最好用系统工具xclip来做这些事情。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xclip -selection c  id_rsa.pub</div></pre></td></tr></table></figure></p>
-<p>5.测试是否生效<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh git@github.com</div></pre></td></tr></table></figure></p>
-<p>成功信息。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">PTY allocation request failed on channel 0  </div><div class="line">Hi username ! You've successfully authenticated, but GitHub does not provide shell access.  </div><div class="line">Connection to github.com closed.</div></pre></td></tr></table></figure></p>
-<p>参考<br>《<a href="http://www.yiibai.com/git/what_is_version_control.html" target="_blank" rel="external">git教程</a>》<br>《<a href="http://blog.csdn.net/xsckernel/article/details/8563993" target="_blank" rel="external">git使用</a>》<br>《<a href="http://blog.csdn.net/binyao02123202.article/details/20130891" target="_blank" rel="external">git bash设置ssh</a>》</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/11/git/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="郭佳">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/author.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="QinHuai">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/11/git/" itemprop="url">
-                  将本地项目上传至github
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-11T11:49:51+08:00">
-                2017-04-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/11/git/" class="leancloud_visitors" data-flag-title="将本地项目上传至github">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <center><br>《<a href="http://www.jianshu.com/p/df7ce9f3a5cb" target="_blank" rel="external">如何用命令行在github新建一个项目</a>》<br></center>
-
-<p>前言：<br>　新建github帐号和git的基础知识那些就默认读者掌握并且已经添加自己电脑的<code>SSHKey</code>到<code>github</code>，下面主要说一下如何在<code>github</code>新建项目。</p>
-<p>新建项目分2种情况：</p>
-<ol>
-<li>代码从零开始。</li>
-<li>本地已经存在项目代码，只是想放到github上开源或者存放。</li>
-</ol>
-<p>然而，无论是哪种情况，都得先在github新建一个项目的仓库。<br>登录github后，找到Repositories这个tab，然后点击红框中的new来新建一个项目仓库。<br>其中问你要不要添加项目的忽略文件(.gitigore)还有要不要为你的项目增加一个许可证(license)。<br>上面的根据你自己的实际需要填完和选择即可，然后点击绿色的按钮就会创建一个项目仓库了。<br>然后就会跳转到你项目的一个主页。</p>
-<h3 id="代码从零开始"><a href="#代码从零开始" class="headerlink" title="代码从零开始"></a>代码从零开始</h3><p>　你可以在本地创建一个空白的文件夹，然后克隆刚刚创建的项目(ps: clone url 在项目主页的右下方位置可以找到)本地，然后添加代码再上传。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir emptyFolder</div><div class="line">cd emptyFodler</div><div class="line">git clone https:<span class="comment">//github.com/youraccount/yourproject.git</span></div></pre></td></tr></table></figure></p>
-<p>　然后剩下的就是git add和git push的事情。</p>
-<h3 id="本地已经存在代码"><a href="#本地已经存在代码" class="headerlink" title="本地已经存在代码"></a>本地已经存在代码</h3><p><li>在你的项目文件目录先执行命令git init，使之成为一个git仓库.<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure></li></p>
-<p><li>将项目里所有文件加到本地的仓库，使用以下命令.<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">add</span> .  <span class="comment">//注意还有一个小圆点</span></div><div class="line">git commit -m <span class="string">"some message for this project."</span>	<span class="comment">//确认添加</span></div></pre></td></tr></table></figure></li></p>
-<p><li>然后将github上的项目pull下来.<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull https:<span class="comment">//github.com/youraccount/yourproject.git</span></div></pre></td></tr></table></figure></li></p>
-<p><li>为版本库添加名为origin的远程版本库。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote <span class="keyword">add</span> origin https:<span class="comment">//github.com/youraccount/yourproject.git</span></div></pre></td></tr></table></figure></li></p>
-<p><li>执行推送命令，完成<code>GitHub</code>版本库的初始化.注意命令行中的<code>-u</code>参数，在推送成功后自动建立本地分支与远程版本库分支的追踪<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push -u origin master</div></pre></td></tr></table></figure></li></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/10/open-source-project/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="郭佳">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/author.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="QinHuai">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/10/open-source-project/" itemprop="url">
-                  开源项目集合
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-10T11:39:08+08:00">
-                2017-04-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/10/open-source-project/" class="leancloud_visitors" data-flag-title="开源项目集合">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://code.csdn.net/openkb/p-MaNGOS" target="_blank" rel="external">魔兽私服开源项目</a><br><a href="https://github.com/NetEase/pomelo-unityclient" target="_blank" rel="external">pomelo服务器框架</a></p>
-<!-- 捕鱼 https://github.com/kingstop/HardwareProject -->
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/08/driving-exam-two/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="郭佳">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/author.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="QinHuai">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/08/driving-exam-two/" itemprop="url">
-                  科目二新手考前必看
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-08T10:35:19+08:00">
-                2017-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/08/driving-exam-two/" class="leancloud_visitors" data-flag-title="科目二新手考前必看">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="本文尽量以最精炼的语言让你掌握科目二的所有项目。"><a href="#本文尽量以最精炼的语言让你掌握科目二的所有项目。" class="headerlink" title="本文尽量以最精炼的语言让你掌握科目二的所有项目。"></a>本文尽量以最精炼的语言让你掌握科目二的所有项目。</h2><p>适合刚学倒车入库，或者马上要参加科二考试的学员。<br>周五刚刚考完科二，由于练车时间短，所以险过。这里把科二的关键点以及教练平时讲到的重点记录下来，希望能帮到正在学车的学员顺利通过考试。（但对于刚学一天车，第二次上车就可以开的飞起来的大神级学员是绝对没必要往下看的，你只要考科二别超车基本就能过了。）<br>考试流程是基于27考点和悦考场来说的，每个考点可能会多少有些差异。<br>整个科二的考试是有口诀的，没错，就是有口诀。这是在我练习时间少，考场模拟的时候错误百出，不断出现各种状况的情况下，不得已找出的方法。其实就是教练经常说的几句核心：</p>
-<h2 id="口诀"><a href="#口诀" class="headerlink" title="口诀"></a>口诀</h2><p>6句话：<center><strong> 对位置，<br>踩定点。<br>打方向，<br>修方向，<br>回方向。<br>点到停车。</strong><br></center></p>
-<blockquote>
-<p>简单说明一下6句话。后面会对照这几句话详细说明每一项的具体操作，包括对位置的方法，打方向的时机，修方向的方式，何时回正方向都会解释。这几句话稍加变化就适用几乎所有科二项目。</p>
-<ul>
-<li>踩定点：就是将车开到那个点停下来，然后进行后续操作的那个点。比如倒车入库当窗钉越过白色虚线时停下来，准备倒车，这个点在这里称为定点。</li>
-<li>打方向：方向盘打满。</li>
-</ul>
-</blockquote>
-<p><strong>除了口诀还要时刻考虑是否要打方向车灯：</strong><br>科二考试中是需要打车灯的，但是只打左方向灯，警示灯，和近光灯。至于哪些项目需要打车灯？记住我告诉你的答案，每一项都需要打方向灯（其实我是骗你的，至于哪里在骗你，为什么骗你，看完后你就知道了。再强调一次，每一项操作前，都先考虑是否打方向灯）。</p>
-<h2 id="做准备"><a href="#做准备" class="headerlink" title="做准备"></a>做准备</h2><ol>
-<li>调整座椅位置，角度。<br><code>标准：腿伸直刚好能把离合和刹车踩到底，稍微往前一点的距离。座椅角度接近垂直。</code></li>
-<li>调整左右后视镜。<br><code>标准：向下-向里-向下，最后调到能看到车身第二个门把手，大概在后视镜2/3位置。</code></li>
-<li>系安全带</li>
-<li>离合、刹车踩到底</li>
-<li>挂1档，松手刹</li>
-</ol>
-<h2 id="9个考试项目"><a href="#9个考试项目" class="headerlink" title="9个考试项目"></a>9个考试项目</h2><p>科二项目共9个，平时学习的5个加上4个简单项目构成。按考试顺序排列如下：<br>模拟高速刷卡、倒车入库、侧方停车、窄路掉头、斜坡定点停车和起步、曲线行驶、直角转弯、模拟紧急情况处置、模拟隧道行驶</p>
-<h3 id="一、模拟高速刷卡"><a href="#一、模拟高速刷卡" class="headerlink" title="一、模拟高速刷卡"></a>一、模拟高速刷卡</h3><ol>
-<li>打车灯：起步前，打开左转向灯；松离合至半联动状态，松刹车。起步。</li>
-<li>对位置：车子一边行驶，一边用车子的<strong>左龙筋</strong>去对刷卡器旁边的水泥线。这个位置能保证够到刷卡器。</li>
-<li>踩定点：当肩与刷卡器平的时候，踩离合，踩刹车，停车。</li>
-<li>挂空挡、拉手刹。</li>
-<li>右手不离开方向盘的情况下，左手去按刷卡器上的绿色按钮。</li>
-<li>挂1档，松手刹。驶入下一项目。</li>
-</ol>
-<blockquote>
-<p>高速刷卡是需要空挡拉手刹的唯一项目。</p>
-</blockquote>
-<h3 id="二、倒车入库"><a href="#二、倒车入库" class="headerlink" title="二、倒车入库"></a>二、倒车入库</h3><h4 id="（一）右入库"><a href="#（一）右入库" class="headerlink" title="（一）右入库"></a>（一）右入库</h4><ol>
-<li>对位置：车子<strong>左龙筋</strong>去对考试区域的水泥线。</li>
-<li>踩定点：当车窗的钉子过白色虚线时停车（踩离合，踩刹车）。</li>
-<li>打方向：挂倒挡，松离合，松刹车，开始倒车；当前窗中间线到达竖杆时，向右打死。马上盯紧右视镜。</li>
-<li>修方向：右视镜中会依次出现左库角，右库角。出现右库角后，紧盯左视镜。当左视镜中出现左库角时方向盘回半圈。</li>
-<li>回方向：回完半圈后左右视镜都看一下，当看到镜子中车身与库边线平行的时候，回正方向盘。</li>
-<li>点到停车：当前窗中间线与停车点对齐时停车。</li>
-</ol>
-<h4 id="（二）左出库"><a href="#（二）左出库" class="headerlink" title="（二）左出库"></a>（二）左出库</h4><ol>
-<li>起步：挂1档，松离合，松刹车，起步。</li>
-<li>打方向：当车头压到黄色实线时向左打死（1圈半）。</li>
-<li>修方向：当车身快回正时方向盘回半圈。</li>
-<li>回方向：当车身摆正时方向盘回正（回1圈）。</li>
-<li>到点停车：前窗钉过白色虚线时停车。</li>
-</ol>
-<h4 id="（三）左入库"><a href="#（三）左入库" class="headerlink" title="（三）左入库"></a>（三）左入库</h4><ol>
-<li>倒车：挂倒挡，松离合，松刹车，开始倒车；</li>
-<li>打方向：当前窗中间线到达竖杆时，向左打死（1圈半）。马上盯紧左视镜。</li>
-<li>修方向：左视镜中会依次出现右库角，左库角。出现左库角后，紧盯右视镜。当右视镜中出现右库角时方向盘回半圈。</li>
-<li>回方向：回完半圈后左右视镜都看一下，当看到镜子中车身与库边线平行的时候，回正方向盘。</li>
-<li>点到停车：当前窗中间线与停车点对齐时停车。</li>
-</ol>
-<h4 id="（四）右出库"><a href="#（四）右出库" class="headerlink" title="（四）右出库"></a>（四）右出库</h4><ol>
-<li>起步：挂1档，松离合，松刹车，起步。</li>
-<li>打方向：当车头压到黄色实线时向右打死（1圈半）。</li>
-<li>修方向：当车身快回正时方向盘回半圈。</li>
-<li>回方向：当车身摆正时方向盘回正（回1圈）。</li>
-<li>调整方向，驶向下一项目。</li>
-</ol>
-<h3 id="三、侧方停车"><a href="#三、侧方停车" class="headerlink" title="三、侧方停车"></a>三、侧方停车</h3><h4 id="（一）入库"><a href="#（一）入库" class="headerlink" title="（一）入库"></a>（一）入库</h4><ol>
-<li>对位置：<strong>右龙筋</strong>去对侧方停车位的左边线，保证车子距离左边线大概30公分。</li>
-<li>踩定点：当车子到达打方向的那根竖杆前一小段就可以停车。</li>
-<li>打方向：挂倒挡，倒车。当前车窗中间线对齐竖杆时向右打死。马上盯左视镜。</li>
-<li>回方向：当左视镜中出现内库角时，方向盘向左回2圈。</li>
-<li>打方向：继续盯左视镜，当左后车轮压到左边线时，马上向左打死（1圈）。</li>
-<li>车正停车：观察左右视镜，当车身与边线平行时，踩离合踩刹车停车。（方向盘不用回。）</li>
-</ol>
-<h4 id="（二）出库"><a href="#（二）出库" class="headerlink" title="（二）出库"></a>（二）出库</h4><ol>
-<li>方向灯：打开左转向灯。挂1档，保持方向盘向左打死，起步。</li>
-<li>回方向：当车子<strong>右龙筋</strong>过侧方停车位的左边线时，回正方向盘。向前行驶一小段。</li>
-<li>打方向：当<strong>右龙筋</strong>挨到马路中间黄线时，向右打1圈。</li>
-<li>回方向：当车身摆正时方向回正。</li>
-<li>调整方向盘驶入下一项目。</li>
-</ol>
-<h3 id="四、窄路掉头"><a href="#四、窄路掉头" class="headerlink" title="四、窄路掉头"></a>四、窄路掉头</h3><p>简单：省略。<br>难度系数：0。</p>
-<h3 id="五、坡道定点停车和起步"><a href="#五、坡道定点停车和起步" class="headerlink" title="五、坡道定点停车和起步"></a>五、坡道定点停车和起步</h3><h4 id="（一）坡道停车"><a href="#（一）坡道停车" class="headerlink" title="（一）坡道停车"></a>（一）坡道停车</h4><ol>
-<li>对位置：用车子右边起1/3的位置去追坡道的右边线。保证距离右边线30公分左右。上坡的时候多松点离合。</li>
-<li>踩定点：当前窗中间线过水泥缝10公分左右时，踩离合踩刹车停车。</li>
-</ol>
-<h4 id="（二）坡道起步"><a href="#（二）坡道起步" class="headerlink" title="（二）坡道起步"></a>（二）坡道起步</h4><ol>
-<li>打车灯：打开左转向灯。</li>
-<li>起步：松离合至车头抬起，松刹车，起步。（这里多松离合，感受车子的震动程度，慢慢松刹车）</li>
-</ol>
-<blockquote>
-<p>坡道起步不需要油门，科二都不需要油门的操作。</p>
-</blockquote>
-<h3 id="六、曲线行驶"><a href="#六、曲线行驶" class="headerlink" title="六、曲线行驶"></a>六、曲线行驶</h3><p>弯道为先左弯道，后右弯道的标准弯道。</p>
-<ol>
-<li>对位置：保证车子从S弯入口中心偏右驶入S弯。</li>
-<li>打方向：进入入口后，观察车的<strong>左龙筋</strong>，当<strong>左龙筋</strong>挨到右边线时，向左打1圈。然后紧盯左视镜。</li>
-<li>修方向：观察左视镜中左边曲线和车身的距离，如果越来越大就向左微调方向盘（一般1/4圈微调），如果越来越小就向右微调方向盘，微调后即时回正微调。</li>
-<li>回方向：观察<strong>右龙筋</strong>，当<strong>右龙筋</strong>要离开右边线的时候，回正方向盘（向右打一圈），继续行驶。</li>
-<li>打方向：继续观察<strong>右龙筋</strong>，当<strong>右龙筋</strong>挨到左边线时，向右打一圈。</li>
-<li>修方向：观察右视镜，右边曲线和车身距离，如果越来越大就向右微调，如果越来越小就向左微调，微调后即时回正微调。</li>
-<li>回正方向：当车身与出口将要平行时，慢慢回正方向盘。驶出S弯。进入下一项目。</li>
-</ol>
-<blockquote>
-<p>如果成功过了S弯，科二考试基本就没什么问题了。</p>
-</blockquote>
-<h3 id="七、直角转弯"><a href="#七、直角转弯" class="headerlink" title="七、直角转弯"></a>七、直角转弯</h3><ol>
-<li>对位置：用<strong>右龙筋</strong>去追右边线。</li>
-<li>打方向：当左视镜与直角<strong>空间上</strong>处在同一条直线上时，向左打满方向。</li>
-<li>回方向：然后一直观察左视镜，当确认左后轮没有压到直角，并且过直角后方向盘慢慢回正。</li>
-<li>驶入下一项目。</li>
-</ol>
-<blockquote>
-<p>左视镜与直角空间上处于同一条直线，是指假设你在该位置停车，然后把你手机自然下垂放在左视镜的位置，然后松手，手机应该正好落在直角<strong>上边线</strong>的延长线上。</p>
-</blockquote>
-<h3 id="八、模拟紧急情况处置"><a href="#八、模拟紧急情况处置" class="headerlink" title="八、模拟紧急情况处置"></a>八、模拟紧急情况处置</h3><blockquote>
-<p>听到语音：前方模拟紧急情况处置。等待随机一段时间后，会<br>听到语音：”紧急障碍物”时，</p>
-</blockquote>
-<ol>
-<li>急刹车：离合刹车一起踩到底。</li>
-<li>开警示灯：急刹车的同时，开警示灯。警示灯滴答四五下后关闭警示灯。松离合，松刹车。驶入下一项。</li>
-</ol>
-<h3 id="九、模拟隧道行驶"><a href="#九、模拟隧道行驶" class="headerlink" title="九、模拟隧道行驶"></a>九、模拟隧道行驶</h3><ol>
-<li>开近照灯：驶入隧道前打开近光灯。</li>
-<li>关近照灯：驶出隧道前关闭近光灯。</li>
-</ol>
-<p>从隧道驶出之后，结束，将车停到引车员指定的位置，停车的过程中应该就能听到你考试合格的语音。</p>
-<p>后记：由于没有开通留言功能，所以想留言的同学直接点击下面的打赏按钮吧，把留言写在红包里。<br>后记的后记：想钱想疯了吧真的是。还是微信留言吧。</p>
-<p><img src="/2017/04/08/driving-exam-two/wechat.jpg" width="200px"></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/05/unity-get-objects-of-type/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="郭佳">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/author.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="QinHuai">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/05/unity-get-objects-of-type/" itemprop="url">
-                  Unity获取某一类物体
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-05T13:09:19+08:00">
-                2017-04-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/05/unity-get-objects-of-type/" class="leancloud_visitors" data-flag-title="Unity获取某一类物体">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Unity中经常需要取出当前工程中的某一类所有物体（对象）。比如NGUI中取出所有的Atlas，并将图集Atlas打包的图片还原成合并之前的单个Sprite。<br>Unity中可以使用<code>Resources.FindObjectsOfTypeAll&lt;T&gt;();</code>获取。</p>
-<p>比如：获取所有UIAtlas的代码。</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">UIAtlas[] atlasArray = Resources.FindObjectsOfTypeAll&lt;UIAtlas&gt;();</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = atlasArray.Length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</div><div class="line">&#123;</div><div class="line">    UIAtlas atlas = atlasArray[i];</div><div class="line">    Generate(atlas);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/30/swig/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="郭佳">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/author.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="QinHuai">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/30/swig/" itemprop="url">
-                  Hexo模板渲染引擎Swig语法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-30T18:06:43+08:00">
-                2017-03-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/03/30/swig/" class="leancloud_visitors" data-flag-title="Hexo模板渲染引擎Swig语法">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h1><table>
-<thead>
-<tr>
-<th style="text-align:left">符号</th>
-<th style="text-align:left">语法</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"> {{ }} </td>
-<td style="text-align:left">  {{变量开始标记符；}}变量结束标记符 </td>
-<td style="text-align:left"> {{a}}：声明变量a </td>
-</tr>
-<tr>
-<td style="text-align:left">  {% %}  </td>
-<td style="text-align:left">  {%块开始标记符；%}块结束标记符 </td>
-<td style="text-align:left"> {% if is_index %}：声明语句if is_index </td>
-</tr>
-<tr>
-<td style="text-align:left">  {# #}  </td>
-<td style="text-align:left">  {#注释开始标记符；#}注释结束标记符 </td>
-<td style="text-align:left"> {# note:disable template！ #} </td>
-</tr>
-</tbody>
-</table>
-<h1 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h1><table>
-<thead>
-<tr>
-<th style="text-align:left">符号</th>
-<th style="text-align:left">语法</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">. 或者[]</td>
-<td style="text-align:left">变量的属性访问</td>
-<td style="text-align:left"> {{foo.bar}}或`{{foo['bar']}} </td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">参考</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">《<a href="http://docs.jinkan.org/docs/jinja2/templates.html" target="_blank" rel="external">模板设计者</a>》</td>
-</tr>
-<tr>
-<td style="text-align:center">《<a href="http://jinfang.oschina.io/posts/124966c9/" target="_blank" rel="external">next主题的模板引擎swig语法介绍</a>》</td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/28/hexo-table/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="郭佳">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/author.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="QinHuai">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/28/hexo-table/" itemprop="url">
-                  Hexo表格
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-28T10:37:01+08:00">
-                2017-03-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/03/28/hexo-table/" class="leancloud_visitors" data-flag-title="Hexo表格">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">| 排序方法 | 平均情况 | 最好情况 | 最坏情况 | 辅助空间 | 稳定性 |</div><div class="line">|:-----|:-----|:-----|:-----|:-----|:-----|</div><div class="line">| 冒泡排序 | O(n²) | O(nlogn) | O(n²) | O(<span class="number">1</span>) | 稳定 |</div><div class="line">| 简单选择 | O(n²) | O(n²) | O(n²) | O(<span class="number">1</span>) | 稳定 |</div><div class="line">| 直接插入 | O(n²) | O(n) | O(n²) | O(<span class="number">1</span>) | 稳定 |</div><div class="line">| 希尔排序 | O(nlogn)~O(n²) | O(n^<span class="number">1.3</span>) | O(n²) | O(<span class="number">1</span>) | 不稳定 |</div><div class="line">| 堆排序 | O(nlogn) | O(nlogn) | O(nlogn) | O(<span class="number">1</span>) | 不稳定 |</div><div class="line">| 归并排序 | O(nlogn) | O(nlogn) | O(nlogn) | O(n) | 不稳定 |</div><div class="line">| 快速排序 | O(nlogn) | O(nlogn) | O(n²) | O(nlogn)~O(n) | 不稳定 |</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/28/hexo-table/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/27/ugui-scrollview/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="郭佳">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/author.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="QinHuai">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/27/ugui-scrollview/" itemprop="url">
-                  UGUI Scrollview自动居中子项
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-27T19:03:44+08:00">
-                2017-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/03/27/ugui-scrollview/" class="leancloud_visitors" data-flag-title="UGUI Scrollview自动居中子项">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="一、原理"><a href="#一、原理" class="headerlink" title="一、原理"></a>一、原理</h1><p>使用UGUI实现日历的功能时，需要自动居中ScrollView的子项。<br>大致实现思路如下：</p>
-<ol>
-<li>初始时求出每个子项居中时的Container位置。</li>
-<li>当Scrollview滑动结束时快要停止时，获取最近的一个中心点。</li>
-<li>将Container移动至该中心点位置。</li>
-</ol>
-<h1 id="二、代码"><a href="#二、代码" class="headerlink" title="二、代码"></a>二、代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> UnityEngine;</div><div class="line"><span class="keyword">using</span> System.Collections.Generic;</div><div class="line"><span class="keyword">using</span> UnityEngine.UI;</div><div class="line"><span class="keyword">using</span> UnityEngine.EventSystems;</div><div class="line"><span class="keyword">using</span> System;</div><div class="line"></div><div class="line"><span class="comment">/// &lt;summary&gt;</span></div><div class="line"><span class="comment">/// 拖动ScrollRect结束时始终让一个子物体位于中心位置。</span></div><div class="line"><span class="comment">/// &lt;/summary&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> CenterOnChild : MonoBehaviour, IEndDragHandler, IDragHandler</div><div class="line">&#123;</div><div class="line">    <span class="comment">//将子物体拉到中心位置时的速度</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">float</span> mSpeed = <span class="number">15f</span>;</div><div class="line"></div><div class="line">    <span class="comment">/// &lt;summary&gt;</span></div><div class="line">    <span class="comment">/// 一屏显示的子项Item个数</span></div><div class="line">    <span class="comment">/// &lt;/summary&gt;</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> mShowCount = <span class="number">5</span>;</div><div class="line"></div><div class="line">    <span class="comment">/// &lt;summary&gt;</span></div><div class="line">    <span class="comment">/// 注册该事件获取当拖动结束时位于中心位置的子物体</span></div><div class="line">    <span class="comment">/// &lt;/summary&gt;</span></div><div class="line">    <span class="keyword">public</span> event Action&lt;GameObject&gt; OnCenter;</div><div class="line">    <span class="keyword">public</span> event Action&lt;<span class="keyword">int</span>&gt; OnIndexCenter;</div><div class="line"></div><div class="line">    <span class="comment">/// &lt;summary&gt;</span></div><div class="line">    <span class="comment">/// 小于该速度时对ScrollView进行修正，认为ScrollView移动快要停止，</span></div><div class="line">    <span class="comment">/// &lt;/summary&gt;</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> mMinSpeed = <span class="number">20f</span>;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ScrollRect mScrollView;</div><div class="line">    <span class="keyword">private</span> Transform mContainer;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> mTargetPosition;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> List&lt;<span class="keyword">float</span>&gt; mChildrenPos = <span class="keyword">new</span> List&lt;<span class="keyword">float</span>&gt;();</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Vector3 mPrevious;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mSampleCount = <span class="number">2</span>;</div><div class="line">    <span class="keyword">private</span> List&lt;<span class="keyword">float</span>&gt; mSampleSpeeds = <span class="keyword">new</span> List&lt;<span class="keyword">float</span>&gt;();</div><div class="line"></div><div class="line">    <span class="keyword">enum</span> CenteringState</div><div class="line">    &#123;</div><div class="line">        Init,</div><div class="line">        Ready,</div><div class="line">        Centering,</div><div class="line">        Finish,</div><div class="line">    &#125;</div><div class="line">    CenteringState mState = CenteringState.Init;</div><div class="line">    <span class="keyword">bool</span> hasInit = <span class="literal">false</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (hasInit)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        hasInit = <span class="literal">true</span>;</div><div class="line"></div><div class="line">        mScrollView = GetComponent&lt;ScrollRect&gt;();</div><div class="line">        <span class="keyword">if</span> (mScrollView == null)</div><div class="line">        &#123;</div><div class="line">            Debug.LogError(<span class="string">"CenterOnChild: No ScrollRect"</span>);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        mContainer = mScrollView.content;</div><div class="line"></div><div class="line">        GridLayoutGroup grid = mContainer.GetComponent&lt;GridLayoutGroup&gt;();</div><div class="line">        <span class="keyword">if</span> (grid == null)</div><div class="line">        &#123;</div><div class="line">            Debug.LogError(<span class="string">"CenterOnChild: No GridLayoutGroup on the ScrollRect's content"</span>);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        mScrollView.movementType = ScrollRect.MovementType.Unrestricted;</div><div class="line">        mScrollView.decelerationRate = <span class="number">0.0001f</span>;</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.InitCenterPositions();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (mState == CenteringState.Ready)</div><div class="line">        &#123;</div><div class="line">            Vector3 current = mContainer.localPosition;</div><div class="line">            <span class="keyword">if</span> (mSampleSpeeds.Count &gt;= mSampleCount)</div><div class="line">            &#123;</div><div class="line">                mSampleSpeeds.RemoveAt(<span class="number">0</span>);</div><div class="line">            &#125;</div><div class="line">            mSampleSpeeds.Add(Vector3.Distance(mPrevious, current));</div><div class="line"></div><div class="line">            <span class="keyword">int</span> sample = <span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = mSampleSpeeds.Count - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span> (mSampleSpeeds[i] &lt; mMinSpeed * Time.deltaTime)</div><div class="line">                &#123;</div><div class="line">                    sample++;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (sample == mSampleCount)</div><div class="line">            &#123;</div><div class="line">                mState = CenteringState.Centering;</div><div class="line">                mTargetPosition = FindClosestCenter(current.y);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            mPrevious = current;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (mState == CenteringState.Centering)</div><div class="line">        &#123;</div><div class="line">            Vector3 v = mContainer.localPosition;</div><div class="line">            v.y = Mathf.Lerp(mContainer.localPosition.y, mTargetPosition, mSpeed * Time.deltaTime);</div><div class="line">            mContainer.localPosition = v;</div><div class="line">            <span class="keyword">if</span> (Mathf.Abs(mContainer.localPosition.y - mTargetPosition) &lt; <span class="number">0.01f</span>)</div><div class="line">            &#123;</div><div class="line">                mState = CenteringState.Finish;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnEndDrag</span><span class="params">(PointerEventData eventData)</span></span></div><div class="line">    &#123;</div><div class="line">        mPrevious = mContainer.localPosition;</div><div class="line">        mState = CenteringState.Ready;</div><div class="line">        mSampleSpeeds.Clear();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnDrag</span><span class="params">(PointerEventData eventData)</span></span></div><div class="line">    &#123;</div><div class="line">        mState = CenteringState.Init;</div><div class="line">        mPrevious = mContainer.localPosition;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">float</span> <span class="title">FindClosestCenter</span><span class="params">(<span class="keyword">float</span> currentPos)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> childIndex = <span class="number">0</span>;</div><div class="line">        <span class="keyword">float</span> closest = <span class="number">0</span>;</div><div class="line">        <span class="keyword">float</span> distance = Mathf.Infinity;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mChildrenPos.Count; i++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">float</span> p = mChildrenPos[i];</div><div class="line">            <span class="keyword">float</span> d = Mathf.Abs(p - currentPos);</div><div class="line">            <span class="keyword">if</span> (d &lt; distance)</div><div class="line">            &#123;</div><div class="line">                distance = d;</div><div class="line">                closest = p;</div><div class="line">                childIndex = i;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        GameObject centerChild = mContainer.GetChild(childIndex).gameObject;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (OnCenter != null)</div><div class="line">            OnCenter(centerChild);</div><div class="line">        <span class="keyword">if</span> (OnIndexCenter != null)</div><div class="line">            OnIndexCenter(childIndex);</div><div class="line"></div><div class="line">        <span class="keyword">return</span> closest;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">InitCenterPositions</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        GridLayoutGroup grid = mContainer.GetComponent&lt;GridLayoutGroup&gt;();</div><div class="line">        mChildrenPos.Clear();</div><div class="line"></div><div class="line">        RectTransform rectTran = mScrollView.GetComponent&lt;RectTransform&gt;();</div><div class="line">        <span class="keyword">float</span> childPosy = -mShowCount / <span class="number">2</span> * grid.cellSize.y;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (mShowCount % <span class="number">2</span> == <span class="number">0</span>)</div><div class="line">        &#123;</div><div class="line">            childPosy = -(mShowCount - <span class="number">1</span>) * <span class="number">0.5f</span> * grid.cellSize.y;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        mChildrenPos.Add(childPosy);</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mContainer.childCount - <span class="number">1</span>; i++)</div><div class="line">        &#123;</div><div class="line">            childPosy += (grid.cellSize.y + grid.spacing.y);</div><div class="line">            mChildrenPos.Add(childPosy);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="三、运行效果"><a href="#三、运行效果" class="headerlink" title="三、运行效果"></a>三、运行效果</h1><p><img src="/2017/03/27/ugui-scrollview/calender.png" width="300" align="center"></p>
-<style>
-        table th:first-of-type{width:350px;}
-</style>
-
-<table>
-<thead>
-<tr>
-<th style="text-align:left">参考</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">《<a href="http://www.cnblogs.com/suoluo/p/5535420.html" target="_blank" rel="external">UGUI ScrollRect滑动居中CenterOnChild实现 </a>》</td>
-<td style="text-align:center">参考的这篇文章，算法思路简单有效，在其基础上进扩展很方便。我这里做了一些调整，就是当滑动快要停止的时候，才寻找最近的一个中心位置，而原文是在手指滑动结束后寻找中心位置。</td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/20/unity-log/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="郭佳">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/author.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="QinHuai">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/20/unity-log/" itemprop="url">
-                  unity log日志上传至服务器
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-20T15:09:05+08:00">
-                2017-03-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/03/20/unity-log/" class="leancloud_visitors" data-flag-title="unity log日志上传至服务器">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p> Unity开发中，经常需要拿到log日志，来帮助分析遇到的一些程序Bug。<br> 一般采用2种做法：<br> 一是将日志直接GUI显示在游戏运行时的左侧屏幕上，或者是用UGUI ScrollView显示日志信息。<br> <img src="/2017/03/20/unity-log/log ugui.png" width="300" height="320" align="center" title="log信息默认隐藏，双击屏幕时显示，再点击log界面的黑边时关闭"></p>
-<p> 二是将日志保存到本地，然后从手机的文件中取出。</p>
-<p> 但是有时候看着满屏幕的log或者在手机繁琐的文件目录中找来找去，比较烦；所以想找到一个简单的方法，将log日志上传到服务器中的一个固定目录下，方便随时查看出错日志。</p>
-<p> 对于没有后端基础的开发者，<!--几乎是从零开始思考这个问题；-->当然希望能够采用最简单的方式实现。</p>
-<h1 id="大致思路："><a href="#大致思路：" class="headerlink" title="大致思路："></a>大致思路：</h1><p> 运行中的游戏——将LogString Send到服务器——服务器接收数据(LogString)——将数据(String)保存至服务器上的一个文件txt中。</p>
-<h2 id="1-首先需要一台服务器。"><a href="#1-首先需要一台服务器。" class="headerlink" title="1 首先需要一台服务器。"></a>1 首先需要一台服务器。</h2><p> 对于前端开发者来说，最大的问题肯定是如何搭建一台服务器出来？<br> 通常的服务器搭建可以选择IIS，Apache<code>阿帕奇</code>，tomcat<code>汤姆猫</code>等。考虑到并没有必要建立一个完善的服务器来运行，以及其中繁琐的设置过程。<br> 这里采用一个绿色免安装的微型Web服务器——<a href="http://cr173.com/soft/53598.html" target="_blank" rel="external">MyWebServer</a>。<br> 下载完成后，直接双击exe文件运行。</p>
-<p> <img src="/2017/03/20/unity-log/my web server.png" width="375" align="center" title="MyWebServer工具"></p>
-<blockquote>
-<p>注意1：<br> MyWebServer的&gt;高级设置&gt;扩展映射&gt;文件扩展名的映射模块：第一项 “.php”路径为”c:\php\php5isapi.dll”<br> 这里需要保证php压缩包被解压在c盘的相应目录。<br>注意2：<br> 下载的php版本暂时不要超过5.2.x的版本，因为，“isapi方式建议使用PHP 5.2,因为5.3以上版不再提供ISAPI支持”。<br> <img src="/2017/03/20/unity-log/web server tool.png" width="600" align="center" title="isapi配置"></p>
-</blockquote>
-<h2 id="2-需要将本地log信息上传。"><a href="#2-需要将本地log信息上传。" class="headerlink" title="2 需要将本地log信息上传。"></a>2 需要将本地log信息上传。</h2><p> Unity中可以使用WWWForm提交Http请求。</p>
-<p>W3Client.cs<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// W3Client.cs</span></div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Upload</span>(<span class="params"><span class="keyword">string</span> url, <span class="keyword">string</span> content, <span class="keyword">string</span> saveName, Action&lt;WWW&gt; callback = <span class="literal">null</span></span>)</span></div><div class="line">  &#123;</div><div class="line">      <span class="keyword">this</span>.StartCoroutine(<span class="keyword">this</span>.IenumUpload(url, content, saveName, callback));</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function">IEnumerator <span class="title">IenumUpload</span>(<span class="params"><span class="keyword">string</span> url, <span class="keyword">string</span> content, <span class="keyword">string</span> saveName, Action&lt;WWW&gt; callback = <span class="literal">null</span></span>)</span></div><div class="line">  &#123;</div><div class="line">      Debug.Log(url + <span class="string">" "</span> + content + <span class="string">" "</span> + saveName);</div><div class="line"></div><div class="line">      WWWForm form = <span class="keyword">new</span> WWWForm();</div><div class="line">      form.AddField(<span class="string">"filename"</span>, saveName);</div><div class="line">      form.AddBinaryData(<span class="string">"content"</span>, Encoding.UTF8.GetBytes(content));</div><div class="line"></div><div class="line">      WWW www = <span class="keyword">new</span> WWW(url, form);</div><div class="line">      <span class="keyword">while</span> (!www.isDone)</div><div class="line">          <span class="keyword">yield</span> <span class="keyword">return</span> www;</div><div class="line"></div><div class="line">      <span class="keyword">if</span> (callback != <span class="literal">null</span>)</div><div class="line">          callback(www);</div><div class="line">      Debug.Log(www.text);</div><div class="line"></div><div class="line">      www.Dispose();</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p><code>其中，AddFiled 中的&quot;filename&quot;用于服务端来分析，PHP中使用$filename=$_POST[&#39;filename&#39;];中取得。</code><br><code>AddBinaryData中的&quot;content&quot;用于服务器取得文件，PHP使用$content=file_get_contents($_FILES[&#39;content&#39;][&#39;tmp_name&#39;]) ;file_get_contents取得文件内容。</code></p>
-</blockquote>
-<h2 id="3-服务器端使用php来处理Http请求发来的内容。"><a href="#3-服务器端使用php来处理Http请求发来的内容。" class="headerlink" title="3 服务器端使用php来处理Http请求发来的内容。"></a>3 服务器端使用php来处理Http请求发来的内容。</h2><p> 在MyWebServer的解压目录下，进入web目录。在目录下建立log文件夹，进行我们的相关操作。<br> 在log目录下，新建php文件：UploadFile.php。<br>UploadFile.php：<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> <span class="meta">&lt;?php</span></div><div class="line">$filename = $_POST[<span class="string">'filename'</span>];</div><div class="line">$content = file_get_contents($_FILES[<span class="string">'content'</span>][<span class="string">'tmp_name'</span>]);</div><div class="line"></div><div class="line">$myfile = fopen($filename, <span class="string">"w"</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Unable to open file!"</span>);</div><div class="line">fwrite($myfile, $content);</div><div class="line">fclose($myfile);</div><div class="line"></div><div class="line"><span class="keyword">echo</span> $content ;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
-<h2 id="4-调用"><a href="#4-调用" class="headerlink" title="4 调用"></a>4 调用</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">string</span> url = <span class="string">"http://192.168.0.100:80/log/UploadFile.php"</span> ;</div><div class="line"><span class="keyword">string</span> logInfo = <span class="string">"log test ; 2017/03/20 ; guojia"</span> ;</div><div class="line"><span class="keyword">string</span> fileName = SystemInfo.deviceName + System.DateTime.Now.ToString(<span class="string">"yyyy-mm-dd hh-mm-ss"</span>) + <span class="string">".txt"</span></div><div class="line"></div><div class="line"><span class="comment">//Upload(url,content,saveFileName);</span></div><div class="line">W3Client.Instance.Upload(url, logInfo, fileName);</div></pre></td></tr></table></figure>
-<p> 最终效果：<br> <img src="/2017/03/20/unity-log/result.png" width="500" height="292" align="center"></p>
-<blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">参考</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">《<a href="http://www.cnblogs.com/IlidanStormRage/p/6102279.html" target="_blank" rel="external">如何快速建立一个测试资源Web服务器及异步获取资源（Unity3D）</a>  》</td>
-</tr>
-<tr>
-<td style="text-align:left">《<a href="http://book.51cto.com/art/201410/453946.htm" target="_blank" rel="external">Unity手机游戏开发 6.2.4上传下载图片</a>》</td>
-</tr>
-<tr>
-<td style="text-align:left">《<a href="http://cr173.com/soft/53598.html" target="_blank" rel="external">轻量级服务器软件:MyWebServer</a>》</td>
-</tr>
-<tr>
-<td style="text-align:left">《<a href="http://www.w3school.com.cn/php/php_file_create.asp" target="_blank" rel="external">php教程</a>》</td>
-</tr>
-<tr>
-<td style="text-align:left">相关推荐：Windows服务器开发环境搭建</td>
-</tr>
-<tr>
-<td style="text-align:left">《<a href="http://blog.csdn.net/debugal/article/details/49330905" target="_blank" rel="external">关于如何在服务器上搭建tomcat并发布自己的web项目 </a>》</td>
-</tr>
-<tr>
-<td style="text-align:left">《<a href="http://jingyan.baidu.com/article/fcb5aff7a79531edaa4a713b.html" target="_blank" rel="external">一键搭建最新php开发环境</a>》</td>
-</tr>
-<tr>
-<td style="text-align:left">《<a href="http://www.cnblogs.com/zhaoyl/archive/2012/10/10/2718575.html" target="_blank" rel="external">WEB服务器、应用程序服务器、HTTP服务器区别 </a>》</td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
-          
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/author.jpg"
-               alt="郭佳" />
-          <p class="site-author-name" itemprop="name">郭佳</p>
-          <p class="site-description motion-element" itemprop="description"></p>
-        </div>
-        <nav class="site-state motion-element">
-        
-          
-            <div class="site-state-item site-state-posts">
+            <li>
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">日志</span>
+                
+                  archive
+                
               </a>
-            </div>
+            </li>
           
-
-          
-
-          
-            <div class="site-state-item site-state-tags">
+            <li>
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">标签</span>
+                
+                  tags
+                
               </a>
-            </div>
+            </li>
           
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
+            <li>
+              <a href="/about">
+                
+                  about
+                
+              </a>
+            </li>
           
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-
-    </div>
-  </aside>
-
-
-        
+        </ul>
       </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">郭佳</span>
-</div>
-
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
-
-
-        
-
-        
-      </div>
-    </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
+      <!-- /.navbar-collapse -->
+    </nav>
+    <div class="button-wrap">
+      <button class="menu-toggle">Primary Menu</button>
     </div>
   </div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="site-content home">
+  <main class="content-area">
+    
+      
+        <div class="even">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2017/05/04/unity-scene-package/" rel="bookmark">
+        Unity场景打包  
+      </a>
+    </h1>
+    
+    
+    <p class="posted-on">
+    2017-05-04
+    </p>
+    <div class="tags-links">
+      
+    </div>
+  </article>
+</div>
+        </div> 
+      
+    
+      
+        <div class="odd">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2017/05/02/skill-indicator/" rel="bookmark">
+        Unity技能指示器  
+      </a>
+    </h1>
+    
+    
+    <p class="posted-on">
+    2017-05-02
+    </p>
+    <div class="tags-links">
+      
+    </div>
+  </article>
+</div>
+        </div>
+      
+    
+      
+        <div class="even">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2017/05/02/unity-fog/" rel="bookmark">
+        Unity代码控制Fog的开关  
+      </a>
+    </h1>
+    
+    
+    <p class="posted-on">
+    2017-05-02
+    </p>
+    <div class="tags-links">
+      
+    </div>
+  </article>
+</div>
+        </div> 
+      
+    
+      
+        <div class="odd">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2017/04/20/history/" rel="bookmark">
+        历史  
+      </a>
+    </h1>
+    
+    
+    <p class="posted-on">
+    2017-04-20
+    </p>
+    <div class="tags-links">
+      
+    </div>
+  </article>
+</div>
+        </div>
+      
+    
+      
+        <div class="even">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2017/04/17/jin-ben-wei/" rel="bookmark">
+        金本位  
+      </a>
+    </h1>
+    
+    
+    <p class="posted-on">
+    2017-04-17
+    </p>
+    <div class="tags-links">
+      
+    </div>
+  </article>
+</div>
+        </div> 
+      
+    
+      
+        <div class="odd">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2017/04/11/git-branch/" rel="bookmark">
+        git branch  
+      </a>
+    </h1>
+    
+    
+    <p class="posted-on">
+    2017-04-11
+    </p>
+    <div class="tags-links">
+      
+    </div>
+  </article>
+</div>
+        </div>
+      
+    
+      
+        <div class="even">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2017/04/11/git-ssh/" rel="bookmark">
+        Git生成SSH密钥  
+      </a>
+    </h1>
+    
+    
+    <p class="posted-on">
+    2017-04-11
+    </p>
+    <div class="tags-links">
+      
+    </div>
+  </article>
+</div>
+        </div> 
+      
+    
+      
+        <div class="odd">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2017/04/11/git/" rel="bookmark">
+        将本地项目上传至github  
+      </a>
+    </h1>
+    
+    
+    <p class="posted-on">
+    2017-04-11
+    </p>
+    <div class="tags-links">
+      
+    </div>
+  </article>
+</div>
+        </div>
+      
+    
+      
+        <div class="even">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2017/04/10/open-source-project/" rel="bookmark">
+        开源项目集合  
+      </a>
+    </h1>
+    
+    
+    <p class="posted-on">
+    2017-04-10
+    </p>
+    <div class="tags-links">
+      
+    </div>
+  </article>
+</div>
+        </div> 
+      
+    
+      
+        <div class="odd">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2017/04/08/driving-exam-two/" rel="bookmark">
+        科目二新手考前必看  
+      </a>
+    </h1>
+    
+    
+    <p class="posted-on">
+    2017-04-08
+    </p>
+    <div class="tags-links">
+      
+    </div>
+  </article>
+</div>
+        </div>
+      
+    
+
+    
+<div class="container" >
+  <ul class="pager">
+    
+    
+      <li class="next">
+        <a href="/page/2/">
+          <span class="meta-arraw meta-arraw-left"> </span>上一页
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  </main>
+</div>
+
+  <!-- Footer -->
+  <!-- Footer-widgets -->
+<div class="footer-widgets">
+  <div class="row inside-wrapper">
+    <div class="col-1-3">
+      <aside>
+        <h1 class="widget-title">关于本站</h1>
+        <div class="custom-widget-content">
+          
+          <ul><li><a href="https://github.com/GallenHu/hexo-theme-Daily">如何自定义这里的内容(配置教程)?</a></li></ul>
+        </div>
+      </aside>
+    </div>
+    <div class="col-1-3">
+      <aside>
+        <h1 class="widget-title">与我联系</h1>
+        <div class="widget-text">
+          
+            
+              <a href="https://github.com/GallenHu" class="icon icon-github" target="_blank">github</a>
+            
+          
+        </div>
+      </aside>
+    </div>
+    <div class="col-1-3">
+      <aside>
+        <h1 class="widget-title">站内搜索</h1>
+        <div class="widget-text">
+          <form onSubmit="return appDaily.submitSearch('')">
+            <p>
+              <input type="text" placeholder="search..." id="homeSearchInput">
+            </p>
+            <!-- <input type="submit" value="GO"> -->
+          </form>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<footer class="site-info">
+  <p>
+    <span>QinHuai &copy; 2017</span>
+    
+      <span class="split">|</span>
+      <span>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> with Theme <a href="https://github.com/GallenHu/hexo-theme-Daily" target="_blank">Daily</a></span>
+    
+  </p>
+</footer>
+
+
+  <!-- After footer scripts -->
+  <!-- scripts -->
+<script src="/js/app.js"></script>
 
-  
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-  
-  
-
-  
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("", "");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
 
 
 </body>
+
 </html>

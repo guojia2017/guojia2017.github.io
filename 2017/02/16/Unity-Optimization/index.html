@@ -1,820 +1,420 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="zh-CN">
+<!-- Head tag -->
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
+  <!--Description-->
   
 
+  <!--Author-->
   
-    
-    
-  
-
+  <meta name="author" content="郭佳">
   
 
+  <!--Open Graph Title-->
+  
+      <meta property="og:title" content="Unity Optimization"/>
+  
+  <!--Open Graph Description-->
+  
+  <!--Open Graph Site Name-->
+  <meta property="og:site_name" content="QinHuai"/>
+  <!--Type page-->
+  
+      <meta property="og:type" content="article" />
+  
+  <!--Page Cover-->
   
 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Title -->
   
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
+  <title>Unity Optimization - QinHuai</title>
 
 
+  <link rel="shortcut icon" href="https://hexo.io/icon/favicon-96x96.png">
 
+  <!-- Custom CSS/Sass -->
+  <link rel="stylesheet" href="/css/style.css">
 
+  <!----------------------------
+  https://github.com/GallenHu/hexo-theme-Daily
 
+ _____            _   _
+|  __ \          (_) | |
+| |  | |   __ _   _  | |  _   _
+| |  | |  / _` | | | | | | | | |
+| |__| | | (_| | | | | | | |_| |
+|_____/   \__,_| |_| |_|  \__, |
+                          __/ |
+                         |___/
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    --------------------------->
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Unity,Optimization," />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
-
-
-
-<meta name="description" content="前言：
-优化的4个方面：
-CPU优化GPU优化内存优化更新，使用Unity Profiler工具检测内存
-
-前言：刚开始写这篇文章的时候选了一个很土的题目。。。《Unity3D优化全解析》。因为这是一篇临时起意才写的文章，而且陈述的都是既有的事实，因而给自己“文（dou）学（bi）”加工留下的余地就少了很多。但又觉得这块是不得不提的一个地方，平时见到很多人对此处也给予了忽略了事，需要时才去网上扒一">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Unity Optimization">
-<meta property="og:url" content="http://yoursite.com/2017/02/16/Unity-Optimization/index.html">
-<meta property="og:site_name" content="QinHuai">
-<meta property="og:description" content="前言：
-优化的4个方面：
-CPU优化GPU优化内存优化更新，使用Unity Profiler工具检测内存
-
-前言：刚开始写这篇文章的时候选了一个很土的题目。。。《Unity3D优化全解析》。因为这是一篇临时起意才写的文章，而且陈述的都是既有的事实，因而给自己“文（dou）学（bi）”加工留下的余地就少了很多。但又觉得这块是不得不提的一个地方，平时见到很多人对此处也给予了忽略了事，需要时才去网上扒一">
-<meta property="og:updated_time" content="2017-04-10T06:03:15.406Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Unity Optimization">
-<meta name="twitter:description" content="前言：
-优化的4个方面：
-CPU优化GPU优化内存优化更新，使用Unity Profiler工具检测内存
-
-前言：刚开始写这篇文章的时候选了一个很土的题目。。。《Unity3D优化全解析》。因为这是一篇临时起意才写的文章，而且陈述的都是既有的事实，因而给自己“文（dou）学（bi）”加工留下的余地就少了很多。但又觉得这块是不得不提的一个地方，平时见到很多人对此处也给予了忽略了事，需要时才去网上扒一">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2017/02/16/Unity-Optimization/"/>
-
-
-
-
-
-  <title> Unity Optimization | QinHuai </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  
+<body>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">QinHuai</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+  <!-- Nav -->
+  <header class="site-header">
+  <div class="header-inside">
+    <div class="logo">
+      <a href="/" rel="home">
+        
+        <img src="https://hexo.io/logo.svg" alt="QinHuai" height="60">
+        
+      </a>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse">
+        <ul class="navbar-nav">
+          
+          
+            <li>
+              <a href="/.">
+                
+                  home
+                
+              </a>
+            </li>
+          
+            <li>
+              <a href="/archives">
+                
+                  archive
+                
+              </a>
+            </li>
+          
+            <li>
+              <a href="/tags">
+                
+                  tags
+                
+              </a>
+            </li>
+          
+            <li>
+              <a href="/about">
+                
+                  about
+                
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+    <div class="button-wrap">
+      <button class="menu-toggle">Primary Menu</button>
+    </div>
   </div>
-    
-      <p class="site-subtitle"></p>
-    
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
+</header>
 
 
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/16/Unity-Optimization/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="郭佳">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/author.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="QinHuai">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="QinHuai" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                Unity Optimization
-              
+  <!-- Main Content -->
+  <div class="content-area">
+  <div class="post">
+    <!-- Post Content -->
+    <div class="container">
+      <article>
+        <!-- Title date & tags -->
+        <div class="post-header">
+          <h1 class="entry-title">
+            Unity Optimization
             
           </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <p class="posted-on">
+          2017-02-16
+          </p>
+          <div class="tags-links">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <a href="/tags/Unity/" rel="tag">
+                  Unity
+                </a>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-16T18:23:38+08:00">
-                2017-02-16
-              </time>
+                <a href="/tags/Optimization/" rel="tag">
+                  Optimization
+                </a>
+              
             
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/02/16/Unity-Optimization/" class="leancloud_visitors" data-flag-title="Unity Optimization">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>前言：</p>
-<h3 id="优化的4个方面："><a href="#优化的4个方面：" class="headerlink" title="优化的4个方面："></a>优化的4个方面：</h3><blockquote>
-<p>CPU优化<br>GPU优化<br>内存优化<br>更新，使用Unity Profiler工具检测内存</p>
+        <!-- Post Main Content -->
+        <div class="entry-content">
+          <h3 id="优化重点"><a href="#优化重点" class="headerlink" title="优化重点"></a>优化重点</h3><ol>
+<li><p>CPU-GC Alloc</p>
+<blockquote>
+<p><strong>关注原则</strong><br>1.检测任何一次性内存分配大于2KB的选项<br>2.检测每帧都具有20B以上内存分配的选项. </p>
 </blockquote>
-<p>前言：<br>刚开始写这篇文章的时候选了一个很土的题目。。。《Unity3D优化全解析》。因为这是一篇临时起意才写的文章，而且陈述的都是既有的事实，因而给自己“文（dou）学（bi）”加工留下的余地就少了很多。但又觉得这块是不得不提的一个地方，平时见到很多人对此处也给予了忽略了事，需要时才去网上扒一些只言片语的资料。也恰逢年前，寻思着周末认真写点东西遇到节假日没准也没什么人读，所以索性就写了这篇临时的文章。题目很土，因为用了指向性很明确的“Unity3D”，让人少了遐（瞎）想的空间，同时用了“高大全”这样的构词法，也让匹夫有成为众矢之的的可能。。。所以最后还是改成了现在各位看到的题目。话不多说，下面就开始正文~正所谓“草蛇灰线,伏脉千里”。那咱们首先<del>~</del>~<br>回到目录<br>看看优化需要从哪里着手？<br>匹夫印象里遇到的童靴，提Unity3D项目优化则必提DrawCall，这自然没错，但也有很不好影响。因为这会给人一个错误的认识：所谓的优化就是把DrawCall弄的比较低就对了。<br>对优化有这种第一印象的人不在少数，drawcall的确是一个很重要的指标，但绝非全部。为了让各位和匹夫能达成尽可能多的共识，匹夫首先介绍一下本文可能会涉及到的几个概念，之后会提出优化所涉及的三大方面：<br>drawcall是啥？其实就是对底层图形程序（比如：OpenGL ES)接口的调用，以在屏幕上画出东西。所以，是谁去调用这些接口呢？CPU。<br>fragment是啥？经常有人说vf啥的，vertex我们都知道是顶点，那fragment是啥呢？说它之前需要先说一下像素，像素各位应该都知道吧？像素是构成数码影像的基本单元呀。那fragment呢？是有可能成为像素的东西。啥叫有可能？就是最终会不会被画出来不一定，是潜在的像素。这会涉及到谁呢？GPU。<br>batching是啥？都知道批处理是干嘛的吧？没错，将批处理之前需要很多次调用（drawcall）的物体合并，之后只需要调用一次底层图形程序的接口就行。听上去这简直就是优化的终极方案啊！但是，理想是美好的，世界是残酷的，一些不足之后我们再细聊。<br>内存的分配：记住，除了Unity3D自己的内存损耗。我们可是还带着Mono呢啊，还有托管的那一套东西呢。更别说你一激动，又引入了自己的几个dll。这些都是内存开销上需要考虑到的。<br>好啦，文中的几个概念提前讲清楚了，其实各位也能看的出来匹夫接下来要说的匹夫关注的优化时需要注意的方面：</p>
+</li>
+<li><p>Time ms: </p>
+<blockquote>
+<p>记录游戏运行时每帧CPU占用（特别注意占用5ms以上的）. </p>
+</blockquote>
+</li>
+<li><p>Memory Profiler-Other: </p>
+<blockquote>
+<p>1.ManagedHeap.UsedSize: 移动游戏建议不要超过20MB.<br>2.SerializedFile: 通过异步加载(LoadFromCache、WWW等)的时候留下的序列化文件,可监视是否被卸载.<br>3.WebStream: 通过异步WWW下载的资源文件在内存中的解压版本,比SerializedFile大几倍或几十倍,重点监视.<em>**</em> </p>
+</blockquote>
+</li>
+<li><p>Memory Profiler-Assets: </p>
+<blockquote>
+<p>1.Texture2D: 重点检查是否有重复资源和超大Memory是否需要压缩等.<br>2.AnimationClip: 重点检查是否有重复资源.<br>3.Mesh： 重点检查是否有重复资源. </p>
+</blockquote>
+</li>
+</ol>
+<p>代码优化：</p>
 <ul>
-<li>CPU方面</li>
-<li>GPU方面</li>
-<li>内存方面<br>所以，这篇文章也会按照CPU—-&gt;GPU—-&gt;内存的顺序进行。</li>
+<li>GC Alloc</li>
+<li>调用时间</li>
+<li>Calls</li>
 </ul>
-<h3 id="CPU的方面的优化"><a href="#CPU的方面的优化" class="headerlink" title="CPU的方面的优化"></a>CPU的方面的优化</h3><p>上文中说了，drawcall影响的是CPU的效率，而且也是最知名的一个优化点。但是除了drawcall之外，还有哪些因素也会影响到CPU的效率呢？让我们一一列出暂时能想得到的：</p>
-<p>DrawCalls<br>物理组件（Physics）<br>GC（什么？GC不是处理内存问题的嘛？匹夫你不要骗我啊！不过，匹夫也要提醒一句，GC是用来处理内存的，但是是谁使用GC去处理内存的呢？）<br>当然，还有代码质量<br>DrawCalls：<br>前面说过了，DrawCall是CPU调用底层图形接口。比如有上千个物体，每一个的渲染都需要去调用一次底层接口，而每一次的调用CPU都需要做很多工作，那么CPU必然不堪重负。但是对于GPU来说，图形处理的工作量是一样的。所以对DrawCall的优化，主要就是为了尽量解放CPU在调用图形接口上的开销。所以针对drawcall我们主要的思路就是每个物体尽量减少渲染次数，多个物体最好一起渲染。所以，按照这个思路就有了以下几个方案：<br>使用Draw Call Batching，也就是描绘调用批处理。Unity在运行时可以将一些物体进行合并，从而用一个描绘调用来渲染他们。具体下面会介绍。<br>通过把纹理打包成图集来尽量减少材质的使用。<br>尽量少的使用反光啦，阴影啦之类的，因为那会使物体多次渲染。<br>Draw Call Batching<br>首先我们要先理解为何2个没有使用相同材质的物体即使使用批处理，也无法实现Draw Call数量的下降和性能上的提升。<br>因为被“批处理”的2个物体的网格模型需要使用相同材质的目的，在于其纹理是相同的，这样才可以实现同时渲染的目的。因而保证材质相同，是为了保证被渲染的纹理相同。<br>因此，为了将2个纹理不同的材质合二为一，我们就需要进行上面列出的第二步，将纹理打包成图集。具体到合二为一这种情况，就是将2个纹理合成一个纹理。这样我们就可以只用一个材质来代替之前的2个材质了。<br>而Draw Call Batching本身，也还会细分为2种。<br>Static Batching 静态批处理<br>看名字，猜使用的情景。<br>静态？那就是不动的咯。还有呢？额，听上去状态也不会改变，没有“生命”，比如山山石石，楼房校舍啥的。那和什么比较类似呢？嗯，聪明的各位一定觉得和场景的属性很像吧！所以我们的场景似乎就可以采用这种方式来减少draw call了。<br>那么写个定义：只要这些物体不移动，并且拥有相同的材质，静态批处理就允许引擎对任意大小的几何物体进行批处理操作来降低描绘调用。<br>那要如何使用静态批来减少Draw Call呢？你只需要明确指出哪些物体是静止的，并且在游戏中永远不会移动、旋转和缩放。想完成这一步，你只需要在检测器（Inspector）中将Static复选框打勾即可，如下图所示：</p>
-<p>至于效果如何呢？<br>举个例子：新建4个物体，分别是Cube，Sphere, Capsule, Cylinder,它们有不同的网格模型，但是也有相同的材质（Default-Diffuse）。<br>首先，我们不指定它们是static的。Draw Call的次数是4次，如图：</p>
-<p>我们现在将它们4个物体都设为static，在来运行一下：</p>
-<p>如图，Draw Call的次数变成了1，而Saved by batching的次数变成了3。<br>静态批处理的好处很多，其中之一就是与下面要说的动态批处理相比，约束要少很多。所以一般推荐的是draw call的静态批处理来减少draw call的次数。那么接下来，我们就继续聊聊draw call的动态批处理。<br>Dynamic Batching 动态批处理<br>有阴就有阳，有静就有动，所以聊完了静态批处理，肯定跟着就要说说动态批处理了。首先要明确一点，Unity3D的draw call动态批处理机制是引擎自动进行的，无需像静态批处理那样手动设置static。我们举一个动态实例化prefab的例子，如果动态物体共享相同的材质，则引擎会自动对draw call优化，也就是使用批处理。首先，我们将一个cube做成prefab，然后再实例化500次，看看draw call的数量。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">500</span>; i++)</div><div class="line">&#123;</div><div class="line">    GameObject cube;</div><div class="line">    cube = GameObject.Instantiate(prefab) <span class="keyword">as</span> GameObject;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>draw call的数量：</p>
-<p>可以看到draw call的数量为1，而 saved by batching的数量是499。而这个过程中，我们除了实例化创建物体之外什么都没做。不错，unity3d引擎为我们自动处理了这种情况。<br>但是有很多童靴也遇到这种情况，就是我也是从prefab实例化创建的物体，为何我的draw call依然很高呢？这就是匹夫上文说的，draw call的动态批处理存在着很多约束。下面匹夫就演示一下，针对cube这样一个简单的物体的创建，如果稍有不慎就会造成draw call飞涨的情况吧。<br>我们同样是创建500个物体，不同的是其中的100个物体，每个物体的大小都不同，也就是Scale不同。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">500</span>; i++)</div><div class="line">&#123;</div><div class="line">    GameObject cube;</div><div class="line">    cube = GameObject.Instantiate(prefab) <span class="keyword">as</span> GameObject;</div><div class="line">    <span class="keyword">if</span>(i / <span class="number">100</span> == <span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">        cube.transform.localScale = <span class="keyword">new</span> Vector3(<span class="number">2</span> + i, <span class="number">2</span> + i, <span class="number">2</span> + i);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>draw call的数量：</p>
-<p>我们看到draw call的数量上升到了101次，而saved by batching的数量也下降到了399。各位看官可以看到，仅仅是一个简单的cube的创建，如果scale不同，竟然也不会去做批处理优化。这仅仅是动态批处理机制的一种约束，那我们总结一下动态批处理的约束，各位也许也能从中找到为何动态批处理在自己的项目中不起作用的原因：<br>批处理动态物体需要在每个顶点上进行一定的开销，所以动态批处理仅支持小于900顶点的网格物体。<br>如果你的着色器使用顶点位置，法线和UV值三种属性，那么你只能批处理300顶点以下的物体；如果你的着色器需要使用顶点位置，法线，UV0，UV1和切向量，那你只能批处理180顶点以下的物体。<br>不要使用缩放。分别拥有缩放大小(1,1,1) 和(2,2,2)的两个物体将不会进行批处理。<br>统一缩放的物体不会与非统一缩放的物体进行批处理。<br>使用缩放尺度(1,1,1) 和 (1,2,1)的两个物体将不会进行批处理，但是使用缩放尺度(1,2,1) 和(1,3,1)的两个物体将可以进行批处理。<br>使用不同材质的实例化物体（instance）将会导致批处理失败。<br>拥有lightmap的物体含有额外（隐藏）的材质属性，比如：lightmap的偏移和缩放系数等。所以，拥有lightmap的物体将不会进行批处理（除非他们指向lightmap的同一部分）。<br>多通道的shader会妨碍批处理操作。比如，几乎unity中所有的着色器在前向渲染中都支持多个光源，并为它们有效地开辟多个通道。<br>预设体的实例会自动地使用相同的网格模型和材质。<br>所以，尽量使用静态的批处理。<br>物理组件<br>曾几何时，匹夫在做一个策略类游戏的时候需要在单元格上排兵布阵，而要侦测到哪个兵站在哪个格子匹夫选择使用了射线，由于士兵单位很多，而且为了精确每一帧都会执行检测，那时候CPU的负担叫一个惨不忍睹。后来匹夫果断放弃了这种做法，并且对物理组件产生了心理的阴影。<br>这里匹夫只提2点匹夫感觉比较重要的优化措施：<br>1.设置一个合适的Fixed Timestep。设置的位置如图：</p>
-<p>那何谓“合适”呢？首先我们要搞明白Fixed Timestep和物理组件的关系。物理组件，或者说游戏中模拟各种物理效果的组件，最重要的是什么呢？计算啊。对，需要通过计算才能将真实的物理效果展现在虚拟的游戏中。那么Fixed Timestep这货就是和物理计算有关的啦。所以，若计算的频率太高，自然会影响到CPU的开销。同时，若计算频率达不到游戏设计时的要求，有会影响到功能的实现，所以如何抉择需要各位具体分析，选择一个合适的值。<br>2.就是不要使用网格碰撞器（mesh collider）：为啥？因为实在是太复杂了。网格碰撞器利用一个网格资源并在其上构建碰撞器。对于复杂网状模型上的碰撞检测，它要比应用原型碰撞器精确的多。标记为凸起的（Convex ）的网格碰撞器才能够和其他网格碰撞器发生碰撞。各位上网搜一下mesh collider的图片，自然就会明白了。我们的手机游戏自然无需这种性价比不高的东西。<br>当然，从性能优化的角度考虑，物理组件能少用还是少用为好。<br>处理内存，却让CPU受伤的GC<br>在CPU的部分聊GC，感觉是不是怪怪的？其实小匹夫不这么觉得，虽然GC是用来处理内存的，但的确增加的是CPU的开销。因此它的确能达到释放内存的效果，但代价更加沉重，会加重CPU的负担，因此对于GC的优化目标就是尽量少的触发GC。<br>首先我们要明确所谓的GC是Mono运行时的机制，而非Unity3D游戏引擎的机制，所以GC也主要是针对Mono的对象来说的，而它管理的也是Mono的托管堆。 搞清楚这一点，你也就明白了GC不是用来处理引擎的assets（纹理啦，音效啦等等）的内存释放的，因为U3D引擎也有自己的内存堆而不是和Mono一起使用所谓的托管堆。<br>其次我们要搞清楚什么东西会被分配到托管堆上？不错咯，就是引用类型咯。比如类的实例，字符串，数组等等。而作为int，float，包括结构体struct其实都是值类型，它们会被分配在堆栈上而非堆上。所以我们关注的对象无外乎就是类实例，字符串，数组这些了。<br>那么GC什么时候会触发呢？两种情况：<br>首先当然是我们的堆的内存不足时，会自动调用GC。<br>其次呢，作为编程人员，我们自己也可以手动的调用GC。<br>所以为了达到优化CPU的目的，我们就不能频繁的触发GC。而上文也说了GC处理的是托管堆，而不是Unity3D引擎的那些资源，所以GC的优化说白了也就是代码的优化。那么匹夫觉得有以下几点是需要注意的：<br>字符串连接的处理。因为将两个字符串连接的过程，其实是生成一个新的字符串的过程。而之前的旧的字符串自然而然就成为了垃圾。而作为引用类型的字符串，其空间是在堆上分配的，被弃置的旧的字符串的空间会被GC当做垃圾回收。<br>尽量不要使用foreach，而是使用for。foreach其实会涉及到迭代器的使用，而据传说每一次循环所产生的迭代器会带来24 Bytes的垃圾。那么循环10次就是240Bytes。<br>不要直接访问gameobject的tag属性。比如if (go.tag == “human”)最好换成if (go.CompareTag (“human”))。因为访问物体的tag属性会在堆上额外的分配空间。如果在循环中这么处理，留下的垃圾就可想而知了。<br>使用“池”，以实现空间的重复利用。<br>最好不用LINQ的命令，因为它们会分配临时的空间，同样也是GC收集的目标。而且我很讨厌LINQ的一点就是它有可能在某些情况下无法很好的进行AOT编译。比如“OrderBy”会生成内部的泛型类“OrderedEnumerable”。这在AOT编译时是无法进行的，因为它只是在OrderBy的方法中才使用。所以如果你使用了OrderBy，那么在IOS平台上也许会报错。<br>代码？脚本？<br>聊到代码这个话题，也许有人会觉得匹夫多此一举。因为代码质量因人而异，很难像上面提到的几点，有一个明确的评判标准。也是，公写公有理，婆写婆有理。但是匹夫这里要提到的所谓代码质量是基于一个前提的：Unity3D是用C++写的，而我们的代码是用C#作为脚本来写的，那么问题就来了~脚本和底层的交互开销是否需要考虑呢？也就是说，我们用Unity3D写游戏的“游戏脚本语言”，也就是C#是由mono运行时托管的。而功能是底层引擎的C++实现的，“游戏脚本”中的功能实现都离不开对底层代码的调用。那么这部分的开销，我们应该如何优化呢？<br>以物体的Transform组件为例，我们应该只访问一次，之后就将它的引用保留，而非每次使用都去访问。这里有人做过一个小实验，就是对比通过方法GetComponent<transform>()获取Transform组件, 通过MonoBehavor的transform属性去取，以及保留引用之后再去访问所需要的时间：<br><code>GetComponent = 619ms</code><br><code>Monobehaviour = 60ms</code><br><code>CachedMB = 8ms</code><br><code>Manual Cache = 3ms</code><br> 　　2.如上所述，最好不要频繁使用GetComponent，尤其是在循环中。<br>　　 3.善于使用OnBecameVisible()和OnBecameVisible(),来控制物体的update()函数的执行以减少开销。<br>　　 4.使用内建的数组，比如用Vector3.zero而不是new Vector(0, 0, 0);<br>　　 5.对于方法的参数的优化：善于使用ref关键字。值类型的参数，是通过将实参的值复制到形参，来实现按值传递到方法，也就是我们通常说的按值传递。复制嘛，总会让人感觉很笨重。比如Matrix4x4这样比较复杂的值类型，如果直接复制一份新的，反而不如将值类型的引用传递给方法作为参数。<br>好啦，CPU的部分匹夫觉得到此就介绍的差不多了。下面就简单聊聊其实匹夫并不是十分熟悉的部分，GPU的优化。<br>回到目录<br>GPU的优化<br>GPU与CPU不同，所以侧重点自然也不一样。GPU的瓶颈主要存在在如下的方面：<br>填充率，可以简单的理解为图形处理单元每秒渲染的像素数量。<br>像素的复杂度，比如动态阴影，光照，复杂的shader等等<br>几何体的复杂度（顶点数量）<br>当然还有GPU的显存带宽<br>那么针对以上4点，其实仔细分析我们就可以发现，影响的GPU性能的无非就是2大方面，一方面是顶点数量过多，像素计算过于复杂。另一方面就是GPU的显存带宽。那么针锋相对的两方面举措也就十分明显了。<br>减少顶点数量，简化计算复杂度。<br>压缩图片，以适应显存带宽。<br>减少绘制的数目<br>那么第一个方面的优化也就是减少顶点数量，简化复杂度，具体的举措就总结如下了：<br>保持材质的数目尽可能少。这使得Unity更容易进行批处理。<br>使用纹理图集（一张大贴图里包含了很多子贴图）来代替一系列单独的小贴图。它们可以更快地被加载，具有很少的状态转换，而且批处理更友好。<br>如果使用了纹理图集和共享材质，使用Renderer.sharedMaterial 来代替Renderer.material 。<br>使用光照纹理(lightmap)而非实时灯光。<br>使用LOD，好处就是对那些离得远，看不清的物体的细节可以忽略。<br>遮挡剔除（Occlusion culling）<br>使用mobile版的shader。因为简单。<br>优化显存带宽<br>第二个方向呢？压缩图片，减小显存带宽的压力。<br>OpenGL ES 2.0使用ETC1格式压缩等等，在打包设置那里都有。<br>使用mipmap。<br>MipMap<br>这里匹夫要着重介绍一下MipMap到底是啥。因为有人说过MipMap会占用内存呀，但为何又会优化显存带宽呢？那就不得不从MipMap是什么开始聊起。一张图其实就能解决这个疑问。</transform></p>
-<p>上面是一个mipmap 如何储存的例子，左边的主图伴有一系列逐层缩小的备份小图<br>是不是很一目了然呢？Mipmap中每一个层级的小图都是主图的一个特定比例的缩小细节的复制品。因为存了主图和它的那些缩小的复制品，所以内存占用会比之前大。但是为何又优化了显存带宽呢？因为可以根据实际情况，选择适合的小图来渲染。所以，虽然会消耗一些内存，但是为了图片渲染的质量（比压缩要好），这种方式也是推荐的。<br>回到目录<br>内存的优化<br>既然要聊Unity3D运行时候的内存优化，那我们自然首先要知道Unity3D游戏引擎是如何分配内存的。大概可以分成三大部分：<br>Unity3D内部的内存<br>Mono的托管内存<br>若干我们自己引入的DLL或者第三方DLL所需要的内存。<br>第3类不是我们关注的重点，所以接下来我们会分别来看一下Unity3D内部内存和Mono托管内存，最后还将分析一个官网上Assetbundle的案例来说明内存的管理。<br>Unity3D内部内存<br>Unity3D的内部内存都会存放一些什么呢？各位想一想，除了用代码来驱动逻辑，一个游戏还需要什么呢？对，各种资源。所以简单总结一下Unity3D内部内存存放的东西吧：<br>资源：纹理、网格、音频等等<br>GameObject和各种组件。<br>引擎内部逻辑需要的内存：渲染器，物理系统，粒子系统等等<br>Mono托管内存<br>因为我们的游戏脚本是用C#写的，同时还要跨平台，所以带着一个Mono的托管环境显然必须的。那么Mono的托管内存自然就不得不放到内存的优化范畴中进行考虑。那么我们所说的Mono托管内存中存放的东西和Unity3D内部内存中存放的东西究竟有何不同呢？其实Mono的内存分配就是很传统的运行时内存的分配了：<br>值类型：int型啦，float型啦，结构体struct啦，bool啦之类的。它们都存放在堆栈上（注意额，不是堆所以不涉及GC）。<br>引用类型：其实可以狭义的理解为各种类的实例。比如游戏脚本中对游戏引擎各种控件的封装。其实很好理解，C#中肯定要有对应的类去对应游戏引擎中的控件。那么这部分就是C#中的封装。由于是在堆上分配，所以会涉及到GC。<br>而Mono托管堆中的那些封装的对象，除了在在Mono托管堆上分配封装类实例化之后所需要的内存之外，还会牵扯到其背后对应的游戏引擎内部控件在Unity3D内部内存上的分配。<br>举一个例子：<br>一个在.cs脚本中声明的WWW类型的对象www，Mono会在Mono托管堆上为www分配它所需要的内存。同时，这个实例对象背后的所代表的引擎资源所需要的内存也需要被分配。<br>一个WWW实例背后的资源：<br>压缩的文件<br>解压缩所需的缓存<br>解压缩之后的文件<br>如图：</p>
-<p>那么下面就举一个AssetBundle的例子：<br>Assetbundle的内存处理<br>以下载Assetbundle为例子，聊一下内存的分配。匹夫从官网的手册上找到了一个使用Assetbundle的情景如下：</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function">IEnumerator <span class="title">DownloadAndCache</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// Wait for the Caching system to be ready</span></div><div class="line">    <span class="keyword">while</span> (!Caching.ready)</div><div class="line">        <span class="keyword">yield</span> <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line"></div><div class="line">    <span class="comment">// Load the AssetBundle file from Cache if it exists with the same version or download and store it in the cache</span></div><div class="line">    <span class="keyword">using</span> (WWW www = WWW.LoadFromCacheOrDownload(BundleURL, version))</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">yield</span> <span class="keyword">return</span> www; <span class="comment">//WWW是第1部分</span></div><div class="line">        <span class="keyword">if</span> (www.error != <span class="literal">null</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"WWW download had an error:"</span> + www.error);</div><div class="line">        AssetBundle bundle = www.assetBundle;<span class="comment">//AssetBundle是第2部分</span></div><div class="line">        <span class="keyword">if</span> (AssetName == <span class="string">""</span>)</div><div class="line">            Instantiate(bundle.mainAsset);<span class="comment">//实例化是第3部分</span></div><div class="line">        <span class="function"><span class="keyword">else</span></span></div><div class="line">            <span class="title">Instantiate</span>(<span class="params">bundle.Load(AssetName</span>));</div><div class="line">        <span class="comment">// Unload the AssetBundles compressed contents to conserve memory</span></div><div class="line">        bundle.Unload(<span class="literal">false</span>);</div><div class="line"></div><div class="line">    &#125; <span class="comment">// memory is freed from the web stream (www.Dispose() gets called implicitly)</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>内存分配的三个部分匹夫已经在代码中标识了出来：<br>Web Stream：包括了压缩的文件，解压所需的缓存，以及解压后的文件。<br>AssetBundle：Web Stream中的文件的映射，或者说引用。<br>实例化之后的对象：就是引擎的各种资源文件了，会在内存中创建出来。<br>那就分别解析一下：<br>WWW www = WWW.LoadFromCacheOrDownload (BundleURL, version)<br>将压缩的文件读入内存中<br>创建解压所需的缓存<br>将文件解压，解压后的文件进入内存<br>关闭掉为解压创建的缓存<br>AssetBundle bundle = www.assetBundle;<br>AssetBundle此时相当于一个桥梁，从Web Stream解压后的文件到最后实例化创建的对象之间的桥梁。<br>所以AssetBundle实质上是Web Stream解压后的文件中各个对象的映射。而非真实的对象。<br>实际的资源还存在Web Stream中，所以此时要保留Web Stream。<br>Instantiate(bundle.mainAsset);<br>通过AssetBundle获取资源，实例化对象<br>最后各位可能看到了官网中的这个例子使用了：<br>using(WWW www = WWW.LoadFromCacheOrDownload (BundleURL, version))<br>{<br>}<br>这种using的用法。这种用法其实就是为了在使用完Web Stream之后，将内存释放掉的。因为WWW也继承了idispose的接口，所以可以使用using的这种用法。其实相当于最后执行了：<br>//删除Web Stream<br>www.Dispose();<br>OK,Web Stream被删除掉了。那还有谁呢？对Assetbundle。那么使用<br>//删除AssetBundle<br>bundle.Unload(false);<br>ok，写到这里就先打住啦。写的有点超了。有点赶也有点临时，日后在补充编辑。<br>回到目录<br>更新，使用Unity Profiler工具检测内存<br>这篇文章当时写的时候略显仓促，因此并没有特别介绍Unity Profiler工具，也更谈不上用Unity Profiler工具来监测内存的使用状态了。但是使用Unity Profiler工具来监测还是十分必要的，下面就简单补充一下这方面的知识。</p>
-<p>在Profiler工具中提供了两种模式供我们监测内存的使用情况，即简易模式和详细模式。在简易模式中，我们可以看到总的内存（total）列出了两列，即Used Total（使用总内存）和Reserved Total（预定总内存）。Used Total和Reserved 均是物理内存，其中Reserved是unity向系统申请的总内存，Unity底层为了不经常向系统申请开辟内存，开启了较大一块内存作为缓存，即所谓的Reserved内存，而运行时，unity所使用的内存首先是向Reserved中来申请内存，当不使用时也是先向Reserved中释放内存，从而来保证游戏运行的流畅性。一般来说，Used Total越大，则Reserved Total越大，而当Used Total降下去后，Reserved Total也是会随之下降的（但并不一定与Used Total同步）。<br>Unity3D的内存从大体上可以分为以下几个部分：<br>Unity：位Unity3D的底层代码所分配的内存。<br>Mono：即托管堆。Mono运行时在运行游戏脚本时所需要的内存，换句话说托管堆的大小与我们的GameObject数量、资源量无关，仅是脚本代码造成的。这部分内存是有垃圾回收机制的。<br>GfxDriver：可以理解为GPU显存开销，主要由Texture，Vertex buffer以及index buffer组成。所以尽可能地减少或释放Texture和mesh等资源，即可降低GfxDriver内存。<br>FMOD：音频的内存开销。<br>Profiler<br>而在简易模式下的监视器最下方，则列出了常见的一些资源以及它们所消耗的内存。<br>纹理<br>网格<br>材质<br>动作<br>音频<br>游戏对象的数量<br>而详细模式则需要点击“Take Sample”按钮来捕获详细的内存使用情况。需要注意的是，由于获得数据需要花费一定的时间，因此我们无法获得实时的详细内存的使用情况。在详细模式中，我们可以观察每个具体资源和游戏对象的内存使用情况。</p>
-<p>转载: <a href="http://www.cnblogs.com/murongxiaopifu/p/4284988.html" target="_blank" rel="external">http://www.cnblogs.com/murongxiaopifu/p/4284988.html</a></p>
+<p><strong>GC Alloc优化：</strong><br>优化方法：<br>在代码段中插入：</p>
+<blockquote>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Profiler.BeginSample(<span class="string">"GC Alloc"</span>) ;</div><div class="line">Profiler.EndSample() ;</div></pre></td></tr></table></figure>
+</blockquote>
+<ol>
+<li>foreach 改成for</li>
+<li><p>obj.GetType().Name改成缓存GetTypeName() ;</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">优化前：<span class="number">9.5</span>k</div><div class="line">优化后：<span class="number">0</span>k</div></pre></td></tr></table></figure>
+<pre><code>Performance.BeginSample(&quot;AIStateMap.GetType&quot;);
 
-      
+//string name = behavior.GetType().Name;
+string name = behavior.GetTypeName();
+if (mStateMap.ContainsKey(name))
+{
+    Performance.EndSample();
+    return mStateMap[name];
+}
+else
+{
+    Performance.EndSample();
+}
+</code></pre><p><code>优化后</code></p>
+<pre><code>private string mThisName = string.Empty;
+public string GetTypeName()
+{
+    if (string.IsNullOrEmpty(mThisName))
+    {
+        mThisName = this.GetType().Name;
+    }
+    return mThisName;
+}
+</code></pre></li>
+<li><p>Update中避免创建<strong>引用类型</strong>的变量。是创建不是定义。如果只是定义了引用类型但是指向的是成员变量是没问题的。避免创建的意思是不要new一个对象。<br>将Update中的List<int> data ;改成定义成类的成员变量：List<int> mData;</int></int></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Math</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        List&lt;<span class="keyword">int</span>&gt; tmpList = <span class="keyword">new</span> List&lt;<span class="keyword">int</span>&gt;();	<span class="comment">//	会造成每帧32B的内存分配。</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">改成：</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Math</span></div><div class="line">&#123;</div><div class="line">    List&lt;<span class="keyword">int</span>&gt; mList = <span class="keyword">new</span> List&lt;<span class="keyword">int</span>&gt;();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">		mList.clear() ;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Math.Round();会分配300B的内存。</p>
+</li>
+<li><p>TouchProcess拖动手指时分配了113KB内存。<br>SplineTrailRenderer.Clear();分配了107.6 KB内存。优化后：0k</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  GC-Alloc 优化 at 20170424</span></div><div class="line"><span class="meta">#<span class="meta-keyword">if</span> BEFORE_GC_ALLOC</span></div><div class="line">        vertices = <span class="keyword">new</span> Vector3[advancedParameters.baseNbQuad * NbVertexPerQuad];</div><div class="line">        triangles = <span class="keyword">new</span> <span class="keyword">int</span>[advancedParameters.baseNbQuad * NbTriIndexPerQuad];</div><div class="line">        uv = <span class="keyword">new</span> Vector2[advancedParameters.baseNbQuad * NbVertexPerQuad];</div><div class="line">        colors = <span class="keyword">new</span> Color[advancedParameters.baseNbQuad * NbVertexPerQuad];</div><div class="line">        normals = <span class="keyword">new</span> Vector3[advancedParameters.baseNbQuad * NbVertexPerQuad];</div><div class="line"><span class="meta">#<span class="meta-keyword">else</span></span></div><div class="line">        <span class="keyword">if</span> (vertices == <span class="literal">null</span>)</div><div class="line">        &#123;</div><div class="line">            vertices = <span class="keyword">new</span> Vector3[advancedParameters.baseNbQuad * NbVertexPerQuad];</div><div class="line">            triangles = <span class="keyword">new</span> <span class="keyword">int</span>[advancedParameters.baseNbQuad * NbTriIndexPerQuad];</div><div class="line">            uv = <span class="keyword">new</span> Vector2[advancedParameters.baseNbQuad * NbVertexPerQuad];</div><div class="line">            colors = <span class="keyword">new</span> Color[advancedParameters.baseNbQuad * NbVertexPerQuad];</div><div class="line">            normals = <span class="keyword">new</span> Vector3[advancedParameters.baseNbQuad * NbVertexPerQuad];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vertices.Length; i++) vertices[i] = Vector3.zero;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; triangles.Length; i++) triangles[i] = <span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; uv.Length; i++) uv[i] = Vector2.zero;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; colors.Length; i++) colors[i] = Color.clear;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; normals.Length; i++) normals[i] = Vector3.zero;</div><div class="line">        &#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
+</li>
+<li><p>AudioSetting.Init分配了173.7 KB内存。LogStringToConsole：76.9KB。日志输出占用了76KB*2</p>
+</li>
+<li><p>new WWW：24B</p>
+</li>
+<li><p>Uri uri = new Uri(path);分配了10.9 KB的内存。待优化。</p>
+</li>
+<li><p>Spell.Effect：28.1KB</p>
+</li>
+<li><p>AStarPathing.SetTargetPosition：分配4.0KB</p>
+</li>
+<li><p><code>AttributeHelperEngine.GetParentTypeDisallowingMultipleInclusion();</code>分配0.9 KB，耗时0.03 ms。<br><code>AttributeHelperEngine.GetRequiredComponents();</code>分配0.7 KB，耗时0.03 ms。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Test.cs</span></div><div class="line"><span class="comment">//AddComponent&lt;Component&gt;() ; 造成的内存分配。</span></div><div class="line"></div><div class="line">Performance.BeginSample(<span class="string">"Add Component EmptyObject"</span>); <span class="comment">// 分配1.6KB内存，耗时0.53ms|</span></div><div class="line">EmptyObject o = gameObject.AddComponent&lt;EmptyObject&gt;();</div><div class="line">Performance.EndSample();	</div><div class="line"></div><div class="line">Performance.BeginSample(<span class="string">"Add Component EmptyComponent"</span>); <span class="comment">// 不能添加至物体，但是也会造成一定的内存分配。</span></div><div class="line">EmptyComponent c = gameObject.AddComponent&lt;EmptyComponent&gt;();</div><div class="line">Performance.EndSample();</div><div class="line"></div><div class="line">Performance.BeginSample(<span class="string">"Get Component EmptyObject"</span>); <span class="comment">//不会分配新的内存，但会造成一定的消耗</span></div><div class="line">o = gameObject.GetComponent&lt;EmptyObject&gt;();</div><div class="line">Performance.EndSample();</div><div class="line"></div><div class="line"><span class="comment">//	EmptyObject.cs</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EmptyObject</span> : <span class="title">MonoBehaviour</span></div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>递归调用。<del><em>内存分配了150 KB。</em></del><br>初步定位：TouchProcess的FitPoint。<br>结论：这里的内存分配并不是递归FitPoint造成的，而是SplineTrailRenderer.DoLateUpdate();造成的问题。<br>原来代码使用的LateUpdate . 为了精确绘制拖尾，这里强制加了一个DoLateUpdate保证同一帧里多次绘制拖尾，也就导致了一帧的内存分配过大的问题。</p>
+</li>
+<li>技能释放瞬间造成了0.5MB的内存分配。<br>当前的模块设计方面，技能模块触发了Buff系统：释放技能向自身附加一个Buff；Buff的作用是每隔2秒钟发射一颗子弹，Buff持续10秒。<br>问题在于数据的初始化忘记，在这里重新进行了初始化EffectConfig。<br><strong>解决方法</strong>：数据的初始化统一放在GameInit。增加检测机制保证没有落下某些配置文件。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><em>优秀的Unity性能优化文章</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="http://www.cnblogs.com/murongxiaopifu/p/4284988.html" target="_blank" rel="external">深入浅出聊优化：从Draw Calls到GC </a></td>
+</tr>
+</tbody>
+</table>
+<!--
+### 优化的4个方面：
+CPU优化
+GPU优化
+内存优化
+更新，使用Unity Profiler工具检测内存
+前言：
+刚开始写这篇文章的时候选了一个很土的题目。。。《Unity3D优化全解析》。因为这是一篇临时起意才写的文章，而且陈述的都是既有的事实，因而给自己“文（dou）学（bi）”加工留下的余地就少了很多。但又觉得这块是不得不提的一个地方，平时见到很多人对此处也给予了忽略了事，需要时才去网上扒一些只言片语的资料。也恰逢年前，寻思着周末认真写点东西遇到节假日没准也没什么人读，所以索性就写了这篇临时的文章。题目很土，因为用了指向性很明确的“Unity3D”，让人少了遐（瞎）想的空间，同时用了“高大全”这样的构词法，也让匹夫有成为众矢之的的可能。。。所以最后还是改成了现在各位看到的题目。话不多说，下面就开始正文~正所谓“草蛇灰线,伏脉千里”。那咱们首先~~~~~~
+回到目录
+看看优化需要从哪里着手？
+匹夫印象里遇到的童靴，提Unity3D项目优化则必提DrawCall，这自然没错，但也有很不好影响。因为这会给人一个错误的认识：所谓的优化就是把DrawCall弄的比较低就对了。
+对优化有这种第一印象的人不在少数，drawcall的确是一个很重要的指标，但绝非全部。为了让各位和匹夫能达成尽可能多的共识，匹夫首先介绍一下本文可能会涉及到的几个概念，之后会提出优化所涉及的三大方面：
+drawcall是啥？其实就是对底层图形程序（比如：OpenGL ES)接口的调用，以在屏幕上画出东西。所以，是谁去调用这些接口呢？CPU。
+fragment是啥？经常有人说vf啥的，vertex我们都知道是顶点，那fragment是啥呢？说它之前需要先说一下像素，像素各位应该都知道吧？像素是构成数码影像的基本单元呀。那fragment呢？是有可能成为像素的东西。啥叫有可能？就是最终会不会被画出来不一定，是潜在的像素。这会涉及到谁呢？GPU。
+batching是啥？都知道批处理是干嘛的吧？没错，将批处理之前需要很多次调用（drawcall）的物体合并，之后只需要调用一次底层图形程序的接口就行。听上去这简直就是优化的终极方案啊！但是，理想是美好的，世界是残酷的，一些不足之后我们再细聊。
+内存的分配：记住，除了Unity3D自己的内存损耗。我们可是还带着Mono呢啊，还有托管的那一套东西呢。更别说你一激动，又引入了自己的几个dll。这些都是内存开销上需要考虑到的。
+好啦，文中的几个概念提前讲清楚了，其实各位也能看的出来匹夫接下来要说的匹夫关注的优化时需要注意的方面：
+- CPU方面
+- GPU方面
+- 内存方面
+所以，这篇文章也会按照CPU---- >GPU---- >内存的顺序进行。
+### CPU的方面的优化
+上文中说了，drawcall影响的是CPU的效率，而且也是最知名的一个优化点。但是除了drawcall之外，还有哪些因素也会影响到CPU的效率呢？让我们一一列出暂时能想得到的：
+DrawCalls
+物理组件（Physics）
+GC（什么？GC不是处理内存问题的嘛？匹夫你不要骗我啊！不过，匹夫也要提醒一句，GC是用来处理内存的，但是是谁使用GC去处理内存的呢？）
+当然，还有代码质量
+DrawCalls：
+前面说过了，DrawCall是CPU调用底层图形接口。比如有上千个物体，每一个的渲染都需要去调用一次底层接口，而每一次的调用CPU都需要做很多工作，那么CPU必然不堪重负。但是对于GPU来说，图形处理的工作量是一样的。所以对DrawCall的优化，主要就是为了尽量解放CPU在调用图形接口上的开销。所以针对drawcall我们主要的思路就是每个物体尽量减少渲染次数，多个物体最好一起渲染。所以，按照这个思路就有了以下几个方案：
+使用Draw Call Batching，也就是描绘调用批处理。Unity在运行时可以将一些物体进行合并，从而用一个描绘调用来渲染他们。具体下面会介绍。
+通过把纹理打包成图集来尽量减少材质的使用。
+尽量少的使用反光啦，阴影啦之类的，因为那会使物体多次渲染。
+Draw Call Batching
+首先我们要先理解为何2个没有使用相同材质的物体即使使用批处理，也无法实现Draw Call数量的下降和性能上的提升。
+因为被“批处理”的2个物体的网格模型需要使用相同材质的目的，在于其纹理是相同的，这样才可以实现同时渲染的目的。因而保证材质相同，是为了保证被渲染的纹理相同。
+因此，为了将2个纹理不同的材质合二为一，我们就需要进行上面列出的第二步，将纹理打包成图集。具体到合二为一这种情况，就是将2个纹理合成一个纹理。这样我们就可以只用一个材质来代替之前的2个材质了。
+而Draw Call Batching本身，也还会细分为2种。
+Static Batching 静态批处理
+看名字，猜使用的情景。
+静态？那就是不动的咯。还有呢？额，听上去状态也不会改变，没有“生命”，比如山山石石，楼房校舍啥的。那和什么比较类似呢？嗯，聪明的各位一定觉得和场景的属性很像吧！所以我们的场景似乎就可以采用这种方式来减少draw call了。
+那么写个定义：只要这些物体不移动，并且拥有相同的材质，静态批处理就允许引擎对任意大小的几何物体进行批处理操作来降低描绘调用。
+那要如何使用静态批来减少Draw Call呢？你只需要明确指出哪些物体是静止的，并且在游戏中永远不会移动、旋转和缩放。想完成这一步，你只需要在检测器（Inspector）中将Static复选框打勾即可，如下图所示：
+至于效果如何呢？
+举个例子：新建4个物体，分别是Cube，Sphere, Capsule, Cylinder,它们有不同的网格模型，但是也有相同的材质（Default-Diffuse）。
+首先，我们不指定它们是static的。Draw Call的次数是4次，如图：
+我们现在将它们4个物体都设为static，在来运行一下：
+如图，Draw Call的次数变成了1，而Saved by batching的次数变成了3。
+静态批处理的好处很多，其中之一就是与下面要说的动态批处理相比，约束要少很多。所以一般推荐的是draw call的静态批处理来减少draw call的次数。那么接下来，我们就继续聊聊draw call的动态批处理。
+Dynamic Batching 动态批处理
+有阴就有阳，有静就有动，所以聊完了静态批处理，肯定跟着就要说说动态批处理了。首先要明确一点，Unity3D的draw call动态批处理机制是引擎自动进行的，无需像静态批处理那样手动设置static。我们举一个动态实例化prefab的例子，如果动态物体共享相同的材质，则引擎会自动对draw call优化，也就是使用批处理。首先，我们将一个cube做成prefab，然后再实例化500次，看看draw call的数量。
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">500</span>; i++)</div><div class="line">&#123;</div><div class="line">    GameObject cube;</div><div class="line">    cube = GameObject.Instantiate(prefab) <span class="keyword">as</span> GameObject;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>draw call的数量：<br>可以看到draw call的数量为1，而 saved by batching的数量是499。而这个过程中，我们除了实例化创建物体之外什么都没做。不错，unity3d引擎为我们自动处理了这种情况。<br>但是有很多童靴也遇到这种情况，就是我也是从prefab实例化创建的物体，为何我的draw call依然很高呢？这就是匹夫上文说的，draw call的动态批处理存在着很多约束。下面匹夫就演示一下，针对cube这样一个简单的物体的创建，如果稍有不慎就会造成draw call飞涨的情况吧。<br>我们同样是创建500个物体，不同的是其中的100个物体，每个物体的大小都不同，也就是Scale不同。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">500</span>; i++)</div><div class="line">&#123;</div><div class="line">    GameObject cube;</div><div class="line">    cube = GameObject.Instantiate(prefab) <span class="keyword">as</span> GameObject;</div><div class="line">    <span class="keyword">if</span>(i / <span class="number">100</span> == <span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">        cube.transform.localScale = <span class="keyword">new</span> Vector3(<span class="number">2</span> + i, <span class="number">2</span> + i, <span class="number">2</span> + i);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>draw call的数量：<br>我们看到draw call的数量上升到了101次，而saved by batching的数量也下降到了399。各位看官可以看到，仅仅是一个简单的cube的创建，如果scale不同，竟然也不会去做批处理优化。这仅仅是动态批处理机制的一种约束，那我们总结一下动态批处理的约束，各位也许也能从中找到为何动态批处理在自己的项目中不起作用的原因：<br>批处理动态物体需要在每个顶点上进行一定的开销，所以动态批处理仅支持小于900顶点的网格物体。<br>如果你的着色器使用顶点位置，法线和UV值三种属性，那么你只能批处理300顶点以下的物体；如果你的着色器需要使用顶点位置，法线，UV0，UV1和切向量，那你只能批处理180顶点以下的物体。<br>不要使用缩放。分别拥有缩放大小(1,1,1) 和(2,2,2)的两个物体将不会进行批处理。<br>统一缩放的物体不会与非统一缩放的物体进行批处理。<br>使用缩放尺度(1,1,1) 和 (1,2,1)的两个物体将不会进行批处理，但是使用缩放尺度(1,2,1) 和(1,3,1)的两个物体将可以进行批处理。<br>使用不同材质的实例化物体（instance）将会导致批处理失败。<br>拥有lightmap的物体含有额外（隐藏）的材质属性，比如：lightmap的偏移和缩放系数等。所以，拥有lightmap的物体将不会进行批处理（除非他们指向lightmap的同一部分）。<br>多通道的shader会妨碍批处理操作。比如，几乎unity中所有的着色器在前向渲染中都支持多个光源，并为它们有效地开辟多个通道。<br>预设体的实例会自动地使用相同的网格模型和材质。<br>所以，尽量使用静态的批处理。<br>物理组件<br>曾几何时，匹夫在做一个策略类游戏的时候需要在单元格上排兵布阵，而要侦测到哪个兵站在哪个格子匹夫选择使用了射线，由于士兵单位很多，而且为了精确每一帧都会执行检测，那时候CPU的负担叫一个惨不忍睹。后来匹夫果断放弃了这种做法，并且对物理组件产生了心理的阴影。<br>这里匹夫只提2点匹夫感觉比较重要的优化措施：<br>1.设置一个合适的Fixed Timestep。设置的位置如图：<br>那何谓“合适”呢？首先我们要搞明白Fixed Timestep和物理组件的关系。物理组件，或者说游戏中模拟各种物理效果的组件，最重要的是什么呢？计算啊。对，需要通过计算才能将真实的物理效果展现在虚拟的游戏中。那么Fixed Timestep这货就是和物理计算有关的啦。所以，若计算的频率太高，自然会影响到CPU的开销。同时，若计算频率达不到游戏设计时的要求，有会影响到功能的实现，所以如何抉择需要各位具体分析，选择一个合适的值。<br>2.就是不要使用网格碰撞器（mesh collider）：为啥？因为实在是太复杂了。网格碰撞器利用一个网格资源并在其上构建碰撞器。对于复杂网状模型上的碰撞检测，它要比应用原型碰撞器精确的多。标记为凸起的（Convex ）的网格碰撞器才能够和其他网格碰撞器发生碰撞。各位上网搜一下mesh collider的图片，自然就会明白了。我们的手机游戏自然无需这种性价比不高的东西。<br>当然，从性能优化的角度考虑，物理组件能少用还是少用为好。<br>处理内存，却让CPU受伤的GC<br>在CPU的部分聊GC，感觉是不是怪怪的？其实小匹夫不这么觉得，虽然GC是用来处理内存的，但的确增加的是CPU的开销。因此它的确能达到释放内存的效果，但代价更加沉重，会加重CPU的负担，因此对于GC的优化目标就是尽量少的触发GC。<br>首先我们要明确所谓的GC是Mono运行时的机制，而非Unity3D游戏引擎的机制，所以GC也主要是针对Mono的对象来说的，而它管理的也是Mono的托管堆。 搞清楚这一点，你也就明白了GC不是用来处理引擎的assets（纹理啦，音效啦等等）的内存释放的，因为U3D引擎也有自己的内存堆而不是和Mono一起使用所谓的托管堆。<br>其次我们要搞清楚什么东西会被分配到托管堆上？不错咯，就是引用类型咯。比如类的实例，字符串，数组等等。而作为int，float，包括结构体struct其实都是值类型，它们会被分配在堆栈上而非堆上。所以我们关注的对象无外乎就是类实例，字符串，数组这些了。<br>那么GC什么时候会触发呢？两种情况：<br>首先当然是我们的堆的内存不足时，会自动调用GC。<br>其次呢，作为编程人员，我们自己也可以手动的调用GC。<br>所以为了达到优化CPU的目的，我们就不能频繁的触发GC。而上文也说了GC处理的是托管堆，而不是Unity3D引擎的那些资源，所以GC的优化说白了也就是代码的优化。那么匹夫觉得有以下几点是需要注意的：<br>字符串连接的处理。因为将两个字符串连接的过程，其实是生成一个新的字符串的过程。而之前的旧的字符串自然而然就成为了垃圾。而作为引用类型的字符串，其空间是在堆上分配的，被弃置的旧的字符串的空间会被GC当做垃圾回收。<br>尽量不要使用foreach，而是使用for。foreach其实会涉及到迭代器的使用，而据传说每一次循环所产生的迭代器会带来24 Bytes的垃圾。那么循环10次就是240Bytes。<br>不要直接访问gameobject的tag属性。比如if (go.tag == “human”)最好换成if (go.CompareTag (“human”))。因为访问物体的tag属性会在堆上额外的分配空间。如果在循环中这么处理，留下的垃圾就可想而知了。<br>使用“池”，以实现空间的重复利用。<br>最好不用LINQ的命令，因为它们会分配临时的空间，同样也是GC收集的目标。而且我很讨厌LINQ的一点就是它有可能在某些情况下无法很好的进行AOT编译。比如“OrderBy”会生成内部的泛型类“OrderedEnumerable”。这在AOT编译时是无法进行的，因为它只是在OrderBy的方法中才使用。所以如果你使用了OrderBy，那么在IOS平台上也许会报错。<br>代码？脚本？<br>聊到代码这个话题，也许有人会觉得匹夫多此一举。因为代码质量因人而异，很难像上面提到的几点，有一个明确的评判标准。也是，公写公有理，婆写婆有理。但是匹夫这里要提到的所谓代码质量是基于一个前提的：Unity3D是用C++写的，而我们的代码是用C#作为脚本来写的，那么问题就来了~脚本和底层的交互开销是否需要考虑呢？也就是说，我们用Unity3D写游戏的“游戏脚本语言”，也就是C#是由mono运行时托管的。而功能是底层引擎的C++实现的，“游戏脚本”中的功能实现都离不开对底层代码的调用。那么这部分的开销，我们应该如何优化呢？<br>以物体的Transform组件为例，我们应该只访问一次，之后就将它的引用保留，而非每次使用都去访问。这里有人做过一个小实验，就是对比通过方法GetComponent<Transform>()获取Transform组件, 通过MonoBehavor的transform属性去取，以及保留引用之后再去访问所需要的时间：<br><code>GetComponent = 619ms</code><br><code>Monobehaviour = 60ms</code><br><code>CachedMB = 8ms</code><br><code>Manual Cache = 3ms</code><br> 　　2.如上所述，最好不要频繁使用GetComponent，尤其是在循环中。<br>　　 3.善于使用OnBecameVisible()和OnBecameVisible(),来控制物体的update()函数的执行以减少开销。<br>　　 4.使用内建的数组，比如用Vector3.zero而不是new Vector(0, 0, 0);<br>　　 5.对于方法的参数的优化：善于使用ref关键字。值类型的参数，是通过将实参的值复制到形参，来实现按值传递到方法，也就是我们通常说的按值传递。复制嘛，总会让人感觉很笨重。比如Matrix4x4这样比较复杂的值类型，如果直接复制一份新的，反而不如将值类型的引用传递给方法作为参数。<br>好啦，CPU的部分匹夫觉得到此就介绍的差不多了。下面就简单聊聊其实匹夫并不是十分熟悉的部分，GPU的优化。<br>回到目录<br>GPU的优化<br>GPU与CPU不同，所以侧重点自然也不一样。GPU的瓶颈主要存在在如下的方面：<br>填充率，可以简单的理解为图形处理单元每秒渲染的像素数量。<br>像素的复杂度，比如动态阴影，光照，复杂的shader等等<br>几何体的复杂度（顶点数量）<br>当然还有GPU的显存带宽<br>那么针对以上4点，其实仔细分析我们就可以发现，影响的GPU性能的无非就是2大方面，一方面是顶点数量过多，像素计算过于复杂。另一方面就是GPU的显存带宽。那么针锋相对的两方面举措也就十分明显了。<br>减少顶点数量，简化计算复杂度。<br>压缩图片，以适应显存带宽。<br>减少绘制的数目<br>那么第一个方面的优化也就是减少顶点数量，简化复杂度，具体的举措就总结如下了：<br>保持材质的数目尽可能少。这使得Unity更容易进行批处理。<br>使用纹理图集（一张大贴图里包含了很多子贴图）来代替一系列单独的小贴图。它们可以更快地被加载，具有很少的状态转换，而且批处理更友好。<br>如果使用了纹理图集和共享材质，使用Renderer.sharedMaterial 来代替Renderer.material 。<br>使用光照纹理(lightmap)而非实时灯光。<br>使用LOD，好处就是对那些离得远，看不清的物体的细节可以忽略。<br>遮挡剔除（Occlusion culling）<br>使用mobile版的shader。因为简单。<br>优化显存带宽<br>第二个方向呢？压缩图片，减小显存带宽的压力。<br>OpenGL ES 2.0使用ETC1格式压缩等等，在打包设置那里都有。<br>使用mipmap。<br>MipMap<br>这里匹夫要着重介绍一下MipMap到底是啥。因为有人说过MipMap会占用内存呀，但为何又会优化显存带宽呢？那就不得不从MipMap是什么开始聊起。一张图其实就能解决这个疑问。<br>上面是一个mipmap 如何储存的例子，左边的主图伴有一系列逐层缩小的备份小图<br>是不是很一目了然呢？Mipmap中每一个层级的小图都是主图的一个特定比例的缩小细节的复制品。因为存了主图和它的那些缩小的复制品，所以内存占用会比之前大。但是为何又优化了显存带宽呢？因为可以根据实际情况，选择适合的小图来渲染。所以，虽然会消耗一些内存，但是为了图片渲染的质量（比压缩要好），这种方式也是推荐的。<br>回到目录<br>内存的优化<br>既然要聊Unity3D运行时候的内存优化，那我们自然首先要知道Unity3D游戏引擎是如何分配内存的。大概可以分成三大部分：<br>Unity3D内部的内存<br>Mono的托管内存<br>若干我们自己引入的DLL或者第三方DLL所需要的内存。<br>第3类不是我们关注的重点，所以接下来我们会分别来看一下Unity3D内部内存和Mono托管内存，最后还将分析一个官网上Assetbundle的案例来说明内存的管理。<br>Unity3D内部内存<br>Unity3D的内部内存都会存放一些什么呢？各位想一想，除了用代码来驱动逻辑，一个游戏还需要什么呢？对，各种资源。所以简单总结一下Unity3D内部内存存放的东西吧：<br>资源：纹理、网格、音频等等<br>GameObject和各种组件。<br>引擎内部逻辑需要的内存：渲染器，物理系统，粒子系统等等<br>Mono托管内存<br>因为我们的游戏脚本是用C#写的，同时还要跨平台，所以带着一个Mono的托管环境显然必须的。那么Mono的托管内存自然就不得不放到内存的优化范畴中进行考虑。那么我们所说的Mono托管内存中存放的东西和Unity3D内部内存中存放的东西究竟有何不同呢？其实Mono的内存分配就是很传统的运行时内存的分配了：<br>值类型：int型啦，float型啦，结构体struct啦，bool啦之类的。它们都存放在堆栈上（注意额，不是堆所以不涉及GC）。<br>引用类型：其实可以狭义的理解为各种类的实例。比如游戏脚本中对游戏引擎各种控件的封装。其实很好理解，C#中肯定要有对应的类去对应游戏引擎中的控件。那么这部分就是C#中的封装。由于是在堆上分配，所以会涉及到GC。<br>而Mono托管堆中的那些封装的对象，除了在在Mono托管堆上分配封装类实例化之后所需要的内存之外，还会牵扯到其背后对应的游戏引擎内部控件在Unity3D内部内存上的分配。<br>举一个例子：<br>一个在.cs脚本中声明的WWW类型的对象www，Mono会在Mono托管堆上为www分配它所需要的内存。同时，这个实例对象背后的所代表的引擎资源所需要的内存也需要被分配。<br>一个WWW实例背后的资源：<br>压缩的文件<br>解压缩所需的缓存<br>解压缩之后的文件<br>如图：<br>那么下面就举一个AssetBundle的例子：<br>Assetbundle的内存处理<br>以下载Assetbundle为例子，聊一下内存的分配。匹夫从官网的手册上找到了一个使用Assetbundle的情景如下：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function">IEnumerator <span class="title">DownloadAndCache</span>(<span class="params"></span>)</div><div class="line"></span>&#123;</div><div class="line">    <span class="comment">// Wait for the Caching system to be ready</span></div><div class="line">    <span class="keyword">while</span> (!Caching.ready)</div><div class="line">        <span class="keyword">yield</span> <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line"></div><div class="line">    <span class="comment">// Load the AssetBundle file from Cache if it exists with the same version or download and store it in the cache</span></div><div class="line">    <span class="keyword">using</span> (WWW www = WWW.LoadFromCacheOrDownload(BundleURL, version))</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">yield</span> <span class="keyword">return</span> www; <span class="comment">//WWW是第1部分</span></div><div class="line">        <span class="keyword">if</span> (www.error != <span class="literal">null</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"WWW download had an error:"</span> + www.error);</div><div class="line">        AssetBundle bundle = www.assetBundle;<span class="comment">//AssetBundle是第2部分</span></div><div class="line">        <span class="keyword">if</span> (AssetName == <span class="string">""</span>)</div><div class="line">            Instantiate(bundle.mainAsset);<span class="comment">//实例化是第3部分</span></div><div class="line">        <span class="function"><span class="keyword">else</span></div><div class="line">            <span class="title">Instantiate</span>(<span class="params">bundle.Load(AssetName</span>))</span>;</div><div class="line">        <span class="comment">// Unload the AssetBundles compressed contents to conserve memory</span></div><div class="line">        bundle.Unload(<span class="literal">false</span>);</div><div class="line"></div><div class="line">    &#125; <span class="comment">// memory is freed from the web stream (www.Dispose() gets called implicitly)</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>内存分配的三个部分匹夫已经在代码中标识了出来：<br>Web Stream：包括了压缩的文件，解压所需的缓存，以及解压后的文件。<br>AssetBundle：Web Stream中的文件的映射，或者说引用。<br>实例化之后的对象：就是引擎的各种资源文件了，会在内存中创建出来。<br>那就分别解析一下：<br>WWW www = WWW.LoadFromCacheOrDownload (BundleURL, version)<br>将压缩的文件读入内存中<br>创建解压所需的缓存<br>将文件解压，解压后的文件进入内存<br>关闭掉为解压创建的缓存<br>AssetBundle bundle = www.assetBundle;<br>AssetBundle此时相当于一个桥梁，从Web Stream解压后的文件到最后实例化创建的对象之间的桥梁。<br>所以AssetBundle实质上是Web Stream解压后的文件中各个对象的映射。而非真实的对象。<br>实际的资源还存在Web Stream中，所以此时要保留Web Stream。<br>Instantiate(bundle.mainAsset);<br>通过AssetBundle获取资源，实例化对象<br>最后各位可能看到了官网中的这个例子使用了：<br>using(WWW www = WWW.LoadFromCacheOrDownload (BundleURL, version))<br>{<br>}<br>这种using的用法。这种用法其实就是为了在使用完Web Stream之后，将内存释放掉的。因为WWW也继承了idispose的接口，所以可以使用using的这种用法。其实相当于最后执行了：<br>//删除Web Stream<br>www.Dispose();<br>OK,Web Stream被删除掉了。那还有谁呢？对Assetbundle。那么使用<br>//删除AssetBundle<br>bundle.Unload(false);<br>ok，写到这里就先打住啦。写的有点超了。有点赶也有点临时，日后在补充编辑。<br>回到目录<br>更新，使用Unity Profiler工具检测内存<br>这篇文章当时写的时候略显仓促，因此并没有特别介绍Unity Profiler工具，也更谈不上用Unity Profiler工具来监测内存的使用状态了。但是使用Unity Profiler工具来监测还是十分必要的，下面就简单补充一下这方面的知识。<br>在Profiler工具中提供了两种模式供我们监测内存的使用情况，即简易模式和详细模式。在简易模式中，我们可以看到总的内存（total）列出了两列，即Used Total（使用总内存）和Reserved Total（预定总内存）。Used Total和Reserved 均是物理内存，其中Reserved是unity向系统申请的总内存，Unity底层为了不经常向系统申请开辟内存，开启了较大一块内存作为缓存，即所谓的Reserved内存，而运行时，unity所使用的内存首先是向Reserved中来申请内存，当不使用时也是先向Reserved中释放内存，从而来保证游戏运行的流畅性。一般来说，Used Total越大，则Reserved Total越大，而当Used Total降下去后，Reserved Total也是会随之下降的（但并不一定与Used Total同步）。<br>Unity3D的内存从大体上可以分为以下几个部分：<br>Unity：位Unity3D的底层代码所分配的内存。<br>Mono：即托管堆。Mono运行时在运行游戏脚本时所需要的内存，换句话说托管堆的大小与我们的GameObject数量、资源量无关，仅是脚本代码造成的。这部分内存是有垃圾回收机制的。<br>GfxDriver：可以理解为GPU显存开销，主要由Texture，Vertex buffer以及index buffer组成。所以尽可能地减少或释放Texture和mesh等资源，即可降低GfxDriver内存。<br>FMOD：音频的内存开销。<br>Profiler<br>而在简易模式下的监视器最下方，则列出了常见的一些资源以及它们所消耗的内存。<br>纹理<br>网格<br>材质<br>动作<br>音频<br>游戏对象的数量<br>而详细模式则需要点击“Take Sample”按钮来捕获详细的内存使用情况。需要注意的是，由于获得数据需要花费一定的时间，因此我们无法获得实时的详细内存的使用情况。在详细模式中，我们可以观察每个具体资源和游戏对象的内存使用情况。</p>
+<p>–&gt;</p>
+<p>优秀的Unity性能优化文章二：<a href="http://www.ceeger.com/forum/read.php?tid=20585">http://www.ceeger.com/forum/read.php?tid=20585</a></p>
+<p>A. WaitForTargetFPS:<br>      Vsync(垂直同步)功能所，即显示当前帧的CPU等待时间<br>   B. Overhead：<br>      Profiler总体时间-所有单项的记录时间总和。用于记录尚不明确的时间消耗，以帮助进一步完善Profiler的统计。<br>        C. Physics.Simulate：<br>      当前帧物理模拟的CPU占用时间。<br>   D. Camera.Render：<br>      相机渲染准备工作的CPU占用量<br>   E. RenderTexture.SetActive：<br>      设置RenderTexture操作.<br>      底层实现：1.比对当前帧与前一帧的ColorSurface和DepthSurface.<br>               2.如果这两个Buffer一致则不生成新的RT，否则则生成新的RT，并设置与之相对应的Viewport和空间转换矩阵.<br>   F. Monobehaviour.OnMouse_ ：<br>      用于检测鼠标的输入消息接收和反馈，主要包括：SendMouseEvents和DoSendMouseEvents。（只要Edtor开起来，这个就会存在）<br>   G. HandleUtility.SetViewInfo：<br>      仅用于Editor中，作用是将GUI和Editor中的显示看起来与发布版本的显示一致。<br>H. GUI.Repaint：<br>      GUI的重绘(说明在有使用原生的OnGUI)<br>   I. Event.Internal_MakeMasterEventCurrent：<br>      负责GUI的消息传送<br>   J. Cleanup Unused Cached Data：<br>      清空无用的缓存数据，主要包括RenderBuffer的垃圾回收和TextRendering的垃圾回收。<br>         1.RenderTexture.GarbageCollectTemporary:存在于RenderBuffer的垃圾回收中，清除临时的FreeTexture.<br>         2.TextRendering.Cleanup:TextMesh的垃圾回收操作<br>   K. Application.Integrate Assets in Background：<br>      遍历预加载的线程队列并完成加载，同时，完成纹理的加载、Substance的Update等.<br>   L. Application.LoadLevelAsync Integrate：<br>      加载场景的CPU占用，通常如果此项时间长的话70%的可能是Texture过长导致.<br>   M. UnloadScene：<br>      卸载场景中的GameObjects、Component和GameManager，一般用在切换场景时.<br>   N. CollectGameObjectObjects：<br>      执行上面M项的同时，会将场景中的GameObject和Component聚集到一个Array中.然后执行下面的Destroy.<br>   O. Destroy：<br>      删除GameObject和Component的CPU占用.<br>   P. AssetBundle.LoadAsync Integrate：<br>      多线程加载AwakeQueue中的内容，即多线程执行资源的AwakeFromLoad函数.<br>   Q. Loading.AwakeFromLoad：<br>      在资源被加载后调用，对每种资源进行与其对应用处理. </p>
+<ol>
+<li>CPU Usage<br>A. Device.Present:<br>   device.PresentFrame的耗时显示，该选项出现在发布版本中.<br>B. Graphics.PresentAndSync：<br>   GPU上的显示和垂直同步耗时.该选项出现在发布版本中.<br>C. Mesh.DrawVBO：<br>   GPU中关于Mesh的Vertex Buffer Object的渲染耗时.<br>D. Shader.Parse：<br>   资源加入后引擎对Shader的解析过程.<br>E. Shader.CreateGPUProgram：<br>   根据当前设备支持的图形库来建立GPU工程. </li>
+<li><p>Memory Profiler </p>
+<p>A. Used Total:<br>   当前帧的Unity内存、Mono内存、GfxDriver内存、Profiler内存的总和.<br>B. Reserved Total:<br>   系统在当前帧的申请内存.<br>C. Total System Memory Usage:<br>   当前帧的虚拟内存使用量.（通常是我们当前使用内存的1.5~3倍)<br>D. GameObjects in Scene:<br>   当前帧场景中的GameObject数量.<br>E. Total Objects in Scene:<br>   当前帧场景中的Object数量(除GameObject外，还有Component等).<br>F. Total Object Count:<br>   Object数据 + Asset数量. </p>
+</li>
+<li><p>Detail Memory Profiler<br>A. Assets:<br>   Texture2d:记录当前帧内存中所使用的纹理资源情况，包括各种GameObject的纹理、天空盒纹理以及场景中所用的Lightmap资源.<br>B. Scene Memory:<br>   记录当前场景中各个方面的内存占用情况，包括GameObject、所用资源、各种组件以及GameManager等（天般情况通过AssetBundle加载的不会显示在这里).<br>A. Other:<br>   ManagedHeap.UseSize:代码在运行时造成的堆内存分配，表示上次GC到目前为止所分配的堆内存量.<br>   SerializedFile(3):<br>   WebStream:这个是由WWW来进行加载的内存占用.<br>   System.ExecutableAndDlls:不同平台和不同硬件得到的值会不一样。 </p>
+</li>
+</ol>
+<ol>
+<li>优化重点<br>A. CPU-GC Allow:<br>   关注原则：1.检测任何一次性内存分配大于2KB的选项 2.检测每帧都具有20B以上内存分配的选项.<br>B. Time ms:<br>   记录游戏运行时每帧CPU占用（特别注意占用5ms以上的）.<br>C. Memory Profiler-Other:<br>   1.ManagedHeap.UsedSize: 移动游戏建议不要超过20MB.<br>   2.SerializedFile: 通过异步加载(LoadFromCache、WWW等)的时候留下的序列化文件,可监视是否被卸载.<br>   3.WebStream: 通过异步WWW下载的资源文件在内存中的解压版本,比SerializedFile大几倍或几十倍,重点监视.<em>**</em><br>D. Memory Profiler-Assets:<br>   1.Texture2D: 重点检查是否有重复资源和超大Memory是否需要压缩等.<br>   2.AnimationClip: 重点检查是否有重复资源.<br>   3.Mesh： 重点检查是否有重复资源. </li>
+</ol>
+<ol>
+<li><p>项目中可能遇到的问题 </p>
+<p>A. Device.Present:<br>   1.GPU的presentdevice确实非常耗时，一般出现在使用了非常复杂的shader.<br>   2.GPU运行的非常快，而由于Vsync的原因，使得它需要等待较长的时间.<br>   3.同样是Vsync的原因，但其他线程非常耗时，所以导致该等待时间很长，比如：过量AssetBundle加载时容易出现该问题.<br>   4.Shader.CreateGPUProgram:Shader在runtime阶段（非预加载）会出现卡顿(华为K3V2芯片).<br>B. StackTraceUtility.PostprocessStacktrace()和StackTraceUtility.ExtractStackTrace():<br>   1.一般是由Debug.Log或类似API造成.<br>   2.游戏发布后需将Debug API进行屏蔽. </p>
+<p>C. Overhead:<br>   1.一般情况为Vsync所致.<br>   2.通常出现在Android设备上.<br>D. GC.Collect:<br>   原因: 1.代码分配内存过量(恶性的) 2.一定时间间隔由系统调用(良性的).<br>   占用时间：1.与现有Garbage size相关 2.与剩余内存使用颗粒相关（比如场景物件过多，利用率低的情况下，GC释放后需要做内存重排)<br>E. GarbageCollectAssetsProfile:<br>   1.引擎在执行UnloadUnusedAssets操作(该操作是比较耗时的,建议在切场景的时候进行).<br>   2.尽可能地避免使用Unity内建GUI，避免GUI.Repaint过渡GC Allow.<br>   3.if(other.tag == GearParent.MogoPlayerTag)改为other.CompareTag(GearParent.MogoPlayerTag).因为other.tag为产生180B的GC Allow.<br>F. 少用foreach，因为每次foreach为产生一个enumerator(约16B的内存分配)，尽量改为for.<br>G. Lambda表达式，使用不当会产生内存泄漏.<br>H. 尽量少用LINQ：<br>   1.部分功能无法在某些平台使用.<br>   2.会分配大量GC Allow.<br>I. 控制StartCoroutine的次数：<br>   1.开启一个Coroutine(协程)，至少分配37B的内存.<br>   2.Coroutine类的实例 – 21B.<br>   3.Enumerator – 16B.<br>J. 使用StringBuilder替代字符串直接连接.<br>K. 缓存组件:<br>   1.每次GetComponent均会分配一定的GC Allow.<br>   2.每次Object.name都会分配39B的堆内存.</p>
+</li>
+</ol>
+-->
+        </div>
+      </article>
     </div>
-
-    <div>
+    <!-- Comments -->
+    <div class="container">
       
-        
+<section id="comment">
+  <!-- <h1 class="title">留言</h1> -->
 
-      
+  
+</section>
+
+
     </div>
-
-    <div>
+    <!-- Pre or Next -->
+    <div class="nav-links">
       
-        
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>欣赏此文？求鼓励，求支持！</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赞赏支持</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/images/wechatpay.png" alt="郭佳 WeChat Pay"/>
-          <p>微信打赏</p>
+        <div class="nav-previous">
+          <a href="/2017/02/28/Driving-Exam/" rel="prev"><span class="meta-arraw meta-arraw-left"></span> 上一页</a>
         </div>
       
       
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/images/alipay.png" alt="郭佳 Alipay"/>
-          <p>支付宝打赏</p>
+        <div class="nav-next">
+          <a href="/2017/02/15/Unity-Android-Status-Bar/" rel="prev">下一页 <span class="meta-arraw meta-arraw-right"></span></a>
         </div>
       
+    </div>
+
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <!-- Footer-widgets -->
+<div class="footer-widgets">
+  <div class="row inside-wrapper">
+    <div class="col-1-3">
+      <aside>
+        <h1 class="widget-title">关于本站</h1>
+        <div class="custom-widget-content">
+          
+          <ul><li><a href="https://github.com/GallenHu/hexo-theme-Daily">如何自定义这里的内容(配置教程)?</a></li></ul>
+        </div>
+      </aside>
+    </div>
+    <div class="col-1-3">
+      <aside>
+        <h1 class="widget-title">与我联系</h1>
+        <div class="widget-text">
+          
+            
+              <a href="https://github.com/GallenHu" class="icon icon-github" target="_blank">github</a>
+            
+          
+        </div>
+      </aside>
+    </div>
+    <div class="col-1-3">
+      <aside>
+        <h1 class="widget-title">站内搜索</h1>
+        <div class="widget-text">
+          <form onSubmit="return appDaily.submitSearch('')">
+            <p>
+              <input type="text" placeholder="search..." id="homeSearchInput">
+            </p>
+            <!-- <input type="submit" value="GO"> -->
+          </form>
+        </div>
+      </aside>
     </div>
   </div>
-
-
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Unity/" rel="tag"># Unity</a>
-          
-            <a href="/tags/Optimization/" rel="tag"># Optimization</a>
-          
-        </div>
-      
-
-      
-        
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/02/15/Unity-Android-Status-Bar/" rel="next" title="Unity Android Status Bar">
-                <i class="fa fa-chevron-left"></i> Unity Android Status Bar
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/28/Driving-Exam/" rel="prev" title="Driving Exam">
-                Driving Exam <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-          
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
+</div>
+<!-- Footer -->
+<footer class="site-info">
+  <p>
+    <span>QinHuai &copy; 2017</span>
     
-  </div>
+      <span class="split">|</span>
+      <span>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> with Theme <a href="https://github.com/GallenHu/hexo-theme-Daily" target="_blank">Daily</a></span>
+    
+  </p>
+</footer>
 
 
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
+  <!-- After footer scripts -->
+  <!-- scripts -->
+<script src="/js/app.js"></script>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
 
-      
 
-      
-
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/author.jpg"
-               alt="郭佳" />
-          <p class="site-author-name" itemprop="name">郭佳</p>
-          <p class="site-description motion-element" itemprop="description"></p>
-        </div>
-        <nav class="site-state motion-element">
-        
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">郭佳</span>
-</div>
-
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
-
-
-        
-
-        
-      </div>
-    </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-  
-  
-
-  
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("", "");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
 
 
 </body>
+
 </html>
