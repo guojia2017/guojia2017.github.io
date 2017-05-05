@@ -16,7 +16,7 @@
 
   <!--Open Graph Title-->
   
-      <meta property="og:title" content="git branch"/>
+      <meta property="og:title" content="Git Branch"/>
   
   <!--Open Graph Description-->
   
@@ -33,7 +33,7 @@
 
   <!-- Title -->
   
-  <title>git branch - QinHuai</title>
+  <title>Git Branch - QinHuai</title>
 
 
   <link rel="shortcut icon" href="https://hexo.io/icon/favicon-96x96.png">
@@ -129,7 +129,7 @@
         <!-- Title date & tags -->
         <div class="post-header">
           <h1 class="entry-title">
-            git branch
+            Git Branch
             
           </h1>
           <p class="posted-on">
@@ -146,52 +146,52 @@
           <p>一、启动git bash</p>
 <ol>
 <li>可以从安装程序直接点击git bash启动</li>
-<li>在要操作的问价夹下右键单价，选择git bash菜单启动。</li>
+<li>在要操作的文件夹下右键单击，选择git bash菜单启动。</li>
 </ol>
-<p>远程操作的第一步，通常是从远程主机克隆一个版本库，这时就要用到<code>git clone</code>命令。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> &lt;远程版本库的网址&gt; &lt;本地目录&gt;</div></pre></td></tr></table></figure></p>
+<p>远程操作的第一步，通常是从远程主机克隆一个版本库，这时就要用到<code>git clone</code>命令。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone &lt;远程版本库的网址&gt; &lt;本地目录&gt;</div></pre></td></tr></table></figure></p>
 <p>本地目录可以省略，省略时默认克隆到当前文件夹下。</p>
 <p>二、 知己知彼，百战不殆</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git remote</div><div class="line">$ git remote -v</div><div class="line">$ git remote show &lt;主机名&gt;</div><div class="line">$ git remote add &lt;主机名&gt; &lt;远程主机地址&gt;</div><div class="line">$ git remote rm &lt;主机名&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git remote</div><div class="line">$ git remote -v</div><div class="line">$ git remote show &lt;主机名&gt;</div><div class="line">$ git remote add &lt;主机名&gt; &lt;远程主机地址&gt;</div><div class="line">$ git remote rm &lt;主机名&gt;</div></pre></td></tr></table></figure>
 <ol>
 <li><p>为了便于管理，Git要求每个远程主机都必须指定一个主机名。git remote命令就用于管理主机名。<br>不带选项的时候，git remote命令列出所有远程主机。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git remote</div><div class="line">origin</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git remote</div><div class="line">origin</div></pre></td></tr></table></figure>
 </li>
 <li><p>使用-v选项，可以参看远程主机的网址。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git remote -v</div><div class="line">origin  git@github.com:jquery/jquery.git (fetch)</div><div class="line">origin  git@github.com:jquery/jquery.git (push)</div><div class="line">上面命令表示，当前只有一台远程主机，叫做origin，以及它的网址。</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git remote -v</div><div class="line">origin  git@github.com:jquery/jquery.git (fetch)</div><div class="line">origin  git@github.com:jquery/jquery.git (push)</div><div class="line">上面命令表示，当前只有一台远程主机，叫做origin，以及它的网址。</div></pre></td></tr></table></figure>
 </li>
 <li><p>git remote show命令加上主机名，可以查看该主机的详细信息。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git remote show &lt;主机名&gt;</div><div class="line">//比如: $ git remote show origin</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git remote show &lt;主机名&gt;</div><div class="line">//比如: $ git remote show origin</div></pre></td></tr></table></figure>
 </li>
 <li><p>git remote add命令用于添加远程主机。</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote <span class="keyword">add</span> &lt;主机名&gt; &lt;网址&gt;</div></pre></td></tr></table></figure>
 </li>
 <li><p>git remote rm命令用于删除远程主机。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote rm &lt;主机名&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote rm &lt;主机名&gt;</div></pre></td></tr></table></figure>
 </li>
 <li><p>git remote rename命令用于远程主机的改名。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote rename &lt;原主机名&gt; &lt;新主机名&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote rename &lt;原主机名&gt; &lt;新主机名&gt;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>三、分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git branch</div><div class="line">$ git branch -r</div><div class="line">$ git branch <span class="_">-a</span></div><div class="line">$ git branch b1 // 创建branch分支</div><div class="line">$ git checkout b1 //切换到分支branch001</div></pre></td></tr></table></figure></p>
-<p>四、删除操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git rm &lt;文件名&gt;</div><div class="line">$ git rm -r &lt;文件夹名&gt;</div><div class="line">//-r 表示递归删除子文件</div></pre></td></tr></table></figure></p>
-<p>五、添加操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add &lt;文件名&gt;</div><div class="line">$ git add .</div></pre></td></tr></table></figure></p>
-<p>六、提交<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -m <span class="string">"提交说明信息"</span></div></pre></td></tr></table></figure></p>
-<p>七、推送<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push &lt;主机名&gt; &lt;分支&gt;</div></pre></td></tr></table></figure></p>
+<p>三、分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git branch</div><div class="line">$ git branch -r</div><div class="line">$ git branch -a</div><div class="line">$ git branch b1 // 创建branch分支</div><div class="line">$ git checkout b1 //切换到分支branch001</div></pre></td></tr></table></figure></p>
+<p>四、删除操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git rm &lt;文件名&gt;</div><div class="line">$ git rm -r &lt;文件夹名&gt;</div><div class="line">//-r 表示递归删除子文件</div></pre></td></tr></table></figure></p>
+<p>五、添加操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add &lt;文件名&gt;</div><div class="line">$ git add .</div></pre></td></tr></table></figure></p>
+<p>六、提交<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -m &quot;提交说明信息&quot;</div></pre></td></tr></table></figure></p>
+<p>七、推送<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push &lt;主机名&gt; &lt;分支&gt;</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>分支操作：</p>
-<p>首先, clone 一个远端仓库，到当前目录下<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ Git clone git:<span class="comment">//example.com/myproject $ cd myproject</span></div></pre></td></tr></table></figure></p>
-<p>克隆分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Git <span class="built_in">clone</span> -b maven https://github.com/Oracle-ao/ao-shop.git</div></pre></td></tr></table></figure></p>
+<p>首先, clone 一个远端仓库，到当前目录下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ Git clone git://example.com/myproject </div><div class="line">$ cd myproject</div></pre></td></tr></table></figure></p>
+<p>克隆分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Git clone -b maven https://github.com/Oracle-ao/ao-shop.git</div></pre></td></tr></table></figure></p>
 <p>然后，看看你本地有什么分支：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch</div></pre></td></tr></table></figure></p>
 <p>但是有些其他分支你在的仓库里面是隐藏的，你可以加上－a选项来查看它们：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -a</div></pre></td></tr></table></figure></p>
 <p>屏幕信息：<code>* master</code></p>
 <p>在本地新建一个分支<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch BlogSource</div></pre></td></tr></table></figure></p>
 <p> 切换到新的分支<br> <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout BlogSource</div></pre></td></tr></table></figure></p>
 <p> 新分支发布到github<br> <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin Branch1</div></pre></td></tr></table></figure></p>
-<h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h4><p> 将hexo的源文件一起上传至Github上。<br> 假设本地父目录是：github.io<br> 子目录是：hexo<br> hexo的相关操作生成的文件都放在hexo目录下。<br> 建立2个分支，一个是hexo用于存放源文件，一个是master为默认生成文件的存放位置。由于我们只同步hexo分支下的文件，所以设置hexo为默认分支。</p>
+<h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3><p> 将hexo的源文件一起上传至Github上。<br> 假设本地父目录是：github.io<br> 子目录是：hexo<br> hexo的相关操作生成的文件都放在hexo目录下。<br> 建立2个分支，一个是hexo用于存放源文件，一个是master为默认生成文件的存放位置。由于我们只同步hexo分支下的文件，所以设置hexo为默认分支。</p>
 <p>在<code>hexo</code>父目录下，右键选择<code>git bash here</code>.</p>
 <ol>
 <li><p>查看远程服务器地址和本地仓库。</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git remote -v</div><div class="line"><span class="comment">// 如果提示信息为：</span></div><div class="line"><span class="comment">// ``fatal: Not a git repository (or any of the parent directories): .git``</span></div><div class="line"><span class="comment">// 证明当前目录没有建立仓库。</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git remote -v</div><div class="line">// 如果提示信息为：</div><div class="line">// fatal: Not a git repository (or any of the parent directories): .git</div><div class="line">// 证明当前目录没有建立仓库。</div></pre></td></tr></table></figure>
 </li>
 <li><p>初始化本地仓库。</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
@@ -220,8 +220,8 @@
 </ol>
 <p>或者方法二：</p>
 <ol>
-<li><p>将hexo分支上的文件克隆至本地。<br><code>克隆前和克隆后都可以先查看当前目录下的信息：</code><br><code>git status</code><br><code>git remote -v</code><br><code>git branch -v</code></p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone -b hexo git@github.com:guojia/guojia.github.io</div></pre></td></tr></table></figure>
+<li><p>将hexo分支上的文件克隆至本地。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">``克隆前和克隆后都可以先查看当前目录下的信息：``</div><div class="line">git status</div><div class="line">git remote -v</div><div class="line">git branch -v</div><div class="line">git clone -b hexo git@github.com:guojia/guojia.github.io</div></pre></td></tr></table></figure>
 </li>
 <li><p>添加远程主机</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote <span class="keyword">add</span> origin git@github.com:guojia/guojia.github.io</div></pre></td></tr></table></figure>
@@ -236,7 +236,7 @@
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin hexo</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>参考：<br><a href="http://ruanyifeng.com/blog/2014/06/git_remote.html" target="_blank" rel="external">http://ruanyifeng.com/blog/2014/06/git_remote.html</a><br><a href="https://www.zhihu.com/question/21193762/answer/138139539" target="_blank" rel="external">https://www.zhihu.com/question/21193762/answer/138139539</a><br><a href="http://blog.csdn.net/binyao02123202/article/details/20130891" target="_blank" rel="external">http://blog.csdn.net/binyao02123202/article/details/20130891</a><br><a href="http://blog.csdn.net/win_lin/article/details/17037731" target="_blank" rel="external">http://blog.csdn.net/win_lin/article/details/17037731</a><br>《git常用命令整理》(<a href="http://justcoding.iteye.com/blog/1830388" target="_blank" rel="external">http://justcoding.iteye.com/blog/1830388</a>)<br>《Github的分支创建与合并》<a href="http://www.cnblogs.com/horanly/p/6265182.html" target="_blank" rel="external">http://www.cnblogs.com/horanly/p/6265182.html</a><br>《gitHub如何切换到非master分支的其他分支 》<a href="http://blog.csdn.net/hsany330/article/details/51820860" target="_blank" rel="external">http://blog.csdn.net/hsany330/article/details/51820860</a></p>
+<p>参考：<br>《<a href="http://ruanyifeng.com/blog/2014/06/git_remote.html" target="_blank" rel="external">Git远程操作详解</a>》<br>《<a href="https://www.zhihu.com/question/21193762/answer/138139539" target="_blank" rel="external">使用hexo，如果换了电脑怎么更新博客？</a>》<br>《<a href="http://blog.csdn.net/binyao02123202/article/details/20130891" target="_blank" rel="external">github设置添加SSH </a>》<br>《<a href="http://blog.csdn.net/win_lin/article/details/17037731" target="_blank" rel="external">github多人协作 </a>》<br>《<a href="http://justcoding.iteye.com/blog/1830388" target="_blank" rel="external">git常用命令整理</a>》<br>《<a href="http://www.cnblogs.com/horanly/p/6265182.html" target="_blank" rel="external">Github的分支创建与合并</a>》<br>《<a href="http://blog.csdn.net/hsany330/article/details/51820860" target="_blank" rel="external">gitHub如何切换到非master分支的其他分支 </a>》</p>
 
         </div>
       </article>
@@ -279,7 +279,7 @@
         <h1 class="widget-title">关于本站</h1>
         <div class="custom-widget-content">
           
-          <ul><li><a href="https://github.com/GallenHu/hexo-theme-Daily">如何自定义这里的内容(配置教程)?</a></li></ul>
+          <ul><li><a href="https://github.com/GallenHu/hexo-theme-Daily">主题配置</a></li></ul>
         </div>
       </aside>
     </div>
@@ -289,7 +289,7 @@
         <div class="widget-text">
           
             
-              <a href="https://github.com/GallenHu" class="icon icon-github" target="_blank">github</a>
+              <a href="mailto:13916589418@139.com" class="icon icon-mail" target="_blank">mail</a>
             
           
         </div>

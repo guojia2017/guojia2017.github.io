@@ -155,11 +155,26 @@
 <a id="more"></a>
 <h3 id="代码从零开始"><a href="#代码从零开始" class="headerlink" title="代码从零开始"></a>代码从零开始</h3><p>　你可以在本地创建一个空白的文件夹，然后克隆刚刚创建的项目(ps: clone url 在项目主页的右下方位置可以找到)本地，然后添加代码再上传。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir emptyFolder</div><div class="line">cd emptyFodler</div><div class="line">git clone https:<span class="comment">//github.com/youraccount/yourproject.git</span></div></pre></td></tr></table></figure></p>
 <p>　然后剩下的就是git add和git push的事情。</p>
-<h3 id="本地已经存在代码"><a href="#本地已经存在代码" class="headerlink" title="本地已经存在代码"></a>本地已经存在代码</h3><p><li>在你的项目文件目录先执行命令git init，使之成为一个git仓库.<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure></li></p>
-<p><li>将项目里所有文件加到本地的仓库，使用以下命令.<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">add</span> .  <span class="comment">//注意还有一个小圆点</span></div><div class="line">git commit -m <span class="string">"some message for this project."</span>	<span class="comment">//确认添加</span></div></pre></td></tr></table></figure></li></p>
-<p><li>然后将github上的项目pull下来.<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull https:<span class="comment">//github.com/youraccount/yourproject.git</span></div></pre></td></tr></table></figure></li></p>
-<p><li>为版本库添加名为origin的远程版本库。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote <span class="keyword">add</span> origin https:<span class="comment">//github.com/youraccount/yourproject.git</span></div></pre></td></tr></table></figure></li></p>
-<p><li>执行推送命令，完成<code>GitHub</code>版本库的初始化.注意命令行中的<code>-u</code>参数，在推送成功后自动建立本地分支与远程版本库分支的追踪<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push -u origin master</div></pre></td></tr></table></figure></li></p>
+<h3 id="本地已经存在代码"><a href="#本地已经存在代码" class="headerlink" title="本地已经存在代码"></a>本地已经存在代码</h3><ul>
+<li>在你的项目文件目录先执行命令git init，使之成为一个git仓库.</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
+<ul>
+<li>将项目里所有文件加到本地的仓库，使用以下命令.</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">add</span> .  <span class="comment">//注意还有一个小圆点</span></div><div class="line">git commit -m <span class="string">"some message for this project."</span>	<span class="comment">//确认添加</span></div></pre></td></tr></table></figure>
+<ul>
+<li>然后将github上的项目pull下来.</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull https:<span class="comment">//github.com/account/project.git</span></div></pre></td></tr></table></figure>
+<ul>
+<li>为版本库添加名为origin的远程版本库。</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote <span class="keyword">add</span> origin https:<span class="comment">//github.com/account/project.git</span></div></pre></td></tr></table></figure>
+<ul>
+<li>执行推送命令，完成<code>GitHub</code>版本库的初始化.注意命令行中的<code>-u</code>参数，在推送成功后自动建立本地分支与远程版本库分支的追踪</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
 
         </div>
       </article>
@@ -202,7 +217,7 @@
         <h1 class="widget-title">关于本站</h1>
         <div class="custom-widget-content">
           
-          <ul><li><a href="https://github.com/GallenHu/hexo-theme-Daily">如何自定义这里的内容(配置教程)?</a></li></ul>
+          <ul><li><a href="https://github.com/GallenHu/hexo-theme-Daily">主题配置</a></li></ul>
         </div>
       </aside>
     </div>
@@ -212,7 +227,7 @@
         <div class="widget-text">
           
             
-              <a href="https://github.com/GallenHu" class="icon icon-github" target="_blank">github</a>
+              <a href="mailto:13916589418@139.com" class="icon icon-mail" target="_blank">mail</a>
             
           
         </div>
