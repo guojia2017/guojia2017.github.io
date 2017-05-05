@@ -145,6 +145,7 @@
         <div class="entry-content">
           <p>运行git bash客户端。<br>一、设置git的user name和email<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --<span class="keyword">global</span> user.name <span class="string">"name"</span></div><div class="line">$ git config --<span class="keyword">global</span> user.email <span class="string">"name@mail.com"</span></div></pre></td></tr></table></figure></p>
 <p>二、查看git配置<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$git config --lis</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>三、生成SSH密钥<br>1.查看是否已经有了ssh密钥<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd ~/.ssh</div><div class="line">ls</div></pre></td></tr></table></figure></p>
 <p>这两个命令就是检查是否已经存在 id_rsa.pub 或 id_dsa.pub 文件，如果文件已经存在，那么你可以跳过步骤2，直接进入步骤3。</p>
 <p>2.生成密钥<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"username@email.com"</span></div></pre></td></tr></table></figure></p>

@@ -135,6 +135,12 @@
       </a>
     </h1>
     
+    <div class="entry-content">
+      <p>
+        <p>我们的游戏场景有时为了效率和效果，会进行烘培。由于烘培是针对场景进行的配置，如果关卡数比较多的时候，普通加载场景的方法(Application.LoadLevel)需要把很多场景文件添加到Building Settings中。<br>或者将场景文件打包成AssetBundle，然后就可以在运行时加载没有配置在Buiding Settings的场景。</p>
+      </p>
+    </div>
+    
     
     <p class="posted-on">
     2017-05-04
@@ -157,6 +163,13 @@
         Unity技能指示器  
       </a>
     </h1>
+    
+    <div class="entry-content">
+      <p>
+        <p>转自:<a href="http://baizihan.me/2016/10/draw-sector/">Unity——来个可变角度的扇形技能指示器</a></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Shader <span class="string">"Custom/Indicator"</span> &#123;</div><div class="line">    Properties &#123;  </div><div class="line">        _MainTex(<span class="string">"Main Texture"</span>, <span class="number">2</span>D) = <span class="string">"white"</span> &#123;&#125;</div><div class="line">        _Color (<span class="string">"Color"</span>, Color) = (<span class="number">0.17</span>,<span class="number">0.36</span>,<span class="number">0.81</span>,<span class="number">0.0</span>)</div><div class="line">        _Angle (<span class="string">"Angle"</span>, Range(<span class="number">0</span>, <span class="number">360</span>)) = <span class="number">60</span></div><div class="line">        _Gradient (<span class="string">"Gradient"</span>, Range(<span class="number">0</span>, <span class="number">1</span>)) = <span class="number">0</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    SubShader &#123;</div><div class="line">    Tags &#123; <span class="string">"Queue"</span>=<span class="string">"Transparent"</span> <span class="string">"RenderType"</span>=<span class="string">"Transparent"</span> <span class="string">"IgnoreProjector"</span>=<span class="string">"True"</span> &#125;</div><div class="line">         Pass &#123;</div><div class="line">            ZWrite Off</div><div class="line">            Blend SrcAlpha OneMinusSrcAlpha</div><div class="line">            CGPROGRAM</div><div class="line"> </div><div class="line">            <span class="meta">#<span class="meta-keyword">pragma</span> vertex vert</span></div><div class="line">            <span class="meta">#<span class="meta-keyword">pragma</span> fragment frag</span></div><div class="line">            <span class="meta">#include "UnityCG.cginc"</span></div><div class="line"></div><div class="line">            sampler2D _MainTex;</div><div class="line">            float4 _Color;</div><div class="line">            <span class="keyword">float</span> _Angle;</div><div class="line">            <span class="keyword">float</span> _Gradient;</div><div class="line"> </div><div class="line">            <span class="keyword">struct</span> fragmentInput &#123;</div><div class="line">                float4 pos : SV_POSITION;</div><div class="line">                float2 uv : TEXTCOORD0;</div><div class="line">            &#125;;</div><div class="line"></div><div class="line">            <span class="function">fragmentInput <span class="title">vert</span> (<span class="params">appdata_base v</span>)</span></div><div class="line">            &#123;</div><div class="line">                fragmentInput o;</div><div class="line"></div><div class="line">                o.pos = mul (UNITY_MATRIX_MVP, v.vertex);</div><div class="line">                o.uv = v.texcoord.xy;</div><div class="line"></div><div class="line">                <span class="keyword">return</span> o;</div><div class="line">            &#125;</div><div class="line"> </div><div class="line">            <span class="function">fixed4 <span class="title">frag</span>(<span class="params">fragmentInput i</span>) : SV_Target </span>&#123;</div><div class="line">            	<span class="comment">// 离中心点的距离</span></div><div class="line">                <span class="keyword">float</span> distance = sqrt(pow(i.uv.x - <span class="number">0.5</span>, <span class="number">2</span>) + pow(i.uv.y - <span class="number">0.5</span>, <span class="number">2</span>));</div><div class="line">                <span class="comment">// 在圆外</span></div><div class="line">                <span class="keyword">if</span>(distance &gt; <span class="number">0.5</span>f)&#123;</div><div class="line">                    discard;</div><div class="line">                &#125;</div><div class="line">                <span class="comment">// 根据距离计算透明度渐变</span></div><div class="line">                <span class="keyword">float</span> grediant = (<span class="number">1</span> - distance - <span class="number">0.5</span> * _Gradient) / <span class="number">0.5</span>;</div><div class="line">                <span class="comment">// 正常显示的结果</span></div><div class="line">                fixed4 result = tex2D(_MainTex, i.uv) * _Color * fixed4(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>, grediant);</div><div class="line">                <span class="keyword">float</span> x = i.uv.x;</div><div class="line">                <span class="keyword">float</span> y = i.uv.y;</div><div class="line">                <span class="keyword">float</span> deg2rad = <span class="number">0.017453</span>;	<span class="comment">// 角度转弧度</span></div><div class="line">                <span class="comment">// 根据角度剔除掉不需要显示的部分</span></div><div class="line">                <span class="comment">// 大于180度</span></div><div class="line">                <span class="keyword">if</span>(_Angle &gt; <span class="number">180</span>)&#123;</div><div class="line">                    <span class="keyword">if</span>(y &gt; <span class="number">0.5</span> &amp;&amp; abs(<span class="number">0.5</span> - y) &gt;= abs(<span class="number">0.5</span> - x) / tan((<span class="number">180</span> - _Angle / <span class="number">2</span>) * deg2rad))</div><div class="line">                        discard;<span class="comment">// 剔除</span></div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span>    <span class="comment">// 180度以内</span></div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">if</span>(y &gt; <span class="number">0.5</span> || abs(<span class="number">0.5</span> -y) &lt; abs(<span class="number">0.5</span> - x) / tan(_Angle / <span class="number">2</span> * deg2rad))</div><div class="line">                        discard;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> result;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            ENDCG</div><div class="line">        &#125;</div><div class="line">    &#125;  </div><div class="line">    FallBack <span class="string">"Diffuse"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      </p>
+    </div>
     
     
     <p class="posted-on">
@@ -181,6 +194,12 @@
       </a>
     </h1>
     
+    <div class="entry-content">
+      <p>
+        <p>场景中的雾气设置(Window&gt;Lighting&gt;Settings&gt;Other Setttings&gt;Fog)完成之后，某些情形下需要在运行时(Runtime)动态的关闭或者开启雾气。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">RenderSettings.fog = <span class="literal">false</span> ;	<span class="comment">//disable</span></div><div class="line">RenderSettings.fog = <span class="literal">true</span> ;	<span class="comment">//enable</span></div></pre></td></tr></table></figure></p>
+      </p>
+    </div>
+    
     
     <p class="posted-on">
     2017-05-02
@@ -203,6 +222,44 @@
         历史  
       </a>
     </h1>
+    
+    <div class="entry-content">
+      <p>
+        <ul>
+<li>尚书</li>
+<li>春秋</li>
+<li>战国策</li>
+<li>国语</li>
+</ul>
+<hr>
+<h2 id="二十四史"><a href="#二十四史" class="headerlink" title="二十四史"></a><strong>二十四史</strong></h2><ul>
+<li>史记</li>
+<li>汉书</li>
+<li>后汉书</li>
+<li>三国志</li>
+<li>晋书</li>
+<li>宋书</li>
+<li>南齐书</li>
+<li>梁书</li>
+<li>陈书</li>
+<li>魏书</li>
+<li>北齐书</li>
+<li>周书</li>
+<li>隋书</li>
+<li>南史</li>
+<li>北史</li>
+<li>旧唐书</li>
+<li>新唐书</li>
+<li>旧五代史</li>
+<li>新五代史</li>
+<li>宋史</li>
+<li>辽史</li>
+<li>金史</li>
+<li>元史</li>
+<li>明史</li>
+</ul>
+      </p>
+    </div>
     
     
     <p class="posted-on">
@@ -227,6 +284,19 @@
       </a>
     </h1>
     
+    <div class="entry-content">
+      <p>
+        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>本位的意思是标准，参照点。<br>金本位制是一种货币制度。即是以黄金作为基准货币（本位币）的一种货币制度。<br>本位币是一种基准货币。在过去很长的一段时期内，几乎所有文明的本位币都是“金”和“银”。我国现行的本位币是人民币。</p>
+<h3 id="演化历史"><a href="#演化历史" class="headerlink" title="演化历史"></a>演化历史</h3><p>金本位制是指以黄金作为本位币的货币制度。其主要形式有金币本位制、金块本位制和金汇兑本位制。</p>
+<ol>
+<li>金币本位制<br>金币本位制是以黄金为货币金属的一种典型的金本位制。其主要特点有：金币可以自由铸造、自由熔化；流通中的辅币和价值符号（如银行券）可以自由兑换金币；黄金可以自由输出输入。在实行金本位制的国家之间，根据两国货币的黄金含量计算汇率，称为金平价。</li>
+<li>金块本位制<br>金块本位制是指由中央银行发行、以金块为准备的纸币流通的货币制度。它与金币本位制的区别在于：其一，金块本位制以纸币或银行券作为流通货币，不再铸造、流通金币，但规定纸币或银行券的含金量，纸币或银行券可以兑换为黄金；其二，规定政府集中黄金储备，允许居民当持有本位币的含金量达到一定数额后兑换金块。</li>
+<li>金汇兑本位制<br>金汇兑本位制是指以银行券为流通货币，通过外汇间接兑换黄金的货币制度。金汇兑本位制与金块本位制的相同处在于规定货币单位的含金量，国内流通银行券，没有铸币流通。但规定银行券可以换取外汇，不能兑换黄金。本国中央银行将黄金与外汇存于另一个实行金本位制的国家，允许以外汇间接兑换黄金，并规定本国货币与该国货币的法定比率，从而稳定本币币值。</li>
+<li>布雷顿森林体制<br>各国政府将本币与美元挂钩制定兑换比率，这样使各国货币与黄金间接挂钩。在这种国际货币制度安排中，美元相对于其他成员国的货币处在等价于黄金的关键地位。所以，这种制度又称为以美元为中心的国际货币制度。</li>
+</ol>
+      </p>
+    </div>
+    
     
     <p class="posted-on">
     2017-04-17
@@ -249,6 +319,45 @@
         git branch  
       </a>
     </h1>
+    
+    <div class="entry-content">
+      <p>
+        <p>一、启动git bash</p>
+<ol>
+<li>可以从安装程序直接点击git bash启动</li>
+<li>在要操作的问价夹下右键单价，选择git bash菜单启动。</li>
+</ol>
+<p>远程操作的第一步，通常是从远程主机克隆一个版本库，这时就要用到<code>git clone</code>命令。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> &lt;远程版本库的网址&gt; &lt;本地目录&gt;</div></pre></td></tr></table></figure></p>
+<p>本地目录可以省略，省略时默认克隆到当前文件夹下。</p>
+<p>二、 知己知彼，百战不殆</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git remote</div><div class="line">$ git remote -v</div><div class="line">$ git remote show &lt;主机名&gt;</div><div class="line">$ git remote add &lt;主机名&gt; &lt;远程主机地址&gt;</div><div class="line">$ git remote rm &lt;主机名&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>为了便于管理，Git要求每个远程主机都必须指定一个主机名。git remote命令就用于管理主机名。<br>不带选项的时候，git remote命令列出所有远程主机。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git remote</div><div class="line">origin</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用-v选项，可以参看远程主机的网址。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git remote -v</div><div class="line">origin  git@github.com:jquery/jquery.git (fetch)</div><div class="line">origin  git@github.com:jquery/jquery.git (push)</div><div class="line">上面命令表示，当前只有一台远程主机，叫做origin，以及它的网址。</div></pre></td></tr></table></figure>
+</li>
+<li><p>git remote show命令加上主机名，可以查看该主机的详细信息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git remote show &lt;主机名&gt;</div><div class="line">//比如: $ git remote show origin</div></pre></td></tr></table></figure>
+</li>
+<li><p>git remote add命令用于添加远程主机。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote <span class="keyword">add</span> &lt;主机名&gt; &lt;网址&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>git remote rm命令用于删除远程主机。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote rm &lt;主机名&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>git remote rename命令用于远程主机的改名。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote rename &lt;原主机名&gt; &lt;新主机名&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>三、分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git branch</div><div class="line">$ git branch -r</div><div class="line">$ git branch <span class="_">-a</span></div><div class="line">$ git branch b1 // 创建branch分支</div><div class="line">$ git checkout b1 //切换到分支branch001</div></pre></td></tr></table></figure></p>
+<p>四、删除操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git rm &lt;文件名&gt;</div><div class="line">$ git rm -r &lt;文件夹名&gt;</div><div class="line">//-r 表示递归删除子文件</div></pre></td></tr></table></figure></p>
+<p>五、添加操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add &lt;文件名&gt;</div><div class="line">$ git add .</div></pre></td></tr></table></figure></p>
+<p>六、提交<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -m <span class="string">"提交说明信息"</span></div></pre></td></tr></table></figure></p>
+<p>七、推送<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push &lt;主机名&gt; &lt;分支&gt;</div></pre></td></tr></table></figure></p>
+      </p>
+    </div>
     
     
     <p class="posted-on">
@@ -273,6 +382,13 @@
       </a>
     </h1>
     
+    <div class="entry-content">
+      <p>
+        <p>运行git bash客户端。<br>一、设置git的user name和email<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --<span class="keyword">global</span> user.name <span class="string">"name"</span></div><div class="line">$ git config --<span class="keyword">global</span> user.email <span class="string">"name@mail.com"</span></div></pre></td></tr></table></figure></p>
+<p>二、查看git配置<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$git config --lis</div></pre></td></tr></table></figure></p>
+      </p>
+    </div>
+    
     
     <p class="posted-on">
     2017-04-11
@@ -295,6 +411,20 @@
         将本地项目上传至github  
       </a>
     </h1>
+    
+    <div class="entry-content">
+      <p>
+        <center><br>《<a href="http://www.jianshu.com/p/df7ce9f3a5cb">如何用命令行在github新建一个项目</a>》<br></center>
+
+<p>前言：<br>　新建github帐号和git的基础知识那些就默认读者掌握并且已经添加自己电脑的<code>SSHKey</code>到<code>github</code>，下面主要说一下如何在<code>github</code>新建项目。</p>
+<p>新建项目分2种情况：</p>
+<ol>
+<li>代码从零开始。</li>
+<li>本地已经存在项目代码，只是想放到github上开源或者存放。</li>
+</ol>
+<p>然而，无论是哪种情况，都得先在github新建一个项目的仓库。<br>登录github后，找到Repositories这个tab，然后点击红框中的new来新建一个项目仓库。<br>其中问你要不要添加项目的忽略文件(.gitigore)还有要不要为你的项目增加一个许可证(license)。<br>上面的根据你自己的实际需要填完和选择即可，然后点击绿色的按钮就会创建一个项目仓库了。<br>然后就会跳转到你项目的一个主页。</p>
+      </p>
+    </div>
     
     
     <p class="posted-on">
@@ -319,6 +449,12 @@
       </a>
     </h1>
     
+    <div class="entry-content">
+      <p>
+        <p><a href="http://code.csdn.net/openkb/p-MaNGOS">魔兽私服开源项目</a><br><a href="https://github.com/NetEase/pomelo-unityclient">pomelo服务器框架</a></p>
+      </p>
+    </div>
+    
     
     <p class="posted-on">
     2017-04-10
@@ -341,6 +477,13 @@
         科目二新手考前必看  
       </a>
     </h1>
+    
+    <div class="entry-content">
+      <p>
+        <h2 id="本文尽量以最精炼的语言让你掌握科目二的所有项目。"><a href="#本文尽量以最精炼的语言让你掌握科目二的所有项目。" class="headerlink" title="本文尽量以最精炼的语言让你掌握科目二的所有项目。"></a>本文尽量以最精炼的语言让你掌握科目二的所有项目。</h2><p>适合刚学倒车入库，或者马上要参加科二考试的学员。<br>周五刚刚考完科二，由于练车时间短，所以险过。这里把科二的关键点以及教练平时讲到的重点记录下来，希望能帮到正在学车的学员顺利通过考试。（但对于刚学一天车，第二次上车就可以开的飞起来的大神级学员是绝对没必要往下看的，你只要考科二别超车基本就能过了。）<br>考试流程是基于27考点和悦考场来说的，每个考点可能会多少有些差异。<br>整个科二的考试是有口诀的，没错，就是有口诀。这是在我练习时间少，考场模拟的时候错误百出，不断出现各种状况的情况下，不得已找出的方法。其实就是教练经常说的几句核心：</p>
+<h2 id="口诀"><a href="#口诀" class="headerlink" title="口诀"></a>口诀</h2><p>6句话：<center><strong> 对位置，<br>踩定点。<br>打方向，<br>修方向，<br>回方向。<br>点到停车。</strong><br></center></p>
+      </p>
+    </div>
     
     
     <p class="posted-on">

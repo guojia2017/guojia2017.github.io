@@ -565,7 +565,8 @@ Content
 .home .entry-content {
   margin: 1.5em 0; }
   .home .entry-content p {
-    text-align: center; }
+    /*text-align: center;*/
+    text-align: left; }
 
 .posted-on {
   text-align: center;
