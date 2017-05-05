@@ -9,6 +9,8 @@ Unity中可以使用``Resources.FindObjectsOfTypeAll<T>();``获取。
 
 比如：获取所有UIAtlas的代码。
 
+<!--more-->
+
 ```cs
         UIAtlas[] atlasArray = Resources.FindObjectsOfTypeAll<UIAtlas>();
 

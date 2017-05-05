@@ -19,7 +19,7 @@ tags:
 4. 布雷顿森林体制
 各国政府将本币与美元挂钩制定兑换比率，这样使各国货币与黄金间接挂钩。在这种国际货币制度安排中，美元相对于其他成员国的货币处在等价于黄金的关键地位。所以，这种制度又称为以美元为中心的国际货币制度。
 
-
+<!--more-->
 
 参考：
 《[什么是本位主义](http://wenku.baidu.com/link?url=LajNRvvM4r3N8k9fhK7wfkg6KQfTx7JD3LVKOyDc1mILQBbQPJNSwNKIY9ry60lQcQCX-00tOyYAjcxAZPsC5Q6A0pIz8JdVuHjt1_6pbg4S2QzAMqC8vXT3DdBRUSc9)》：以自己的立场出发，把自己作为标准来衡量别人。

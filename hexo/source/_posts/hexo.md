@@ -38,6 +38,7 @@ $ hexo deploy
 
 More info: [Deployment](https://hexo.io/docs/deployment.html)
 
+<!--more-->
 
 #### 《使用 Unity 3D 开发游戏的架构设计难点》
 [转自](http://blog.csdn.net/onafioo/article/details/54629619)

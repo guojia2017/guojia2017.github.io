@@ -6,7 +6,9 @@ tags: [Unity,Optimization]
 
 ### 优化重点 
 1. CPU-GC Alloc
-> 关注原则：1.检测任何一次性内存分配大于2KB的选项 2.检测每帧都具有20B以上内存分配的选项. 
+> **关注原则**
+1.检测任何一次性内存分配大于2KB的选项  
+2.检测每帧都具有20B以上内存分配的选项. 
 
 2. Time ms: 
 > 记录游戏运行时每帧CPU占用（特别注意占用5ms以上的）. 
@@ -31,18 +33,16 @@ tags: [Unity,Optimization]
 优化方法：
 在代码段中插入：
 
-> 
 ```cs
 Profiler.BeginSample("GC Alloc") ;
 Profiler.EndSample() ;
 ```
 
 1. foreach 改成for
-2. obj.GetType().Name改成缓存GetTypeName() ;
+2. obj.GetType().Name改成缓存GetTypeName();
 ```cs
-优化前：9.5k
-优化后：0k
-```
+        //优化前：9.5k
+        //优化后：0k
         Performance.BeginSample("AIStateMap.GetType");
 
         //string name = behavior.GetType().Name;
@@ -66,6 +66,8 @@ Profiler.EndSample() ;
             }
             return mThisName;
         }
+```
+
 3. Update中避免创建**引用类型**的变量。是创建不是定义。如果只是定义了引用类型但是指向的是成员变量是没问题的。避免创建的意思是不要new一个对象。
 将Update中的List<int> data ;改成定义成类的成员变量：List<int> mData;
 ```cs
@@ -97,28 +99,28 @@ SplineTrailRenderer.Clear();分配了107.6 KB内存。优化后：0k
 ```cs
 //  GC-Alloc 优化 at 20170424
 #if BEFORE_GC_ALLOC
-        vertices = new Vector3[advancedParameters.baseNbQuad * NbVertexPerQuad];
-        triangles = new int[advancedParameters.baseNbQuad * NbTriIndexPerQuad];
-        uv = new Vector2[advancedParameters.baseNbQuad * NbVertexPerQuad];
-        colors = new Color[advancedParameters.baseNbQuad * NbVertexPerQuad];
-        normals = new Vector3[advancedParameters.baseNbQuad * NbVertexPerQuad];
+    vertices = new Vector3[advancedParameters.baseNbQuad * NbVertexPerQuad];
+    triangles = new int[advancedParameters.baseNbQuad * NbTriIndexPerQuad];
+    uv = new Vector2[advancedParameters.baseNbQuad * NbVertexPerQuad];
+    colors = new Color[advancedParameters.baseNbQuad * NbVertexPerQuad];
+    normals = new Vector3[advancedParameters.baseNbQuad * NbVertexPerQuad];
 #else
-        if (vertices == null)
-        {
-            vertices = new Vector3[advancedParameters.baseNbQuad * NbVertexPerQuad];
-            triangles = new int[advancedParameters.baseNbQuad * NbTriIndexPerQuad];
-            uv = new Vector2[advancedParameters.baseNbQuad * NbVertexPerQuad];
-            colors = new Color[advancedParameters.baseNbQuad * NbVertexPerQuad];
-            normals = new Vector3[advancedParameters.baseNbQuad * NbVertexPerQuad];
-        }
-        else
-        {
-            for (int i = 0; i < vertices.Length; i++) vertices[i] = Vector3.zero;
-            for (int i = 0; i < triangles.Length; i++) triangles[i] = 0;
-            for (int i = 0; i < uv.Length; i++) uv[i] = Vector2.zero;
-            for (int i = 0; i < colors.Length; i++) colors[i] = Color.clear;
-            for (int i = 0; i < normals.Length; i++) normals[i] = Vector3.zero;
-        }
+  if (vertices == null)
+  {
+    vertices = new Vector3[advancedParameters.baseNbQuad * NbVertexPerQuad];
+    triangles = new int[advancedParameters.baseNbQuad * NbTriIndexPerQuad];
+    uv = new Vector2[advancedParameters.baseNbQuad * NbVertexPerQuad];
+    colors = new Color[advancedParameters.baseNbQuad * NbVertexPerQuad];
+    normals = new Vector3[advancedParameters.baseNbQuad * NbVertexPerQuad];
+  }
+  else
+  {
+    for (int i = 0; i < vertices.Length; i++) vertices[i] = Vector3.zero;
+    for (int i = 0; i < triangles.Length; i++) triangles[i] = 0;
+    for (int i = 0; i < uv.Length; i++) uv[i] = Vector2.zero;
+    for (int i = 0; i < colors.Length; i++) colors[i] = Color.clear;
+    for (int i = 0; i < normals.Length; i++) normals[i] = Vector3.zero;
+  }
 #endif
 ```
 6. AudioSetting.Init分配了173.7 KB内存。LogStringToConsole：76.9KB。日志输出占用了76KB*2
@@ -133,37 +135,49 @@ SplineTrailRenderer.Clear();分配了107.6 KB内存。优化后：0k
 
 11. ``AttributeHelperEngine.GetParentTypeDisallowingMultipleInclusion();``分配0.9 KB，耗时0.03 ms。
 ``AttributeHelperEngine.GetRequiredComponents(); ``分配0.7 KB，耗时0.03 ms。
+```cs
+            //Test.cs
             //AddComponent<Component>() ; 造成的内存分配。
 
-            Performance.BeginSample("Add Component EmptyObject"); // 分配1.6KB内存，耗时0.53ms|
+            // 分配1.6KB内存，耗时0.53ms|
+            Performance.BeginSample("Add Component EmptyObject"); 
             EmptyObject o = gameObject.AddComponent<EmptyObject>();
             Performance.EndSample();	
 
-            Performance.BeginSample("Add Component EmptyComponent"); // 不能添加至物体，但是也会造成一定的内存分配。
+            // 不能添加至物体，但是也会造成一定的内存分配。
+            Performance.BeginSample("Add Component EmptyComponent"); 
             EmptyComponent c = gameObject.AddComponent<EmptyComponent>();
             Performance.EndSample();
 
-            Performance.BeginSample("Get Component EmptyObject"); //不会分配新的内存，但会造成一定的消耗
+            //不会分配新的内存，但会造成一定的消耗
+            Performance.BeginSample("Get Component EmptyObject"); 
             o = gameObject.GetComponent<EmptyObject>();
             Performance.EndSample();
-EmptyObject.cs
-			
-			public class EmptyObject : MonoBehaviour
-			{
-			}
-12. 递归调用。150K。TouchProcess的FitPoint. 
-这里的内存分配并不是递归FitPoint造成的，而是SplineTrailRenderer.DoLateUpdate();造成的问题。
+
+            //	EmptyObject.cs
+            public class EmptyObject : MonoBehaviour
+            {
+            }
+```
+12. 递归调用。~~*内存分配了150 KB。*~~
+初步定位：TouchProcess的FitPoint。
+结论：这里的内存分配并不是递归FitPoint造成的，而是SplineTrailRenderer.DoLateUpdate();造成的问题。
 原来代码使用的LateUpdate . 为了精确绘制拖尾，这里强制加了一个DoLateUpdate保证同一帧里多次绘制拖尾，也就导致了一帧的内存分配过大的问题。
+13. 技能释放瞬间造成了0.5MB的内存分配。
+当前的模块设计方面，技能模块触发了Buff系统：释放技能向自身附加一个Buff；Buff的作用是每隔2秒钟发射一颗子弹，Buff持续10秒。
+问题在于数据的初始化忘记，在这里重新进行了初始化EffectConfig。
+**解决方法**：数据的初始化统一放在GameInit。增加检测机制保证没有落下某些配置文件。
 
-一篇优秀的Unity性能优化文章：
+|*优秀的Unity性能优化文章*|
+|:--|
+|[深入浅出聊优化：从Draw Calls到GC ](http://www.cnblogs.com/murongxiaopifu/p/4284988.html)|
 
+<!--
 ### 优化的4个方面：
-> 
 CPU优化
 GPU优化
 内存优化
 更新，使用Unity Profiler工具检测内存
-
 前言：
 刚开始写这篇文章的时候选了一个很土的题目。。。《Unity3D优化全解析》。因为这是一篇临时起意才写的文章，而且陈述的都是既有的事实，因而给自己“文（dou）学（bi）”加工留下的余地就少了很多。但又觉得这块是不得不提的一个地方，平时见到很多人对此处也给予了忽略了事，需要时才去网上扒一些只言片语的资料。也恰逢年前，寻思着周末认真写点东西遇到节假日没准也没什么人读，所以索性就写了这篇临时的文章。题目很土，因为用了指向性很明确的“Unity3D”，让人少了遐（瞎）想的空间，同时用了“高大全”这样的构词法，也让匹夫有成为众矢之的的可能。。。所以最后还是改成了现在各位看到的题目。话不多说，下面就开始正文~正所谓“草蛇灰线,伏脉千里”。那咱们首先~~~~~~
 回到目录
@@ -178,11 +192,9 @@ batching是啥？都知道批处理是干嘛的吧？没错，将批处理之前
 - CPU方面
 - GPU方面
 - 内存方面
-所以，这篇文章也会按照CPU---->GPU---->内存的顺序进行。
-
+所以，这篇文章也会按照CPU---- >GPU---- >内存的顺序进行。
 ### CPU的方面的优化
 上文中说了，drawcall影响的是CPU的效率，而且也是最知名的一个优化点。但是除了drawcall之外，还有哪些因素也会影响到CPU的效率呢？让我们一一列出暂时能想得到的：
-
 DrawCalls
 物理组件（Physics）
 GC（什么？GC不是处理内存问题的嘛？匹夫你不要骗我啊！不过，匹夫也要提醒一句，GC是用来处理内存的，但是是谁使用GC去处理内存的呢？）
@@ -202,13 +214,10 @@ Static Batching 静态批处理
 静态？那就是不动的咯。还有呢？额，听上去状态也不会改变，没有“生命”，比如山山石石，楼房校舍啥的。那和什么比较类似呢？嗯，聪明的各位一定觉得和场景的属性很像吧！所以我们的场景似乎就可以采用这种方式来减少draw call了。
 那么写个定义：只要这些物体不移动，并且拥有相同的材质，静态批处理就允许引擎对任意大小的几何物体进行批处理操作来降低描绘调用。
 那要如何使用静态批来减少Draw Call呢？你只需要明确指出哪些物体是静止的，并且在游戏中永远不会移动、旋转和缩放。想完成这一步，你只需要在检测器（Inspector）中将Static复选框打勾即可，如下图所示：
-
 至于效果如何呢？
 举个例子：新建4个物体，分别是Cube，Sphere, Capsule, Cylinder,它们有不同的网格模型，但是也有相同的材质（Default-Diffuse）。
 首先，我们不指定它们是static的。Draw Call的次数是4次，如图：
-
 我们现在将它们4个物体都设为static，在来运行一下：
-
 如图，Draw Call的次数变成了1，而Saved by batching的次数变成了3。
 静态批处理的好处很多，其中之一就是与下面要说的动态批处理相比，约束要少很多。所以一般推荐的是draw call的静态批处理来减少draw call的次数。那么接下来，我们就继续聊聊draw call的动态批处理。
 Dynamic Batching 动态批处理
@@ -221,7 +230,6 @@ for(int i = 0; i < 500; i++)
 }
 ```
 draw call的数量：
-
 可以看到draw call的数量为1，而 saved by batching的数量是499。而这个过程中，我们除了实例化创建物体之外什么都没做。不错，unity3d引擎为我们自动处理了这种情况。
 但是有很多童靴也遇到这种情况，就是我也是从prefab实例化创建的物体，为何我的draw call依然很高呢？这就是匹夫上文说的，draw call的动态批处理存在着很多约束。下面匹夫就演示一下，针对cube这样一个简单的物体的创建，如果稍有不慎就会造成draw call飞涨的情况吧。
 我们同样是创建500个物体，不同的是其中的100个物体，每个物体的大小都不同，也就是Scale不同。
@@ -237,7 +245,6 @@ for(int i = 0; i < 500; i++)
 }
 ```
 draw call的数量：
-
 我们看到draw call的数量上升到了101次，而saved by batching的数量也下降到了399。各位看官可以看到，仅仅是一个简单的cube的创建，如果scale不同，竟然也不会去做批处理优化。这仅仅是动态批处理机制的一种约束，那我们总结一下动态批处理的约束，各位也许也能从中找到为何动态批处理在自己的项目中不起作用的原因：
 批处理动态物体需要在每个顶点上进行一定的开销，所以动态批处理仅支持小于900顶点的网格物体。
 如果你的着色器使用顶点位置，法线和UV值三种属性，那么你只能批处理300顶点以下的物体；如果你的着色器需要使用顶点位置，法线，UV0，UV1和切向量，那你只能批处理180顶点以下的物体。 
@@ -252,9 +259,7 @@ draw call的数量：
 物理组件
 曾几何时，匹夫在做一个策略类游戏的时候需要在单元格上排兵布阵，而要侦测到哪个兵站在哪个格子匹夫选择使用了射线，由于士兵单位很多，而且为了精确每一帧都会执行检测，那时候CPU的负担叫一个惨不忍睹。后来匹夫果断放弃了这种做法，并且对物理组件产生了心理的阴影。
 这里匹夫只提2点匹夫感觉比较重要的优化措施：
-1.设置一个合适的Fixed Timestep。设置的位置如图：
-
- 
+1.设置一个合适的Fixed Timestep。设置的位置如图： 
 那何谓“合适”呢？首先我们要搞明白Fixed Timestep和物理组件的关系。物理组件，或者说游戏中模拟各种物理效果的组件，最重要的是什么呢？计算啊。对，需要通过计算才能将真实的物理效果展现在虚拟的游戏中。那么Fixed Timestep这货就是和物理计算有关的啦。所以，若计算的频率太高，自然会影响到CPU的开销。同时，若计算频率达不到游戏设计时的要求，有会影响到功能的实现，所以如何抉择需要各位具体分析，选择一个合适的值。
 2.就是不要使用网格碰撞器（mesh collider）：为啥？因为实在是太复杂了。网格碰撞器利用一个网格资源并在其上构建碰撞器。对于复杂网状模型上的碰撞检测，它要比应用原型碰撞器精确的多。标记为凸起的（Convex ）的网格碰撞器才能够和其他网格碰撞器发生碰撞。各位上网搜一下mesh collider的图片，自然就会明白了。我们的手机游戏自然无需这种性价比不高的东西。
 当然，从性能优化的角度考虑，物理组件能少用还是少用为好。
@@ -308,7 +313,6 @@ OpenGL ES 2.0使用ETC1格式压缩等等，在打包设置那里都有。
 使用mipmap。
 MipMap
 这里匹夫要着重介绍一下MipMap到底是啥。因为有人说过MipMap会占用内存呀，但为何又会优化显存带宽呢？那就不得不从MipMap是什么开始聊起。一张图其实就能解决这个疑问。
-
 上面是一个mipmap 如何储存的例子，左边的主图伴有一系列逐层缩小的备份小图
 是不是很一目了然呢？Mipmap中每一个层级的小图都是主图的一个特定比例的缩小细节的复制品。因为存了主图和它的那些缩小的复制品，所以内存占用会比之前大。但是为何又优化了显存带宽呢？因为可以根据实际情况，选择适合的小图来渲染。所以，虽然会消耗一些内存，但是为了图片渲染的质量（比压缩要好），这种方式也是推荐的。
 回到目录
@@ -335,11 +339,9 @@ Mono托管内存
 解压缩所需的缓存
 解压缩之后的文件
 如图：
-
 那么下面就举一个AssetBundle的例子：
 Assetbundle的内存处理
 以下载Assetbundle为例子，聊一下内存的分配。匹夫从官网的手册上找到了一个使用Assetbundle的情景如下：
-
 ```cs
     IEnumerator DownloadAndCache()
     {
@@ -364,7 +366,6 @@ Assetbundle的内存处理
         } // memory is freed from the web stream (www.Dispose() gets called implicitly)
     }
 ```
-
 内存分配的三个部分匹夫已经在代码中标识了出来：
 Web Stream：包括了压缩的文件，解压所需的缓存，以及解压后的文件。
 AssetBundle：Web Stream中的文件的映射，或者说引用。
@@ -395,7 +396,6 @@ ok，写到这里就先打住啦。写的有点超了。有点赶也有点临时
 回到目录
 更新，使用Unity Profiler工具检测内存
 这篇文章当时写的时候略显仓促，因此并没有特别介绍Unity Profiler工具，也更谈不上用Unity Profiler工具来监测内存的使用状态了。但是使用Unity Profiler工具来监测还是十分必要的，下面就简单补充一下这方面的知识。
-
 在Profiler工具中提供了两种模式供我们监测内存的使用情况，即简易模式和详细模式。在简易模式中，我们可以看到总的内存（total）列出了两列，即Used Total（使用总内存）和Reserved Total（预定总内存）。Used Total和Reserved 均是物理内存，其中Reserved是unity向系统申请的总内存，Unity底层为了不经常向系统申请开辟内存，开启了较大一块内存作为缓存，即所谓的Reserved内存，而运行时，unity所使用的内存首先是向Reserved中来申请内存，当不使用时也是先向Reserved中释放内存，从而来保证游戏运行的流畅性。一般来说，Used Total越大，则Reserved Total越大，而当Used Total降下去后，Reserved Total也是会随之下降的（但并不一定与Used Total同步）。
 Unity3D的内存从大体上可以分为以下几个部分：
 Unity：位Unity3D的底层代码所分配的内存。
@@ -412,5 +412,136 @@ Profiler
 游戏对象的数量
 而详细模式则需要点击“Take Sample”按钮来捕获详细的内存使用情况。需要注意的是，由于获得数据需要花费一定的时间，因此我们无法获得实时的详细内存的使用情况。在详细模式中，我们可以观察每个具体资源和游戏对象的内存使用情况。
 
-转载: http://www.cnblogs.com/murongxiaopifu/p/4284988.html
+-->
 
+优秀的Unity性能优化文章二：http://www.ceeger.com/forum/read.php?tid=20585
+
+A. WaitForTargetFPS: 
+      Vsync(垂直同步)功能所，即显示当前帧的CPU等待时间 
+   B. Overhead： 
+      Profiler总体时间-所有单项的记录时间总和。用于记录尚不明确的时间消耗，以帮助进一步完善Profiler的统计。 
+        C. Physics.Simulate： 
+      当前帧物理模拟的CPU占用时间。 
+   D. Camera.Render： 
+      相机渲染准备工作的CPU占用量 
+   E. RenderTexture.SetActive： 
+      设置RenderTexture操作. 
+      底层实现：1.比对当前帧与前一帧的ColorSurface和DepthSurface. 
+               2.如果这两个Buffer一致则不生成新的RT，否则则生成新的RT，并设置与之相对应的Viewport和空间转换矩阵. 
+   F. Monobehaviour.OnMouse_ ： 
+      用于检测鼠标的输入消息接收和反馈，主要包括：SendMouseEvents和DoSendMouseEvents。（只要Edtor开起来，这个就会存在） 
+   G. HandleUtility.SetViewInfo： 
+      仅用于Editor中，作用是将GUI和Editor中的显示看起来与发布版本的显示一致。 
+H. GUI.Repaint： 
+      GUI的重绘(说明在有使用原生的OnGUI) 
+   I. Event.Internal_MakeMasterEventCurrent： 
+      负责GUI的消息传送 
+   J. Cleanup Unused Cached Data： 
+      清空无用的缓存数据，主要包括RenderBuffer的垃圾回收和TextRendering的垃圾回收。 
+         1.RenderTexture.GarbageCollectTemporary:存在于RenderBuffer的垃圾回收中，清除临时的FreeTexture. 
+         2.TextRendering.Cleanup:TextMesh的垃圾回收操作 
+   K. Application.Integrate Assets in Background： 
+      遍历预加载的线程队列并完成加载，同时，完成纹理的加载、Substance的Update等. 
+   L. Application.LoadLevelAsync Integrate： 
+      加载场景的CPU占用，通常如果此项时间长的话70%的可能是Texture过长导致. 
+   M. UnloadScene： 
+      卸载场景中的GameObjects、Component和GameManager，一般用在切换场景时. 
+   N. CollectGameObjectObjects： 
+      执行上面M项的同时，会将场景中的GameObject和Component聚集到一个Array中.然后执行下面的Destroy. 
+   O. Destroy： 
+      删除GameObject和Component的CPU占用. 
+   P. AssetBundle.LoadAsync Integrate： 
+      多线程加载AwakeQueue中的内容，即多线程执行资源的AwakeFromLoad函数. 
+   Q. Loading.AwakeFromLoad： 
+      在资源被加载后调用，对每种资源进行与其对应用处理. 
+
+
+
+
+2. CPU Usage 
+   A. Device.Present: 
+      device.PresentFrame的耗时显示，该选项出现在发布版本中. 
+   B. Graphics.PresentAndSync： 
+      GPU上的显示和垂直同步耗时.该选项出现在发布版本中. 
+   C. Mesh.DrawVBO： 
+      GPU中关于Mesh的Vertex Buffer Object的渲染耗时. 
+   D. Shader.Parse： 
+      资源加入后引擎对Shader的解析过程. 
+   E. Shader.CreateGPUProgram： 
+      根据当前设备支持的图形库来建立GPU工程. 
+3. Memory Profiler 
+
+   A. Used Total: 
+      当前帧的Unity内存、Mono内存、GfxDriver内存、Profiler内存的总和. 
+   B. Reserved Total: 
+      系统在当前帧的申请内存. 
+   C. Total System Memory Usage: 
+      当前帧的虚拟内存使用量.（通常是我们当前使用内存的1.5~3倍) 
+   D. GameObjects in Scene: 
+      当前帧场景中的GameObject数量. 
+   E. Total Objects in Scene: 
+      当前帧场景中的Object数量(除GameObject外，还有Component等). 
+   F. Total Object Count: 
+      Object数据 + Asset数量. 
+
+4. Detail Memory Profiler 
+   A. Assets: 
+      Texture2d:记录当前帧内存中所使用的纹理资源情况，包括各种GameObject的纹理、天空盒纹理以及场景中所用的Lightmap资源. 
+   B. Scene Memory: 
+      记录当前场景中各个方面的内存占用情况，包括GameObject、所用资源、各种组件以及GameManager等（天般情况通过AssetBundle加载的不会显示在这里). 
+   A. Other: 
+      ManagedHeap.UseSize:代码在运行时造成的堆内存分配，表示上次GC到目前为止所分配的堆内存量. 
+      SerializedFile(3): 
+      WebStream:这个是由WWW来进行加载的内存占用. 
+      System.ExecutableAndDlls:不同平台和不同硬件得到的值会不一样。 
+  
+
+5. 优化重点 
+   A. CPU-GC Allow: 
+      关注原则：1.检测任何一次性内存分配大于2KB的选项 2.检测每帧都具有20B以上内存分配的选项. 
+   B. Time ms: 
+      记录游戏运行时每帧CPU占用（特别注意占用5ms以上的）. 
+   C. Memory Profiler-Other: 
+      1.ManagedHeap.UsedSize: 移动游戏建议不要超过20MB. 
+      2.SerializedFile: 通过异步加载(LoadFromCache、WWW等)的时候留下的序列化文件,可监视是否被卸载. 
+      3.WebStream: 通过异步WWW下载的资源文件在内存中的解压版本,比SerializedFile大几倍或几十倍,重点监视.**** 
+   D. Memory Profiler-Assets: 
+      1.Texture2D: 重点检查是否有重复资源和超大Memory是否需要压缩等. 
+      2.AnimationClip: 重点检查是否有重复资源. 
+      3.Mesh： 重点检查是否有重复资源. 
+
+
+6. 项目中可能遇到的问题 
+
+   A. Device.Present: 
+      1.GPU的presentdevice确实非常耗时，一般出现在使用了非常复杂的shader. 
+      2.GPU运行的非常快，而由于Vsync的原因，使得它需要等待较长的时间. 
+      3.同样是Vsync的原因，但其他线程非常耗时，所以导致该等待时间很长，比如：过量AssetBundle加载时容易出现该问题. 
+      4.Shader.CreateGPUProgram:Shader在runtime阶段（非预加载）会出现卡顿(华为K3V2芯片). 
+   B. StackTraceUtility.PostprocessStacktrace()和StackTraceUtility.ExtractStackTrace(): 
+      1.一般是由Debug.Log或类似API造成. 
+      2.游戏发布后需将Debug API进行屏蔽. 
+
+   C. Overhead: 
+      1.一般情况为Vsync所致. 
+      2.通常出现在Android设备上. 
+   D. GC.Collect: 
+      原因: 1.代码分配内存过量(恶性的) 2.一定时间间隔由系统调用(良性的). 
+      占用时间：1.与现有Garbage size相关 2.与剩余内存使用颗粒相关（比如场景物件过多，利用率低的情况下，GC释放后需要做内存重排) 
+   E. GarbageCollectAssetsProfile: 
+      1.引擎在执行UnloadUnusedAssets操作(该操作是比较耗时的,建议在切场景的时候进行). 
+      2.尽可能地避免使用Unity内建GUI，避免GUI.Repaint过渡GC Allow. 
+      3.if(other.tag == GearParent.MogoPlayerTag)改为other.CompareTag(GearParent.MogoPlayerTag).因为other.tag为产生180B的GC Allow. 
+   F. 少用foreach，因为每次foreach为产生一个enumerator(约16B的内存分配)，尽量改为for. 
+   G. Lambda表达式，使用不当会产生内存泄漏. 
+   H. 尽量少用LINQ： 
+      1.部分功能无法在某些平台使用. 
+      2.会分配大量GC Allow. 
+   I. 控制StartCoroutine的次数： 
+      1.开启一个Coroutine(协程)，至少分配37B的内存. 
+      2.Coroutine类的实例 -- 21B. 
+      3.Enumerator -- 16B. 
+   J. 使用StringBuilder替代字符串直接连接. 
+   K. 缓存组件: 
+      1.每次GetComponent均会分配一定的GC Allow. 
+      2.每次Object.name都会分配39B的堆内存.

@@ -31,6 +31,8 @@ re：规定当前文档与被连接文档的关系。
 
 #}
 
+<!--more-->
+
 |参考|
 |:--:|
 |《[模板设计者](http://docs.jinkan.org/docs/jinja2/templates.html)》|

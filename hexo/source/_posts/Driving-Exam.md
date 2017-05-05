@@ -8,9 +8,10 @@ tags:
 
 ![logo](Driving-Exam/yilong.jpg)
 
-http://wenku.baidu.com/link?url=vzZx3NmlsbKHb9NdilH3_v51de_3_HUASRAqm6DVpFS4lOaRoqklSCU2lP1jR-GiRKXCPr357YgS-eH9l3RZVvhUEkTf4TEaxr_QxoslS8a
+[科目一交规考试口诀](http://wenku.baidu.com/link?url=vzZx3NmlsbKHb9NdilH3_v51de_3_HUASRAqm6DVpFS4lOaRoqklSCU2lP1jR-GiRKXCPr357YgS-eH9l3RZVvhUEkTf4TEaxr_QxoslS8a)
+[科目一考试速记口诀](http://jingyan.baidu.com/article/84b4f565cc5aff60f6da32f4.html)
 
-http://jingyan.baidu.com/article/84b4f565cc5aff60f6da32f4.html
+<!--more-->
 
 1 错车道和紧急停车带的区别
 	![错车道](Driving-Exam/错车道.jpg "错车道")

@@ -1,22 +1,22 @@
 ﻿---
-title: git branch
+title: Git Branch
 date: 2017-04-11 16:23:02
 tags:
 ---
 
 一、启动git bash
 1. 可以从安装程序直接点击git bash启动
-2. 在要操作的问价夹下右键单价，选择git bash菜单启动。
+2. 在要操作的文件夹下右键单击，选择git bash菜单启动。
 
 远程操作的第一步，通常是从远程主机克隆一个版本库，这时就要用到``git clone``命令。
-``` bash
+```
 $ git clone <远程版本库的网址> <本地目录>
 ```
 本地目录可以省略，省略时默认克隆到当前文件夹下。
 
 二、 知己知彼，百战不殆
 
-``` bash
+```
 $ git remote
 $ git remote -v
 $ git remote show <主机名>
@@ -26,19 +26,19 @@ $ git remote rm <主机名>
 
 1. 为了便于管理，Git要求每个远程主机都必须指定一个主机名。git remote命令就用于管理主机名。
 不带选项的时候，git remote命令列出所有远程主机。
-```bash
+```
 $ git remote
 origin
 ```
 2. 使用-v选项，可以参看远程主机的网址。
-```bash
+```
 $ git remote -v
 origin  git@github.com:jquery/jquery.git (fetch)
 origin  git@github.com:jquery/jquery.git (push)
 上面命令表示，当前只有一台远程主机，叫做origin，以及它的网址。
 ```
 3. git remote show命令加上主机名，可以查看该主机的详细信息。
-```bash
+```
 $ git remote show <主机名>
 //比如: $ git remote show origin
 ```
@@ -47,15 +47,15 @@ $ git remote show <主机名>
 $ git remote add <主机名> <网址>
 ```
 5. git remote rm命令用于删除远程主机。
-```bash
+```
 $ git remote rm <主机名>
 ```
 6. git remote rename命令用于远程主机的改名。
-```bash
+```
 $ git remote rename <原主机名> <新主机名>
 ```
 三、分支
-``` bash
+```
 $ git branch
 $ git branch -r
 $ git branch -a
@@ -63,33 +63,36 @@ $ git branch b1 // 创建branch分支
 $ git checkout b1 //切换到分支branch001
 ```
 四、删除操作
-``` bash
+```
 $ git rm <文件名>
 $ git rm -r <文件夹名>
 //-r 表示递归删除子文件
 ```
 五、添加操作
-``` bash
+```
 $ git add <文件名>
 $ git add .
 ```
 六、提交
-``` bash
+```
 $ git commit -m "提交说明信息"
 ```
 七、推送
-``` bash
+```
 $ git push <主机名> <分支>
 ```
+
+<!--more-->
 
 分支操作：
 
 首先, clone 一个远端仓库，到当前目录下
-```cs
-$ Git clone git://example.com/myproject $ cd myproject
+```
+$ Git clone git://example.com/myproject 
+$ cd myproject
 ```
 克隆分支
-```bash
+```
 Git clone -b maven https://github.com/Oracle-ao/ao-shop.git
 ```
 然后，看看你本地有什么分支：
@@ -117,7 +120,7 @@ $ git branch BlogSource
  git push origin Branch1
  ```
 
- #### 实战
+ ### 实战
  将hexo的源文件一起上传至Github上。
  假设本地父目录是：github.io
  子目录是：hexo
@@ -126,10 +129,10 @@ $ git branch BlogSource
 
 在``hexo``父目录下，右键选择``git bash here``.
 1. 查看远程服务器地址和本地仓库。
-```cs
+```
 git remote -v
 // 如果提示信息为：
-// ``fatal: Not a git repository (or any of the parent directories): .git``
+// fatal: Not a git repository (or any of the parent directories): .git
 // 证明当前目录没有建立仓库。
 ```
 2. 初始化本地仓库。
@@ -169,11 +172,11 @@ git push origin hexo
 
 或者方法二：
 1. 将hexo分支上的文件克隆至本地。
+```
 ``克隆前和克隆后都可以先查看当前目录下的信息：``
-``git status``
-``git remote -v``
-``git branch -v``
-```cs
+git status
+git remote -v
+git branch -v
 git clone -b hexo git@github.com:guojia/guojia.github.io
 ```
 2. 添加远程主机
@@ -195,10 +198,10 @@ git push origin hexo
 
 
 参考：
-http://ruanyifeng.com/blog/2014/06/git_remote.html
-https://www.zhihu.com/question/21193762/answer/138139539
-http://blog.csdn.net/binyao02123202/article/details/20130891
-http://blog.csdn.net/win_lin/article/details/17037731
-《git常用命令整理》(http://justcoding.iteye.com/blog/1830388)
-《Github的分支创建与合并》http://www.cnblogs.com/horanly/p/6265182.html
-《gitHub如何切换到非master分支的其他分支 》http://blog.csdn.net/hsany330/article/details/51820860
+《[Git远程操作详解](http://ruanyifeng.com/blog/2014/06/git_remote.html)》
+《[使用hexo，如果换了电脑怎么更新博客？](https://www.zhihu.com/question/21193762/answer/138139539)》
+《[github设置添加SSH ](http://blog.csdn.net/binyao02123202/article/details/20130891)》
+《[github多人协作 ](http://blog.csdn.net/win_lin/article/details/17037731)》
+《[git常用命令整理](http://justcoding.iteye.com/blog/1830388)》
+《[Github的分支创建与合并](http://www.cnblogs.com/horanly/p/6265182.html)》
+《[gitHub如何切换到非master分支的其他分支 ](http://blog.csdn.net/hsany330/article/details/51820860)》

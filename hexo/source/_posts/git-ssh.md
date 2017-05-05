@@ -16,6 +16,8 @@ $ git config --global user.email "name@mail.com"
 $git config --lis
 ```
 
+<!--more-->
+
 三、生成SSH密钥
 1.查看是否已经有了ssh密钥
 ```cs

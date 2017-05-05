@@ -4,8 +4,11 @@ date: 2017-02-15 17:52:07
 tags: [Unity]
 ---
 
+Unity目前的版本只支持iOS状态栏的控制，如何在Unity中设置Andorid手机的状态栏？
 转载：
-http://zehfernando.com/2015/unity-tidbits-changing-the-visibility-of-androids-navigation-and-status-bars-and-implementing-immersive-mode/
+[Unity tidbits: changing the visibility of Android’s navigation and status bars, and implementing immersive mode](http://zehfernando.com/2015/unity-tidbits-changing-the-visibility-of-androids-navigation-and-status-bars-and-implementing-immersive-mode/)
+
+<!--more-->
 
 ```cs
 

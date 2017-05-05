@@ -11,6 +11,8 @@ tags:
 2. 当Scrollview滑动结束时快要停止时，获取最近的一个中心点。
 3. 将Container移动至该中心点位置。
 
+<!--more-->
+
 # 二、代码
 
 ```cpp
@@ -205,4 +207,5 @@ public class CenterOnChild : MonoBehaviour, IEndDragHandler, IDragHandler
 
 |参考|说明|
 |:--|:--:|
-|《[UGUI ScrollRect滑动居中CenterOnChild实现 ](http://www.cnblogs.com/suoluo/p/5535420.html)》|参考的这篇文章，算法思路简单有效，在其基础上进扩展很方便。我这里做了一些调整，就是当滑动快要停止的时候，才寻找最近的一个中心位置，而原文是在手指滑动结束后寻找中心位置。|
+|《[UGUI ScrollRect滑动居中CenterOnChild实现 ](http://www.cnblogs.com/suoluo/p/5535420.html)》||
+参考的这篇文章，算法思路简单有效，在其基础上进扩展很方便。我这里做了一些调整，就是当滑动快要停止的时候，才寻找最近的一个中心位置，而原文是在手指滑动结束后寻找中心位置。
