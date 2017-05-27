@@ -170,7 +170,13 @@ SplineTrailRenderer.Clear();分配了107.6 KB内存。优化后：0k
 
 |*优秀的Unity性能优化文章*|
 |:--|
+|[简书：Unity Mono的foreach造成GC Alloc的BUG与实测](http://www.jianshu.com/p/cacea8e30142)|
 |[深入浅出聊优化：从Draw Calls到GC ](http://www.cnblogs.com/murongxiaopifu/p/4284988.html)|
+|[性能优化，进无止境-内存篇（上）](https://blog.uwa4d.com/archives/optimzation_memory_1.html)|
+|[记一次基于Unity的Profiler性能分析 ](http://www.ceeger.com/forum/read.php?tid=20585)|
+|[性能优化，永无止境---CPU篇](https://blog.uwa4d.com/archives/optimzation_cpu.html)|
+|[关于Unity内存优化，你可能遇到这些问题 ](http://blog.csdn.net/gtofei013/article/details/60580857)|
+|[性能优化，进无止境---内存篇（下） ](http://blog.csdn.net/gtofei013/article/details/60580243)|
 
 <!--
 ### 优化的4个方面：
@@ -195,7 +201,7 @@ batching是啥？都知道批处理是干嘛的吧？没错，将批处理之前
 所以，这篇文章也会按照CPU---- >GPU---- >内存的顺序进行。
 ### CPU的方面的优化
 上文中说了，drawcall影响的是CPU的效率，而且也是最知名的一个优化点。但是除了drawcall之外，还有哪些因素也会影响到CPU的效率呢？让我们一一列出暂时能想得到的：
-DrawCalls
+DrawCalls;
 物理组件（Physics）
 GC（什么？GC不是处理内存问题的嘛？匹夫你不要骗我啊！不过，匹夫也要提醒一句，GC是用来处理内存的，但是是谁使用GC去处理内存的呢？）
 当然，还有代码质量

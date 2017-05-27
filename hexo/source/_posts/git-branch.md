@@ -4,17 +4,44 @@ date: 2017-04-11 16:23:02
 tags:
 ---
 
+常用指令：
+```cs
+$ git init
+$ git add .
+$ git commit -m "commit information example"
+$ git remote add <主机名> <远程主机地址>
+$ git push <远程主机> <分支名>
+```
+- 初始化本地仓库git init
+- 添加所有文件git add .
+- 提交说明信息git commit -m "说明信息"
+- 将修改推送到远程主机的相应分支
+
+```cs
+$ git clone <远程版本库的网址> <本地目录>
+```
+- 远程操作的第一步，通常是从远程主机克隆一个版本库，这时就要用到``git clone``命令。本地目录可以省略，省略时默认克隆到当前文件夹下
+
+```cs
+git branch b1
+git checkout b1
+git push origin b1
+git branch -d b1
+git push origin :b1   (分支名前的冒号代表删除)
+```
+- 在本地新建一个分支
+- 切换到你的新分支
+- 将新分支发布在github上
+- 在本地删除一个分支
+- 在github远程端删除一个分支
+
+<!--more-->
+
 一、启动git bash
 1. 可以从安装程序直接点击git bash启动
 2. 在要操作的文件夹下右键单击，选择git bash菜单启动。
 
-远程操作的第一步，通常是从远程主机克隆一个版本库，这时就要用到``git clone``命令。
-```
-$ git clone <远程版本库的网址> <本地目录>
-```
-本地目录可以省略，省略时默认克隆到当前文件夹下。
-
-二、 知己知彼，百战不殆
+二、 远程主机操作
 
 ```
 $ git remote
